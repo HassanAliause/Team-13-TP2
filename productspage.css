@@ -91,7 +91,7 @@ li:hover{
     padding: 40px;
     text-align: center;
     font-size: 30px;
-    border-bottom: 3px solid rgb(71, 71, 71);
+    border-bottom: 10px solid rgb(71, 71, 71);
     width: 50%;
     margin-left: auto;
     margin-right: auto;
@@ -133,7 +133,7 @@ img:hover{
     padding: 40px;
     text-align: center;
     font-size: 30px;
-    border-bottom: 3px solid rgb(71, 71, 71);
+    border-bottom: 10px solid rgb(71, 71, 71);
     width: 50%;
     margin-left: auto;
     margin-right: auto;
