@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+       
+        <!-- will make the webpage mobile friendly -->
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+       
+        <!-- title of page -->
+        <title>Administrator Page</title>
+
+        <!-- icon for the tab bar -->
+        <link rel="icon" type="image/x-icon" href="">
+        
+        <!-- link to icons -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+        
+        <!-- link to fonts -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+        <!-- link to css file -->
+        <link rel="stylesheet" href="css/admin.css">
+    </head>
+
+    <body>
+        <div class="grid-container">
+            <!-- header -->
+            <header class="header">
+                <div class="menu-icon" onclick="openSidebar()">
+                    <!-- allows user to open/close sidebar using onclick if device is too small -->
+                    <span class="material-symbols-outlined">
+                        menu
+                    </span>
+                </div>
+                
+                <div class="header-left">
+                        <span class="material-symbols-outlined">
+                            search
+                        </span>
+                </div>
+                
+                <div class="header-right">
+                    <span class="material-symbols-outlined">
+                        notifications
+                    </span>
+                    <span class="material-symbols-outlined">
+                        mail    
+                    </span>
+                    <span class="material-symbols-outlined">
+                        account_circle  
+                    </span>
+                </div>
+            </header>
+            <!-- sidebar -->
+            <aside id="sidebar">
+                <div class="sidebar-title">
+                    <div class="sidebar-brand">
+                        <span class="material-symbols-outlined">
+                            shopping_cart
+                        </span>
+                        Store
+                    </div>
+                    <span class="material-symbols-outlined" onclick="closeSidebar()">
+                        close
+                    </span>
+                </div>
+
+                <ul class="sidebar-list">
+                    <li class=""sidebar-list-item>
+                        <span class="material-symbols-outlined">
+                            dashboard
+                        </span>
+                        Dashboard
+                    </li>
+                    <li class=""sidebar-list-item>
+                        <span class="material-symbols-outlined">
+                            inventory
+                        </span>
+                        Products
+                    </li>
+                    <li class=""sidebar-list-item>
+                        <span class="material-symbols-outlined">
+                            category
+                        </span>
+                        Categories
+                    </li>
+                    <li class=""sidebar-list-item>
+                        <span class="material-symbols-outlined">
+                            groups
+                        </span>
+                        Customers
+                    </li>
+                </ul>
+
+            </aside>
+
+            <!-- main -->
+            <main class="main-container">
+
+            </main>
+        </div>
+
+        <!-- link to java script file -->
+        <!-- place at the bottom to allow html to load first-->
+        <script src="js/admin.js"></script>
+    </body>
+</html>

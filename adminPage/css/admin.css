@@ -1,0 +1,123 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    
+
+    /* Orange */
+    --colourPrimary: #c85e01;
+
+    /* Grey  */
+    --colourSecondary: #3a3a3a;
+
+    /* Dark Grey */
+    --colourSecondaryDark:#23242a;
+
+    background-color: var(--colourSecondaryDark);
+
+}
+
+.material-symbols-outlined{
+    vertical-align: middle;
+    font-size: 35px;
+    line-height: 1px;
+
+}
+
+
+.grid-container {
+    display: grid;
+    /* first colum will be 260px the rest will be equally spread out */
+    grid-template-columns: 260px 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 3fr;
+    grid-template-areas: 
+        "sidebar header header header"
+        "sidebar main main main";
+    height: 100vh;
+
+}
+
+
+/* header */
+.header {
+    grid-area: header;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px 0 30px;
+    box-shadow: 0 6px 7px -3px rgba(0, 0, 0, 0.35);
+    
+
+}
+
+
+.menu-icon{
+    display: none;
+}
+
+/* sidebar */
+#sidebar {
+    grid-area: sidebar;
+    height: 100%;
+    background-color: var(--colourSecondary);
+    overflow-y: auto;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+
+}
+
+
+.sidebar-title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 30px 30px 30px;
+    margin-bottom: 30px;
+
+}
+
+.sidebar-title > span {
+    display: none;
+
+}
+
+.sidebar-list {
+    padding: 0;
+    margin-top: 15px;
+    list-style-type: none;
+}
+
+.sidebar-title-item{
+    padding: 20px 20px 20px 20px;
+    font-size: 18px;
+}
+
+.sidebar-title-item:hover {
+    background-color: var(--colourPrimary);
+    cursor: pointer;
+    
+}
+
+.sidebar-responsive {
+    display: inline;
+    position: absolute;
+    z-index: 12 !important;
+    
+}
+
+.sidebar-brand{
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* main */
+.main-container {
+    grid-area: main;
+
+    overflow-y: auto;
+    padding: 20px 20px;
+    color: rgba(255, 255, 255, 0.95);
+}
