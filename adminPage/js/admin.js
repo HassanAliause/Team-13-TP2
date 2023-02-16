@@ -6,21 +6,6 @@ window.addEventListener("scroll", () =>{
   }
   })
 
-function openSidebar() {
-    if(!sidebarOpen) {
-        sidebar.classList.add("sidebar-responsive");
-        sidebarOpen = true;
-    }
-}
-
-function closeSidebar() {
-    if(sidebarOpen) {
-        sidebar.classList.remove("sidebar-responsive")
-        sidebarOpen = false;
-    }
-}
-
-
 
 // Charts //
 // Bar Chart //
@@ -90,7 +75,7 @@ var barChartOptions = {
       theme: "dark",
     },
     xaxis: {
-      categories: ["PCs", "Phones", "Monitors", "Headphones", "Webcams"],
+      categories: ["Apple Magic", "Steelseries", "Razer", "Logitech", "Alienware"],
       title: {
         style: {
           color: "#FFFFFF",
@@ -136,4 +121,3 @@ var barChartOptions = {
   var barChart = new ApexCharts(document.querySelector("#bar-chart"), barChartOptions);
   barChart.render();
   
-
