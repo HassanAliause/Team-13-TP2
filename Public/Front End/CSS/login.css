@@ -7,6 +7,7 @@
  box-sizing: border-box;
  font-family: 'Poppins', sans-serif;
 }
+/* Center the form on the page */
 body{
     display: flex;
     justify-content: center;
@@ -14,6 +15,7 @@ body{
     min-height: 100vh;
     background: #23242a;
 }
+/* Style the form box */
 .formBox{
     padding: 40px;
     border: 8px solid #23242a;
@@ -24,6 +26,7 @@ body{
     inset 5px 5px 15px rgba(0, 0, 0, 0.35);
      
 }
+/* Style the form container */
 
 .formBox .form{
     display: flex;
@@ -33,18 +36,20 @@ body{
     gap:25px;
 }
 
-
+/* Style the form title */
 .formBox .form h2{
     color: #fff;
     font-weight: 500;
     letter-spacing: 0.1em;
 
 }
+/* Style the input container */
 .formBox .form .Inp{
     position: relative;
     width: 300px;
 
 }
+/* Style the form input */
 .formBox .form .Inp input{
     padding: 12px 10px 12px 48px;
     border: none;
@@ -61,6 +66,7 @@ body{
     outline: none;
 
 }
+/* Style the input label */
 .formBox .form .Inp span{
     position: absolute;
     left: 0;
@@ -72,6 +78,7 @@ body{
     letter-spacing: 0.05em;
     color: rgba(255, 255, 255, 0.5);
 }
+/* Style the input label when valid or focused */
 .formBox .form .Inp input:valid ~span,
 .formBox.form .Inp input:focus ~span
 {
@@ -85,6 +92,7 @@ body{
     letter-spacing: 0.1em;
     
 }
+/* Style the input when valid or focused */
 .formBox .form .Inp input:valid ,
 .formBox .form .Inp input:focus 
 {
