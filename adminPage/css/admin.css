@@ -214,3 +214,137 @@ body {
   'GRAD' 0,
   'opsz' 48
 }
+
+
+/* tables */
+
+.main-tables {
+    display: grid;
+    gap: 25px;
+    margin: 20px 0;
+
+}
+
+/* customers */
+
+.customers{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.customer-table{
+    background-color: var(--colourPrimary);
+    margin-bottom: 20px;
+    padding: 25px;
+    box-sizing: border-box;
+    -webkit-column-break-inside: avoid;
+    border-radius: 5px;
+    box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+
+}
+
+/* admins */ 
+
+.admin{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.admin-table{
+    background-color: var(--colourPrimary);
+    margin-bottom: 20px;
+    padding: 25px;
+    box-sizing: border-box;
+    -webkit-column-break-inside: avoid;
+    border-radius: 5px;
+    box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+
+}
+
+.admin-title{
+    display: flex;
+    align-items:center; 
+    justify-content: center;
+
+}
+
+/* stock */
+.stock{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.stock-table{
+    background-color: var(--colourPrimary);
+    margin-bottom: 20px;
+    padding: 25px;
+    box-sizing: border-box;
+    -webkit-column-break-inside: avoid;
+    border-radius: 5px;
+    box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+
+}
+
+.stock-title{
+    display: flex;
+    align-items:center; 
+    justify-content: center;
+
+}
+
+/* Products */
+.product{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.product-table{
+    background-color: var(--colourPrimary);
+    margin-bottom: 20px;
+    padding: 25px;
+    box-sizing: border-box;
+    -webkit-column-break-inside: avoid;
+    border-radius: 5px;
+    box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+
+}
+
+.product-title{
+    display: flex;
+    align-items:center; 
+    justify-content: center;
+
+}
+
+/* contact us */
+.contactUs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.contactUs-table{
+    background-color: var(--colourPrimary);
+    margin-bottom: 20px;
+    padding: 25px;
+    box-sizing: border-box;
+    -webkit-column-break-inside: avoid;
+    border-radius: 5px;
+    box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+
+}
+
+.contactUs-title{
+    display: flex;
+    align-items:center; 
+    justify-content: center;
+}
