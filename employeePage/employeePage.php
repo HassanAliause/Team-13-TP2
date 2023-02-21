@@ -35,89 +35,16 @@ include("databaseConnect.php");
 
         <div class="grid-container">
             <!-- header -->
-            <header class="header">
-
-                <div class="header-left">
-                    <img src="images\logo.png" alt="Logo" class="logo" width="50%">
-
-
-                </div>
-                
-                <div href="productspage.html" class="header-right" >
-                    <span class="material-symbols-outlined" href="/productspage.html">
-                        home 
-                    </span>
-                </div>
-            </header>
+            <?php include_once "adminHeader.php"?>
 
             <!-- sidebar -->
-            <aside id="sidebar">
-                <div class="sidebar-title">
-                    <div class="sidebar-brand"> 
-                        Contents:
-                    </div>
-                </div>
-
-                <ul class="sidebar-list">
-                    <li class="sidebar-list-item" http-equiv="refresh" content="10">
-                        <span class="material-symbols-outlined" >
-                            dashboard
-                        </span>
-                        Dashboard
-                    </li>
-
-                    <li class="sidebar-list-item">
-                        <span class="material-symbols-outlined">
-                            monitoring
-                            </span>
-                        Charts
-                    </li>
-                    
-                    <li class="sidebar-list-item">
-                        <span class="material-symbols-outlined">
-                            groups
-                        </span>
-                        Customers
-                    </li>
-
-                    <li class="sidebar-list-item">
-                        <span class="material-symbols-outlined">
-                            manage_accounts
-                        </span>
-                        Administrators
-                    </li>
-
-                    <li class="sidebar-list-item">
-                        <span class="material-symbols-outlined">
-                            production_quantity_limits
-                        </span>
-                        Stock
-                    </li>
-
-                    
-                    <li class="sidebar-list-item">
-                        <span class="material-symbols-outlined">
-                            inventory_2
-                        </span>
-                        Products
-                    </li>
-
-                    <li class="sidebar-list-item">
-                        <span class="material-symbols-outlined">
-                            contact_page
-                        </span>
-                        Contact Us
-                    </li>
-                    
-                </ul>
-
-            </aside>
+            <?php include_once "adminSidebar.php"?>
 
             <!-- main -->
             <main class="main-container">
                 <!-- title of page -->
                 <div class="main-title">
-                    <h2>Employee Dashboard</h2>
+                    <h2>Dashboard</h2>
                 </div>
 
                 <div class="main-cards">
@@ -129,7 +56,19 @@ include("databaseConnect.php");
                                 inventory
                             </span>
                         </div>
-                        <h1>100</h1>
+                        <h1 class="card-inner-text ">
+                            <?php
+                                $sql = "SELECT SUM(quantity) AS total_quantity FROM products";
+                                $result = mysqli_query($con,$sql);
+                                if($result) {
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        $quantity = $row['total_quantity'];
+                                        echo $quantity;
+                                    }
+                                }
+
+                            ?>
+                        </h1>
                     </div>
 
                     <div class="card">
@@ -139,7 +78,18 @@ include("databaseConnect.php");
                                 category
                             </span>
                         </div>
-                        <h1>5</h1>
+                        <h1 class="card-inner-text">
+                            <?php
+                            $sql = "SELECT MAX(id) AS max_id FROM categories";
+                            $result = mysqli_query($con,$sql);
+                            if($result) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    $maxid = $row['max_id'];
+                                    echo $maxid;
+                                }
+                            }
+                            ?>
+                        </h1>
                     </div>
 
                     <div class="card">
@@ -149,7 +99,18 @@ include("databaseConnect.php");
                                 groups
                             </span>
                         </div>
-                        <h1>2870</h1>
+                        <h1 class="card-inner-text">
+                        <?php
+                            $sql = "SELECT MAX(id) AS max_id FROM customer_details";
+                            $result = mysqli_query($con,$sql);
+                            if($result) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    $maxid = $row['max_id'];
+                                    echo $maxid;
+                                }
+                            }
+                            ?>
+                        </h1>
                     </div>
 
                     
@@ -160,21 +121,23 @@ include("databaseConnect.php");
                                 manage_accounts
                             </span>
                         </div>
-                        <h1>6</h1>
+                        <h1 class="card-inner-text">
+                        <?php
+                            $sql = "SELECT MAX(id) AS max_id FROM admin";
+                            $result = mysqli_query($con,$sql);
+                            if($result) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    $maxid = $row['max_id'];
+                                    echo $maxid;
+                                }
+                            }
+                            ?>
+                        </h1>
                     </div>
 
                 </div>
 
 
-                
-                <div class="charts">
-                    <div class="chart-card">
-                        <h2 class="chart-title">Stock of Keyboards</h2>
-                        <div id="bar-chart">
-
-                        </div>
-                    </div>
-                </div>
 
                 <d class="main-tables">
 
