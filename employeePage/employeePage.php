@@ -1,9 +1,9 @@
 <?php
-// session_start();
-// include("databaseConnect");
-// include("");
-// if (!isset$_SESSION['adminid']){
-//     header('Location:admin.php');
+session_start();
+include("databaseConnect.php");
+// include("checkLogin.php");
+// if (!isset$_SESSION['id']){
+//     header('Location:Public\Front End\PHP\login.html');
 
 // }    
 ?>
@@ -27,25 +27,23 @@
 
         <!-- link to css file -->
         <link rel="stylesheet" href="css/employee.css">
+        
     </head>
 
     <body>
 
-        <a href="#" class="bckToTop">
-            <span class="material-symbols-outlined">
-                arrow_upward
-                </span>
-        </a>
 
         <div class="grid-container">
             <!-- header -->
             <header class="header">
 
                 <div class="header-left">
-                    <img src="/images/logo.png" class="logo" width="50%">
+                    <img src="images\logo.png" alt="Logo" class="logo" width="50%">
+
+
                 </div>
                 
-                <div class="header-right">
+                <div href="productspage.html" class="header-right" >
                     <span class="material-symbols-outlined" href="/productspage.html">
                         home 
                     </span>
@@ -56,7 +54,7 @@
             <aside id="sidebar">
                 <div class="sidebar-title">
                     <div class="sidebar-brand"> 
-
+                        Contents:
                     </div>
                 </div>
 
