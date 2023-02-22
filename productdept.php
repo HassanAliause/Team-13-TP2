@@ -26,7 +26,7 @@
         <a href=""><img src="" class="logo" alt=""></a>
         <ul>  
             <li><a href="">Home</a></li>
-            <li><a href="">Products</a></li>
+            <li><a href="productspage.php">Products</a></li>
             <li><a href="">Contact Us</a></li>  
             <li><a href="">Logout</a></li>
             <li><a href="">My Orders</a></li>   
@@ -49,7 +49,7 @@
 
     <div class = "dept-container">
             <div class ="dept">
-            <a href="productdept.php?dept=11&name=computers-laptops"><h3>COMPUTERS/LAPTOPS</h3><img src="images\laptop2-1.jfif" alt="computer/laptops" width= 250px height = 250px></a>
+            <a href="productdept.php?dept=11&name=computers-laptops"><h3>COMPUTERS/LAPTOPS</h3><img src="images\laptop2-1.png" alt="computer/laptops" width= 250px height = 250px></a>
             </div>
             <div class ="dept">
                 <a href="productdept.php?dept=22&name=keyboards-mice"><h3>KEYBOARDS/MICE</h3><img src="images\keyboard1-1.jfif" alt="keyboard/mice"  width= 250px height = 250px></a>
@@ -98,20 +98,31 @@
                             ?>
                             <div class = "product-item">
                             <?php
-                            echo '<tr><td><a href="/productselect?productid=' . $row['id'] . '"><img src ="' . $row['image_file'] . '" width= 250px height = 250px></a></td>';
-                            echo '<td><span class="product-name">' . $row['name'] . '</span></td>';
-                            echo '<td><div class="price">£' . $row['price'] . '</div></td>';
-                            echo '<td><span class="product-type">' . $row['key_value'] . '</span></td></tr>';
+                                echo '<tr><td><a href="/Team-13-TP2/selectedproduct.php?productid=' . $row['id'] . '"><img src ="' . $row['image_file'] . '" width= 250px height = 250px></a></td>';
+                                echo '<td><span class="product-name">' . $row['name'] . '</span></td>';
+                                echo '<td><div class="price">£' . $row['price'] . '</div></td>';
+                                if($row['quantity'] > 10){
+                                    echo '<div class = "in-stock" style="color:green;"> <i class="fa fa-check-circle-o" aria-hidden="true"></i> IN STOCK </div>';
+                                }
+                                else if($row['quantity'] <= 10 && !($row['quantity'] <= 0)){
+                                    echo '<div class = "in-stock" style="color:#c85e01;"> <i class="fa fa-circle-o-notch" aria-hidden="true"></i> LOW STOCK </div>';
+                                }
+                                else{
+                                    echo '<div class = "in-stock" style="color:red;"> <i class="fa fa-times-circle-o" aria-hidden="true"></i> OUT OF STOCK </div>';
+                                }
+                            
+                                echo '<td><span class="product-type">' . $row['key_value'] . '</span></td></tr>';
+                                echo '<td><span class="product-type">' . $row['key_value'] . '</span></td></tr>';
                             ?>
                             <form action="/add_to_cart" method="POST">
-                                @csrf
+                                 
                                 <input type="hidden" name="product_id" value="{{ $row['id'] }}">
-                                <button class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Add to Cart</button>
+                                <button class="wishlistBtn"><i class="fa fa-plus" aria-hidden="true"></i> Add to Cart</button>
                             </form>
                             <form action="/add_to_wish" method="POST">
-                                @csrf
+                                 
                                 <input type="hidden" name="product_id" value="{{ $row['id'] }}">
-                                <button class="btn btn-primary" style="margin-top:10px"><i class="fa fa-star-o"></i> Add to Wishlist</button>
+                                <button class="addBtn"><i class="fa fa-star-o"></i> Add to Wishlist</button>
                                </form>
                             </div>
                             <?php
@@ -134,4 +145,27 @@
     
     </div>
 </body>
+<footer class="footer">
+        <div class="footerlogo">
+        <a href=""><img src="images\logojumping2.gif" width = 250px height=250px></a>
+        </div>
+
+        <div class="footernav">
+            <h2>Navigation</h2>
+            <ul class="links">
+                <li> <a href="#">Home</a></li>
+                <li> <a href="productspage.php">Products</a></li>
+                <li> <a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <div class="socials">
+            <h2>Our Socials</h2>
+            <ul class="links">
+                <li> <a href="#"><i class="fa fa-github" aria-hidden="true"></i> Github</a></li>
+                <li> <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i>   Facebook</a></li>
+                <li> <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+            </ul>
+        </div>
+    </footer>
 </html>
