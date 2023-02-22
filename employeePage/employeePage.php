@@ -1,3 +1,12 @@
+<?php
+// session_start();
+// include("databaseConnect");
+// include("");
+// if (!isset$_SESSION['adminid']){
+//     header('Location:admin.php');
+
+// }    
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -7,7 +16,7 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
        
         <!-- title of page -->
-        <title>Administrator Page</title>
+        <title>Employee Page</title>
         
         <!-- link to icons -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -17,7 +26,7 @@
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
         <!-- link to css file -->
-        <link rel="stylesheet" href="css/admin.css">
+        <link rel="stylesheet" href="css/employee.css">
     </head>
 
     <body>
@@ -80,6 +89,28 @@
                         Administrators
                     </li>
 
+                    <li class="sidebar-list-item">
+                        <span class="material-symbols-outlined">
+                            production_quantity_limits
+                        </span>
+                        Stock
+                    </li>
+
+                    
+                    <li class="sidebar-list-item">
+                        <span class="material-symbols-outlined">
+                            inventory_2
+                        </span>
+                        Products
+                    </li>
+
+                    <li class="sidebar-list-item">
+                        <span class="material-symbols-outlined">
+                            contact_page
+                        </span>
+                        Contact Us
+                    </li>
+                    
                 </ul>
 
             </aside>
@@ -88,7 +119,7 @@
             <main class="main-container">
                 <!-- title of page -->
                 <div class="main-title">
-                    <h2>Administrator Dashboard</h2>
+                    <h2>Employee Dashboard</h2>
                 </div>
 
                 <div class="main-cards">
@@ -131,11 +162,13 @@
                                 manage_accounts
                             </span>
                         </div>
-                        <h1>2</h1>
+                        <h1>6</h1>
                     </div>
 
                 </div>
 
+
+                
                 <div class="charts">
                     <div class="chart-card">
                         <h2 class="chart-title">Stock of Keyboards</h2>
@@ -145,14 +178,53 @@
                     </div>
                 </div>
 
-                <div class="customers">
+                <d class="main-tables">
 
-                </div>
+                    <div class="customers">
+                        <d class="customer-table">
+                            <h3 class="customer-title">
+                                Customer Table
+                            </h3>
 
-                <d class="adminis">
-                    
+                        </d>
+                    </div>
+
+                    <d class="admin">
+                        <d class="admin-table">
+                            <h3 class="admin-title">
+                                Administrator Table
+                            </h3>
+
+                        </d>
+                    </d>
+
+                    <d class="stock">
+                        <d class="stock-table">
+                            <h3 class="admin-title">
+                                Stock Table
+                            </h3>
+
+                        </d>
+                    </d>
+
+                    <d class="product">
+                        <d class="product-table">
+                            <h3 class="product-title">
+                                Product Table
+                            </h3>
+
+                        </d>
+                    </d>
+
+                    <d class="contactUs">
+                        <d class="contactUs-table">
+                            <h3 class="contactUs-title">
+                                Contact Us Queries
+                            </h3>
+
+                        </d>
+                    </d>
                 </d>
-
             </main>
                 
         </div>
@@ -162,6 +234,6 @@
 
         <!-- link to java script file -->
         <!-- place at the bottom to allow html to load first-->
-        <script src="js/admin.js"></script>
+        <script src="js/employee.js"></script>
     </body>
 </html>
