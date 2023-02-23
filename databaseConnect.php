@@ -1,4 +1,5 @@
 <?php
+session_start();
 // variables for connection
 // variable for the database name
 

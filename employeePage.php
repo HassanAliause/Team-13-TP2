@@ -1,10 +1,8 @@
 <?php
-session_start();
 include("databaseConnect.php");
 // include("checkLogin.php");
 // if (!isset$_SESSION['id']){
 //     header('Location:Public\Front End\PHP\login.html');
-
 // }    
 ?>
 <!DOCTYPE html>
