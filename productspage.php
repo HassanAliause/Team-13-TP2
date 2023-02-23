@@ -101,16 +101,22 @@
                             echo '<td><span class="product-type">' . $row['key_value'] . '</span></td></tr>';
                         
                         ?>
-                         <form action="/add_to_cart" method="POST">
+                         <form action="/add_to_wish" method="POST">
+                                  
+                                  <input type="hidden" name="product_id" value="{{ $row['id'] }}">
+                                  <button class="addBtn"><i class="fa fa-star-o"></i> Add to Wishlist</button>
+                                 </form>
+                                 <form action="/add_to_cart" method="POST">
                                  
                                  <input type="hidden" name="product_id" value="{{ $row['id'] }}">
-                                 <button class="wishlistBtn"><i class="fa fa-plus" aria-hidden="true"></i> Add to Cart</button>
-                             </form>
-                             <form action="/add_to_wish" method="POST">
-                                  
-                                 <input type="hidden" name="product_id" value="{{ $row['id'] }}">
-                                 <button class="addBtn"><i class="fa fa-star-o"></i> Add to Wishlist</button>
-                                </form>
+                                 <?php
+                                 if($row['quantity'] <= 0 ){
+                                    echo '<button class="wishlistBtn" style="visibility:hidden;"><i class="fa fa-plus" aria-hidden="true"></i> Add to cart </button>';
+                                }
+                                else{
+                                    echo '<button class="wishlistBtn"><i class="fa fa-plus" aria-hidden="true"></i> Add to Cart</button>';
+                                }
+                                 ?>
                         </div>
                         <?php
                     }

@@ -127,7 +127,6 @@ body {
 
 .sidebar-list-item > a {
     text-decoration: none;
-    color: var(--colourPrimary);
   }
 
 .sidebar-list-item:hover {

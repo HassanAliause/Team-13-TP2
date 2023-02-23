@@ -55,7 +55,7 @@
                     $db = new PDO("mysql:dbname=$db_name;host=$db_host", $username); 
                     #$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                     try {
-                        $query="SELECT  * FROM  `images` WHERE `productsid` = '$productid'";
+                        $query="SELECT  * FROM  `images` WHERE `ProductID` = '$productid'";
                         $rows =  $db->query($query);
                             
                         if ( $rows && $rows->rowCount()> 0) {
@@ -66,9 +66,9 @@
                                     echo '<img id ="productimg" src ="' . $row['Image1'] . '">';
                                 ?>
                                 <div class="controls">
-                                    <span onclick="img1()" class="imagebtn"><i class="fa fa-search-plus" aria-hidden="true" style= "padding-left:5px; padding-top:2px"></i></span>
-                                    <span onclick="img2()" class="imagebtn"><i class="fa fa-search-plus" aria-hidden="true" style= "padding-left:5px; padding-top:2px"></i></span>
-                                    <span onclick="img3()" class="imagebtn"><i class="fa fa-search-plus" aria-hidden="true" style= "padding-left:5px; padding-top:2px"></i></span>
+                                    <span onclick="img1()" class="imagebtn"><i class="fa fa-circle-o" aria-hidden="true" ></i></span>
+                                    <span onclick="img2()" class="imagebtn"><i class="fa fa-circle-o" aria-hidden="true" ></i></span>
+                                    <span onclick="img3()" class="imagebtn"><i class="fa fa-circle-o" aria-hidden="true" ></i></span>
                                 </div>
                                 </div>
                                 <?php
@@ -116,16 +116,25 @@
                                
                                 echo '<td><span class="product-type">' . $row['key_value'] . '</span></td></tr>';
                                 ?>
+                                <form action="/add_to_wish" method="POST">
+                                  
+                                  <input type="hidden" name="product_id" value="{{ $row['id'] }}">
+                                  <button class="addBtn"><i class="fa fa-star-o"></i> Add to Wishlist</button>
+                                 </form>
                                  <form action="/add_to_cart" method="POST">
                                  
                                  <input type="hidden" name="product_id" value="{{ $row['id'] }}">
-                                 <button class="wishlistBtn"><i class="fa fa-plus" aria-hidden="true"></i> Add to Cart</button>
+                                 <?php
+                                 if($row['quantity'] <= 0 ){
+                                    echo '<button class="wishlistBtn" style="visibility:hidden;"><i class="fa fa-plus" aria-hidden="true"></i> Add to cart </button>';
+                                }
+                                else{
+                                    echo '<button class="wishlistBtn"><i class="fa fa-plus" aria-hidden="true"></i> Add to Cart</button>';
+                                }
+                                 ?>
+                                 
                                 </form>
-                                <form action="/add_to_wish" method="POST">
-                                  
-                                 <input type="hidden" name="product_id" value="{{ $row['id'] }}">
-                                 <button class="addBtn"><i class="fa fa-star-o"></i> Add to Wishlist</button>
-                                </form>
+
                                 <?php
                         }
                     }
@@ -148,12 +157,14 @@
     let imagebtn = document.getElementsByClassName("imagebtn");
     function img1(){
         <?php
-            $query="SELECT  * FROM  `images` WHERE `productsid` = '$productid'";
+            $query="SELECT  * FROM  `images` WHERE `ProductID` = '$productid'";
             $rows =  $db->query($query);
                 
             if ( $rows && $rows->rowCount()> 0) {
                 while  ($row =  $rows->fetch())	{
-                    echo 'productimg.src ="' . $row['Image1'] . '"';
+                    if($row['Image1'] != null){
+                        echo 'productimg.src ="' . $row['Image1'] . '"';
+                    }
                 }
             }
             else {
@@ -163,12 +174,14 @@
     }
     function img2(){
         <?php
-            $query="SELECT  * FROM  `images` WHERE `productsid` = '$productid'";
+            $query="SELECT  * FROM  `images` WHERE `ProductID` = '$productid'";
             $rows =  $db->query($query);
                 
             if ( $rows && $rows->rowCount()> 0) {
                 while  ($row =  $rows->fetch())	{
-                    echo 'productimg.src ="' . $row['Image2'] . '"';
+                    if($row['Image2'] != null){
+                        echo 'productimg.src ="' . $row['Image2'] . '"';
+                    }
                 }
             }
             else {
@@ -178,12 +191,15 @@
     }
     function img3(){
         <?php
-            $query="SELECT  * FROM  `images` WHERE `productsid` = '$productid'";
+            $query="SELECT  * FROM  `images` WHERE `ProductID` = '$productid'";
             $rows =  $db->query($query);
                 
             if ( $rows && $rows->rowCount()> 0) {
                 while  ($row =  $rows->fetch())	{
-                    echo 'productimg.src ="' . $row['Image3'] . '"';
+                    if($row['Image3'] != null){
+                        echo 'productimg.src ="' . $row['Image3'] . '"';
+                    }
+                    
                 }
             }
             else {

@@ -26,7 +26,7 @@
         <header class="header">
 
             <div class="header-left">
-                <img src="images\logo.png" alt="Logo" class="logo" width="50%">
+                <img src="\Team-13-TP2\images\logogif4.gif" alt="Logo" class="logo" width="50%">
 
 
             </div>
