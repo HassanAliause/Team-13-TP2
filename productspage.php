@@ -14,30 +14,8 @@
 </head>
 <body>
 
-    <div class="logo-header">
-        <a href=""><img src="images\logogif4.gif" class="logo" width = 75% alt=""></a>
-    <div>
-    <nav>
-
-        <input type="checkbox" id="box">
-        <label for="box" class="boxbtn">
-            <i class="fa fa-bars"></i>
-        </label>
-        <a href=""><img src="" class="logo" alt=""></a>
-        <ul>  
-            <li><a href="">Home</a></li>
-            <li><a href="productspage.php">Products</a></li>
-            <li><a href="">Contact Us</a></li>  
-            <li><a href="">Logout</a></li>
-            <li><a href="">My Orders</a></li>   
-            <li><a href="wishlist"><img src="images\heart2.png" alt="computer/laptops" width= 30px height = 30px></a></li>
-            <li><a href="cartmenu"><img src="images\basket.png" alt="computer/laptops" width= 30px height = 30px></a></li>
-            <!-- <li><a href="wishlist"><i class="fa fa-heart-o" style="font-size:25px"></i></a></li>
-            <li><a href="cartmenu"><i class="fa fa-shopping-cart" style="font-size:25px"></i></a></li> -->
-        
-        </ul>
-        
-    </nav>
+    <!-- header -->
+    <?php include_once "header.php"?>
     
     <div class="departments-header">
         <h2>DEPARTMENTS</h2>

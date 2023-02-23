@@ -11,20 +11,10 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
-        <div class="logo-header">
-            <a href=""><img src="images/logo.png" class="logo" width=75% alt=""></a>
-        </div>
-            <nav>
-                <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Products</a></li>
-                    <li><a href="">Contact Us</a></li>
-                    <li><a href="">Logout</a></li>
-                    <li><a href="">My Orders</a></li>
-                    <li><a href="wishlist"><i class="fa fa-heart-o" style="font-size:25px"></i></a></li>
-                    <li><a href="cartmenu"><i class="fa fa-shopping-cart" style="font-size:25px"></i></a></li>
-                </ul>
-            </nav>
+        
+        <!-- navbar -->
+        <?php include_once "header.php"?>
+
         <div class="contact-header">
             <h2>CONTACT US</h2>
         </div>
