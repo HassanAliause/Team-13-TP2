@@ -12,7 +12,7 @@
     </head>
 
     <div class="logo-header">
-        <a href=""><img src="images\logogif4.gif" class="logo" width = 75% alt=""></a>
+        <a href="homepage1.php"><img src="images\logogif4.gif" class="logo" width = 75% alt=""></a>
     <div>
     <nav>
 
@@ -20,7 +20,7 @@
         <label for="box" class="boxbtn">
             <i class="fa fa-bars"></i>
         </label>
-        
+
         <ul>  
             <li><a href="homepage1.php">Home</a></li>
             <li><a href="productspage.php">Products</a></li>
