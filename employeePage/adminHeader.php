@@ -23,20 +23,20 @@
 
     <body>
 
-    <header class="header">
+        <header class="header">
 
-        <div class="header-left">
-            <img src="images\logo.png" alt="Logo" class="logo" width="50%">
+            <div class="header-left">
+                <img src="images\logo.png" alt="Logo" class="logo" width="50%">
 
 
-        </div>
+            </div>
 
-        <div href="productspage.html" class="header-right" >
-            <span class="material-symbols-outlined" href="/productspage.html">
-                home 
-            </span>
-        </div>
-    </header>
+            <div href="productspage.html" class="header-right" >
+                <span class="material-symbols-outlined" href="/productspage.html">
+                    home 
+                </span>
+            </div>
+        </header>
 
     </body>
 
