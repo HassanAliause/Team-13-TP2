@@ -149,6 +149,17 @@ body {
     font-weight: 700;
 }
 
+.sidebar-list-text{
+    color: white;
+
+}
+
+.sidebar-list-text:visited{
+    color: white;
+    
+}
+
+
 /* main */
 .main-container {
     grid-area: main;
@@ -179,11 +190,16 @@ body {
     background-color: var(--colourPrimary);
 }
 
+.card-inner-text {
+    align-items: left;
+
+}
+
 /* charts */
 
 .charts{
     display: auto;
-    grid-template-columns: 1ft 1ft;
+    grid-template-columns: 1ft;
     gap: 20px;
     margin-top: 60px;
 
