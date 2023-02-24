@@ -14,9 +14,23 @@ body{
     align-items: center;
     min-height: 100vh;
     background: #23242a;
+    color: white;
+}
+.error-box{
+    font-size: 12px;
+    
+}
+span{
+    color: white;
+}
+.error-box .error{
+    color: white !important;
 }
 /* Style the form box */
 .formBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 40px;
     border: 8px solid #23242a;
     border-radius: 20px;
@@ -34,6 +48,9 @@ body{
     align-items: center;
     flex-direction: column;
     gap:25px;
+}
+p.error {
+    color: red;
 }
 
 /* Style the form title */
@@ -67,7 +84,7 @@ body{
 
 }
 /* Style the input label */
-.formBox .form .Inp span{
+.formBox .form .Inp .labels{
     position: absolute;
     left: 0;
     padding: 12px 10px 12px 48px;
@@ -124,8 +141,8 @@ body{
 }
 .formBox .form p{
     color: rgba(255, 255, 255, 0.5);
-    font-size: 0.75em;
-    font-weight: 300;
+    font-size: 15px;
+    font-weight: 400;
 
 
 }
@@ -135,4 +152,9 @@ a.btn{
     color: #fff;
     text-decoration: none;    
 }
-
+span.error {
+    color: #f44242;
+    font-size: 15px;
+    margin-bottom: 5px;
+    text-align: left;
+  }

@@ -23,13 +23,6 @@ var barChartOptions = {
         show: false,
       },
     },
-    colors: [
-      "#2962ff",
-      "#d50000",
-      "#2e7d32",
-      "#FFFF00",
-      "#583cb3",
-    ],
     plotOptions: {
       bar: {
         distributed: true,
@@ -75,7 +68,15 @@ var barChartOptions = {
       theme: "dark",
     },
     xaxis: {
-      categories: ["Apple Magic", "Steelseries", "Razer", "Logitech", "Alienware"],
+      
+      categories: [
+      "Apple Magic", 
+      "Steelseries",
+      "Razer",  
+      "Logitech",
+      "Alienware"
+    ],
+
       title: {
         style: {
           color: "#FFFFFF",
