@@ -12,13 +12,13 @@
     </head>
     <body>
         <div class="logo-header">
-            <a href=""><img src="images/logo.png" class="logo" width=75% alt=""></a>
+            <a href=""><img src="images\logogif4.gif"  class="logo" width=75% alt=""></a>
         </div>
             <nav>
                 <ul>
                     <li><a href="">Home</a></li>
-                    <li><a href="">Products</a></li>
-                    <li><a href="">Contact Us</a></li>
+                    <li><a href="productspage.php">Products</a></li>
+                    <li><a href="contactus.php">Contact Us</a></li>
                     <li><a href="">Logout</a></li>
                     <li><a href="">My Orders</a></li>
                     <li><a href="wishlist"><i class="fa fa-heart-o" style="font-size:25px"></i></a></li>
@@ -29,7 +29,13 @@
             <h2>CONTACT US</h2>
         </div>
         <div class="container">
-           <div class="container-box">
+            <?php
+
+                $db_host = 'localhost';
+                $db_name = '13_bits';
+                $username = 'root';
+            ?>
+            <div class="container-box">
             <form class="form input">
                 <div class="titleh3">
                     <h3>For any queries, please fill out this form and we will contact you back within 24 hours.</h3>
@@ -51,6 +57,41 @@
                 </div>
             </form>
            </div>
-        </div>       
+        </div>
+        <h2 style="text-align:center; padding:30px;">ABOUT US</h2>
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                    <div class="container-about">
+                    <p style="text-align:center">We are the founders of TH13TEENBIT, we sell a variety of technology products, like computers, 
+                laptops, keyboards, headsets, speakers and webcams.
+                <br>Our team is always ready and available to help our customers, we are open 24/7. We offer good quality products, good services at an affordable price.
+                <br>We provide great deals for both new and existing customers.</p>
+                    </div>
+                </div>
+            </div>
     </body>
+    <footer class="footer">
+        <div class="footerlogo">
+        <a href=""><img src="images\logojumping2.gif" width = 250px height=250px></a>
+        </div>
+
+        <div class="footernav">
+            <h2>Navigation</h2>
+            <ul class="links">
+                <li> <a href="#">Home</a></li>
+                <li> <a href="productspage.php">Products</a></li>
+                <li> <a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <div class="socials">
+            <h2>Our Socials</h2>
+            <ul class="links">
+                <li> <a href="#"><i class="fa fa-github" aria-hidden="true"></i> Github</a></li>
+                <li> <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i>   Facebook</a></li>
+                <li> <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a></li>
+            </ul>
+        </div>
+    </footer>
 </html>
