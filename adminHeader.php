@@ -31,11 +31,10 @@
 
             </div>
 
-            <div href="productspage.html" class="header-right" >
-                <span class="material-symbols-outlined" href="/productspage.html">
-                    home 
-                </span>
+            <div class="header-right" >
+
             </div>
+            
         </header>
 
     </body>

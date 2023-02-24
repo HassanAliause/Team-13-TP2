@@ -1,9 +1,8 @@
 <?php
-    session_start();
     include("databaseConnect.php");
     // include("checkLogin.php");
     // if(!isset($_SESSION['id'])) {
-    //     header("Location:Public\Front End\PHP\login.html")
+    //     header("Location:Public\Front End\PHP\login.php")
     // }
 
     if (isset($_POST['SubmitButton'])) {
@@ -45,16 +44,27 @@
     </head>
 
     <body>
-
-        
-    <div class="grid-container">
+            
+        <div class="grid-container">
             <!-- header -->
             <?php include_once "adminHeader.php"?>
 
             <!-- sidebar -->
             <?php include_once "adminSidebar.php"?>
 
-    </div>
+            <div class="addBox">
+                
+                <form class="addInput" method="POST">
+                    
+
+                </form>
+
+            </div>
+
+
+
+
+        </div>
 
 
     </body>
