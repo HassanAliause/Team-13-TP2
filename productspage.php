@@ -14,30 +14,8 @@
 </head>
 <body>
 
-    <div class="logo-header">
-        <a href=""><img src="images\logogif4.gif" class="logo" width = 75% alt=""></a>
-    <div>
-    <nav>
-
-        <input type="checkbox" id="box">
-        <label for="box" class="boxbtn">
-            <i class="fa fa-bars"></i>
-        </label>
-        <a href=""><img src="" class="logo" alt=""></a>
-        <ul>  
-            <li><a href="">Home</a></li>
-            <li><a href="productspage.php">Products</a></li>
-            <li><a href="">Contact Us</a></li>  
-            <li><a href="">Logout</a></li>
-            <li><a href="">My Orders</a></li>   
-            <li><a href="wishlist"><img src="images\heart2.png" alt="computer/laptops" width= 30px height = 30px></a></li>
-            <li><a href="cartmenu"><img src="images\basket.png" alt="computer/laptops" width= 30px height = 30px></a></li>
-            <!-- <li><a href="wishlist"><i class="fa fa-heart-o" style="font-size:25px"></i></a></li>
-            <li><a href="cartmenu"><i class="fa fa-shopping-cart" style="font-size:25px"></i></a></li> -->
-        
-        </ul>
-        
-    </nav>
+    <!-- header -->
+    <?php include_once "header.php"?>
     
     <div class="departments-header">
         <h2>DEPARTMENTS</h2>
@@ -101,16 +79,22 @@
                             echo '<td><span class="product-type">' . $row['key_value'] . '</span></td></tr>';
                         
                         ?>
-                         <form action="/add_to_cart" method="POST">
+                         <form action="/add_to_wish" method="POST">
+                                  
+                                  <input type="hidden" name="product_id" value="{{ $row['id'] }}">
+                                  <button class="addBtn"><i class="fa fa-star-o"></i> Add to Wishlist</button>
+                                 </form>
+                                 <form action="/add_to_cart" method="POST">
                                  
                                  <input type="hidden" name="product_id" value="{{ $row['id'] }}">
-                                 <button class="wishlistBtn"><i class="fa fa-plus" aria-hidden="true"></i> Add to Cart</button>
-                             </form>
-                             <form action="/add_to_wish" method="POST">
-                                  
-                                 <input type="hidden" name="product_id" value="{{ $row['id'] }}">
-                                 <button class="addBtn"><i class="fa fa-star-o"></i> Add to Wishlist</button>
-                                </form>
+                                 <?php
+                                 if($row['quantity'] <= 0 ){
+                                    echo '<button class="wishlistBtn" style="visibility:hidden;"><i class="fa fa-plus" aria-hidden="true"></i> Add to cart </button>';
+                                }
+                                else{
+                                    echo '<button class="wishlistBtn"><i class="fa fa-plus" aria-hidden="true"></i> Add to Cart</button>';
+                                }
+                                 ?>
                         </div>
                         <?php
                     }

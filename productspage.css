@@ -240,7 +240,7 @@ img:hover{
 }
 
 .addBtn{
-    margin-top: 10px;
+    
     background-color:  rgb(71, 71, 71);
     cursor:pointer;
     width:100%;
@@ -256,6 +256,7 @@ img:hover{
 }
 
  .wishlistBtn{
+    margin-top: 10px;
     background-color: rgb(71, 71, 71);
     cursor:pointer;
     width:100%;
@@ -271,12 +272,84 @@ img:hover{
 }
 
 
-.product-item .product-type{
+.product-type{
     visibility: hidden;
 }
 
 /*Selected Product */
 
+.product-container{
+    max-width: 2000px;
+    margin: 3rem 0;
+    padding:50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.image-container{
+    width:600px;
+    height:600px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: white;
+}
+
+.product-image{
+    position:relative;
+}
+.product-image img{
+    max-height:600px;
+    max-width:600px;
+}
+
+.info-container{
+    max-width:1000px;
+    padding:75px;
+}
+
+
+.info-container h2{
+    padding-top:25px;
+    padding-bottom:50px;
+}
+
+.info-container p{
+    font-size: 25px;
+    padding-bottom:50px;
+}
+
+button{
+    position:relative;
+    margin-right:auto;
+    margin-left:auto;
+    height:50px;
+    width:100%;
+    display:block;
+    opacity:0.6;
+    cursor:pointer;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.controls{
+    position:absolute;
+    top:20px;
+    right:10px;
+}
+
+.imagebtn{
+    display:block;
+    width:40px;
+    height:40px;
+    font-size:30px;
+    margin:10px;
+    cursor:pointer;
+}
+.imagebtn i{
+color: #595959;
+}
 
 
 @media screen and (max-width: 1200px){

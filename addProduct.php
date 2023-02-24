@@ -1,9 +1,8 @@
 <?php
-    session_start();
-    include("databaseConnecte.php");
+    include("databaseConnect.php");
     // include("checkLogin.php");
     // if(!isset($_SESSION['id'])) {
-    //     header("Location:Public\Front End\PHP\login.html")
+    //     header("Location:Public\Front End\PHP\login.php")
     // }
 
     if (isset($_POST['SubmitButton'])) {
@@ -44,6 +43,10 @@
        
     </head>
 
-    
+    <body>
+        
+        
+
+    </body>
 
 </html>

@@ -26,16 +26,15 @@
         <header class="header">
 
             <div class="header-left">
-                <img src="images\logo.png" alt="Logo" class="logo" width="50%">
+                <a href="homepage1.php"><img src="\Team-13-TP2\images\logogif4.gif" alt="Logo" class="logo" width="50%"></a>
 
 
             </div>
 
-            <div href="productspage.html" class="header-right" >
-                <span class="material-symbols-outlined" href="/productspage.html">
-                    home 
-                </span>
+            <div class="header-right" >
+
             </div>
+            
         </header>
 
     </body>
