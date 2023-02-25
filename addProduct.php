@@ -45,7 +45,58 @@
 
     <body>
         
-        
+    <div class="grid-container">
+            <!-- header -->
+            <?php include_once "adminHeader.php"?>
+
+            <!-- sidebar -->
+            <?php include_once "adminSidebar.php"?>
+
+            <main class="main-container">
+                <!-- this will be the input form box that will create a new customer account -->
+                <div class="addBox">
+                
+                <!-- title of page -->
+                <div class="main-title">
+                    <h2>Add New Product:</h2>
+                </div>
+
+                    <form class="box-input" method="POST">
+                        
+                        <!-- product name -->
+                        <div class="pName">
+                            <h2>New Product Name:</h2>
+                            <input type="text" class="formInput" name="productName" autocomplete="off" placeholder="Enter Product Name">
+                        </div>
+
+
+                        <!-- product infomation -->
+                        <div class="pEmail">
+                            <h2>New Product Infomation: </h2>
+                            <textarea type="text" class="formInput" name="productInfomation" autocomplete="off" placeholder="Enter Product Infomation" ></textarea>
+                        </div>
+
+
+                        <!-- product price -->
+                        <div>
+                            <h2>New Product Price:</h2>
+                            <input type="text" class="formInput"  name="customerPassword" autocomplete="off" placeholder="Enter Customer Password">
+                        </div>
+ 
+                        <!-- image for product -->
+                        <input type="file" class="formImageInput" name="image">
+
+                        <!-- submit button -->
+                        <button type="submit" class="formButton" name="submitButton">Add New Product</button>
+
+                    </form>
+
+                </div>
+
+            </main>
+
+        </div>
+
 
     </body>
 

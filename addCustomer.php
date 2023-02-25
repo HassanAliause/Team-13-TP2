@@ -5,7 +5,7 @@
     //     header("Location:Public\Front End\PHP\login.php")
     // }
 
-    if (isset($_POST['SubmitButton'])) {
+    if (isset($_POST['formButton'])) {
 
         $name = $_POST['username'];
         $email = $_POST['email'];
@@ -52,17 +52,46 @@
             <!-- sidebar -->
             <?php include_once "adminSidebar.php"?>
 
-            <div class="addBox">
+            <main class="main-container">
+                <!-- this will be the input form box that will create a new customer account -->
+                <div class="addBox">
                 
-                <form class="addInput" method="POST">
-                    
+                <!-- title of page -->
+                <div class="main-title">
+                    <h2>Create New Customer:</h2>
+                </div>
 
-                </form>
+                    <form class="box-input" method="POST">
+                        
+                        <!-- customer Username -->
+                        <div class="customerName">
+                            <h2>New Customer Name:</h2>
+                            <input type="text" class="formInput" name="customerName" autocomplete="off" placeholder="Enter Customer Name">
+                        </div>
 
-            </div>
+
+                        <!-- customer email -->
+                        <div class="customerEmail">
+                            <h2>New Customer Email: </h2>
+                            <input type="text" class="formInput" name="customerEmail" autocomplete="off" placeholder="Enter Customer Email" >
+                        </div>
 
 
+                        <!-- customer password -->
+                        <div>
+                            <h2>New Customer Password:</h2>
+                            <input type="text" class="formInput"  name="customerPassword" autocomplete="off" placeholder="Enter Customer Password">
+                        </div>
+ 
+                        <!-- submit button -->
 
+                        <button type="submit" class="formButton" name="submitButton">Create New Customer</button>
+
+                    </form>
+
+                </div>
+
+            </main>
 
         </div>
 

@@ -364,16 +364,61 @@ body {
     justify-content: center;
 }
 
-/* header */
 
-.header > a {
-    text-decoration: none;
-    color: white;
-    font-variation-settings:
-    'FILL' 0,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 48
+/* input box */
+
+.formInput {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    box-sizing: border-box;
+    border-radius: 1rem;
+    border: 1px solid #dddddd;
+    outline: none;
+    background: #eeeeee;
+    margin-bottom: 5%;
 }
 
+.formButton {
+    padding: 1rem 2rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #eeeeee;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    background: var(--colorPrimary);
+}
 
+.box-input{
+    border-radius: 5px;
+    background-color: var(--colourSecondary);
+    padding: 20px;
+    margin-top: 2%;
+    margin-right: 20%;
+    margin-left: 25%;
+    width: 50%;
+
+}
+
+.formButton{
+    width: 100%;
+    padding: 1rem 2rem; 
+    background-color: var(--colourSecondaryDark);
+    border-radius: 10px;
+}
+
+.formButton:hover{
+    background-color: var(--colourPrimary);
+}
+
+.formImageInput{
+    margin-bottom: 5%;
+
+}
+
+textarea {
+    resize:vertical;
+    height: 150px;
+}

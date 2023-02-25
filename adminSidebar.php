@@ -57,7 +57,7 @@
                     <span class="material-symbols-outlined">
                         manage_accounts
                     </span>
-                    <a href="#" class="sidebar-list-text">Administrators</a>
+                    <a href="#" class="sidebar-list-text">Add Employee</a>
                 </li>
 
                 <li class="sidebar-list-item">
