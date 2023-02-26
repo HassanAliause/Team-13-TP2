@@ -1,3 +1,39 @@
+<?php
+// including the dataabse connection file
+include 'databaseConnect.php';
+// checking if user has logged in or not
+
+session_start();
+
+$user_id = $_SESSION['id'];
+// declaring the variable for the messsages
+$messages = array();
+
+if(!isset($user_id)){
+   header('location:../Public/PHP/login.php');
+}
+if(isset($_POST['send'])){
+
+    $fName = mysqli_real_escape_string($con, $_POST['fname']);
+    $lName = mysqli_real_escape_string($con, $_POST['lname']);
+    $fullName = $fName . ' ' . $lName;
+    $number = $_POST['phone'];
+    $email = mysqli_real_escape_string($con, $_POST['email']);
+    $subject = mysqli_real_escape_string($con, $_POST['subject']);
+    $msg = mysqli_real_escape_string($con, $_POST['message']);
+    $select_message = mysqli_query($con, "SELECT * FROM `message` WHERE name = '' AND email = '$email' And subject = '$subject' AND number = '$number' AND message = '$msg'") or die('query failed');
+ 
+    if(mysqli_num_rows($select_message) > 0){
+       $messages['successful'] = 'Message sent already!';
+    }else{
+       mysqli_query($con, "INSERT INTO `message`(user_id, name, email, number, subject, message) VALUES('$user_id', '$fullName', '$email', '$number','$subject' , '$msg')") or die('query failed');
+       $messages['unsuccessful'] = 'Message sent successfully!';
+    }
+ 
+ }
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -18,19 +54,13 @@
             <h2>CONTACT US</h2>
         </div>
         <div class="container">
-            <?php
-
-                $db_host = 'localhost';
-                $db_name = '13_bits';
-                $username = 'root';
-            ?>
             <div class="container-box">
             <form class="form input">
                 <div class="titleh3">
                     <h3>For any queries, please fill out this form and we will contact you back within 24 hours.</h3>
                 </div>
                 <label>First Name</label>
-                <input type="text" name="name" placeholder="First name" required>
+                <input type="text" name="fname" placeholder="First name" required>
                 <label>Last Name</label>
                 <input type="text" name="lname" placeholder="Last name" required>
                 <label>Phone Number</label>
@@ -40,10 +70,15 @@
                 <label>Subject</label>
                 <input type="text" name="subject" placeholder="Subject" required>
                 <label>Message</label>
-                <textarea rows="10" placeholder="Write your message"></textarea>
+                <textarea rows="10" name="message" placeholder="Write your message"></textarea>
                 <div class="center">
-                    <button type="submit">Submit</button>
+                    <button type="submit" name="send" >Submit</button>
                 </div>
+                <?php
+                foreach($messages as $message) {
+                  echo '<p class="error"  >' . $message . '</p><br>';
+                }
+              ?>
             </form>
            </div>
         </div>
@@ -52,10 +87,7 @@
             <div class="column">
                 <div class="card">
                     <div class="container-about">
-                    <p style="text-align:center">We are the founders of TH13TEENBIT, we sell a variety of technology products, like computers, 
-                laptops, keyboards, headsets, speakers and webcams.
-                <br>Our team is always ready and available to help our customers, we are open 24/7. We offer good quality products, good services at an affordable price.
-                <br>We provide great deals for both new and existing customers.</p>
+                    <p style="text-align:center"></p>
                     </div>
                 </div>
             </div>
