@@ -38,6 +38,9 @@ body {
     /* Orange */
     --colourPrimary: #FF8000;
 
+    /* dark orange */
+    --colorPrimaryDark: #CC5500;
+
 
     /* Grey  */
     --colourSecondary: #3a3a3a;
@@ -46,6 +49,7 @@ body {
     --colourSecondaryDark:#23242a;
 
     background-color: var(--colourSecondaryDark);
+
 
 }
 
@@ -237,7 +241,7 @@ body {
     display: grid;
     gap: 25px;
     margin: 20px 0;
-
+    
 }
 
 /* customers */
@@ -251,14 +255,55 @@ body {
 
 .customer-table{
     background-color: var(--colourPrimary);
-    margin-bottom: 20px;
-    padding: 25px;
+    padding: 10px;
     box-sizing: border-box;
     -webkit-column-break-inside: avoid;
     border-radius: 5px;
     box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+}
+
+
+.customer-table thead tr {
+    background-color: var(--colorPrimaryDark);
+}
+
+.customer-table th, td{
+    padding: 20px 20px;
+    color: white;
+}
+
+/* customer orders */
+
+.customerOrders{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 }
+
+.customerOrders-table{
+    background-color: var(--colourPrimary);
+    padding: 10px;
+    box-sizing: border-box;
+    -webkit-column-break-inside: avoid;
+    border-radius: 5px;
+    box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+}
+
+
+.customerOrders-table thead tr {
+    background-color: var(--colorPrimaryDark);
+}
+
+.customerOrders-table th, td{
+    padding: 20px 20px;
+    color: white;
+}
+
 
 /* admins */ 
 
@@ -271,14 +316,34 @@ body {
 
 .admin-table{
     background-color: var(--colourPrimary);
-    margin-bottom: 20px;
-    padding: 25px;
+    padding: 10px;
     box-sizing: border-box;
     -webkit-column-break-inside: avoid;
     border-radius: 5px;
     box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+}
+
+.admin-table thead tr {
+    background-color: var(--colorPrimaryDark);
+}
+
+.admin-table th, td{
+    padding: 20px 20px;
 
 }
+
+table {
+    border: solid black;
+    border-spacing: 0;
+    width: 100%;
+}
+
+table th, td{
+    border: 1px solid black;
+}
+
 
 .admin-title{
     display: flex;
@@ -297,13 +362,13 @@ body {
 
 .stock-table{
     background-color: var(--colourPrimary);
-    margin-bottom: 20px;
-    padding: 25px;
+    padding: 10px;
     box-sizing: border-box;
     -webkit-column-break-inside: avoid;
     border-radius: 5px;
     box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
-
+    text-align: center;
+    width: 100%;
 }
 
 .stock-title{
@@ -311,6 +376,15 @@ body {
     align-items:center; 
     justify-content: center;
 
+}
+
+.stock-table thead tr {
+    background-color: var(--colorPrimaryDark);
+}
+
+.stock-table th, td{
+    padding: 20px 20px;
+    color: white;
 }
 
 /* Products */
@@ -323,13 +397,13 @@ body {
 
 .product-table{
     background-color: var(--colourPrimary);
-    margin-bottom: 20px;
-    padding: 25px;
+    padding: 10px;
     box-sizing: border-box;
     -webkit-column-break-inside: avoid;
     border-radius: 5px;
     box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
-
+    text-align: center;
+    width: 100%;
 }
 
 .product-title{
@@ -339,23 +413,34 @@ body {
 
 }
 
+.product-table thead tr {
+    background-color: var(--colorPrimaryDark);
+}
+
+.product-table th, td{
+    padding: 20px 20px;
+    color: white;
+}
+
+
 /* contact us */
 .contactUs{
     display: flex;
     align-items: center;
     justify-content: center;
 
+
 }
 
 .contactUs-table{
     background-color: var(--colourPrimary);
-    margin-bottom: 20px;
-    padding: 25px;
+    padding: 10px;
     box-sizing: border-box;
     -webkit-column-break-inside: avoid;
     border-radius: 5px;
     box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
-
+    text-align: center;
+    width: 100%;
 }
 
 .contactUs-title{

@@ -137,25 +137,25 @@ include("databaseConnect.php");
 
 
 
-                <d class="main-tables">
+                <div class="main-tables">
 
                     <div class="customers">
-                        <d class="customer-table">
-                            <h3 class="customer-title">
+                        <div class="customer-table">
+                            <h2 class="customer-title">
                                 Customer Table
-                            </h3>
+                            </h2>
                             <table>
 
                                 <thead>
 
                                     <tr>
-                                        <th scope="col">id</th>
+                                        <th scope="col">ID</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Email</th>
                                         <th scope="col">Password</th>
-                                        <th scope="col">Birth</th>
+                                        <th scope="col">Date of Birth</th>
                                         <th scope="col">House No.</th>
-                                        <th scope="col">Street</th>
+                                        <th scope="col">Street Name</th>
                                         <th scope="col">Town</th>
                                         <th scope="col">Postcode</th>
                                     </tr>
@@ -187,7 +187,8 @@ include("databaseConnect.php");
                                                 <td>' . $housenumber . '</td>
                                                 <td>' . $street . '</td>
                                                 <td>' . $town . '</td>
-                                                <td>' . $postcode .'</td>'
+                                                <td>' . $postcode .'</td>
+                                            </tr>'
                                             
                                             ;
                                         }
@@ -195,44 +196,165 @@ include("databaseConnect.php");
                                     ?>
                                 </tbody>
                             </table>
-                        </d>
+                        </div>
+                    </div>
+
+                    <div class="customerOrders">
+                        <div class="customerOrders-table">
+                            <h2 class="customerOrders-title">
+                                Contact Us Queries
+                            </h2>
+                            <table>
+                                    
+                                    <thead>
+    
+                                        <tr>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">Order Number</th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Product</th>
+                                            <th scope="col">Quantity</th>
+                                        </tr>
+    
+                                    </thead>
+    
+                                    <?php
+                                        $sql = "SELECT * from `customer_orders`";
+                                        $result = mysqli_query($con, $sql);
+                                        if ($result) {
+                                            while ($row = mysqli_fetch_assoc($result)){
+                                                $id = $row['id'];
+                                                $username = $row['order_number'];
+                                                $adminkey = $row['name'];
+                                                $product = $row['product'];
+                                                $quantity = $row['quantity'];
+                                                echo ' 
+                                                <tr>
+                                                    <th scope="row">' . $id . '</th>
+                                                    <td>' . $username . '</td>
+                                                    <td>' . $adminkey . '</td>
+                                                    <td>' . $product . '</td>
+                                                    <td>' . $quantity . '</td>
+                                                </tr>'
+                                                
+                                                ;
+                                            }
+                                        }
+                                    ?>
+                                </table>
+                        </div>
                     </div>
 
                     <d class="admin">
                         <d class="admin-table">
-                            <h3 class="admin-title">
+                            <h2 class="admin-title">
                                 Employee's Table
-                            </h3>
-                            
-                        </d>
-                    </d>
+                            </h2>
 
-                    <d class="stock">
-                        <d class="stock-table">
-                            <h3 class="admin-title">
-                                Stock Table
-                            </h3>
-                            
+                            <table>
+                                    
+                                <thead>
+
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Admin Key</th>
+                                        <th scope="col">Password</th>
+
+                                    </tr>
+
+                                </thead>
+
+                                <?php
+                                    $sql = "SELECT * from `admin`";
+                                    $result = mysqli_query($con, $sql);
+                                    if ($result) {
+                                        while ($row = mysqli_fetch_assoc($result)){
+                                            $id = $row['id'];
+                                            $username = $row['username'];
+                                            $adminkey = $row['adminkey'];
+                                            $password = $row['password'];
+                                            echo ' 
+                                            <tr>
+                                                <th scope="row">' . $id . '</th>
+                                                <td>' . $username . '</td>
+                                                <td>' . $adminkey . '</td>
+                                                <td>' . $password . '</td>
+                                            </tr>'
+                                            
+                                            ;
+                                        }
+                                    }
+                                ?>
+                            </table>
                         </d>
                     </d>
 
                     <d class="product">
                         <d class="product-table">
-                            <h3 class="product-title">
-                                Product Table
-                            </h3>
+                            <h2 class="product-title">
+                                Product / Stock Table
+                            </h2>
+                            <table>
+                                    
+                                <thead>
 
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Image</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Product Code</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col">Total</th>
+                                        <th scope="col">Key Value</th>
+
+
+                                    </tr>
+
+                                </thead>
+
+                                <?php
+                                    $sql = "SELECT * from `products`";
+                                    $result = mysqli_query($con, $sql);
+                                    if ($result) {
+                                        while ($row = mysqli_fetch_assoc($result)){
+                                            $id = $row['id'];
+                                            $image = $row['image_file'];
+                                            $name = $row['name'];
+                                            $productcode = $row['product_code'];
+                                            $price = $row['price'];
+                                            $password = $row['quantity'];
+                                            $total = $row['total'];
+                                            $keyvalue = $row['key_value'];
+                                            echo ' 
+                                            <tr>
+                                                <th scope="row">' . $id . '</th>
+                                                <td> <img src="images/' . $image . '"/></td>
+                                                <td>' . $name . '</td>
+                                                <td>' . $productcode . '</td>
+                                                <td>' . $price . '</td>
+                                                <td>' . $password . '</td>
+                                                <td>' . $total . '</td>
+                                                <td>' . $keyvalue . '</td>
+                                            </tr>'
+                                            
+                                            ;
+                                        }
+                                    }
+                                ?>
+                            </table>
                         </d>
                     </d>
 
-                    <d class="contactUs">
-                        <d class="contactUs-table">
-                            <h3 class="contactUs-title">
+                    <div class="contactUs">
+                        <div class="contactUs-table">
+                            <h2 class="contactUs-title">
                                 Contact Us Queries
-                            </h3>
-
-                        </d>
-                    </d>
+                            </h2>
+                                    
+                        </div>
+                    </div>
                 </d>
             </main>
                 
