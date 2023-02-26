@@ -14,30 +14,8 @@
 </head>
 <body>
 
-    <div class="logo-header">
-        <a href=""><img src="images\logogif4.gif" class="logo" width = 75% alt=""></a>
-    <div>
-    <nav>
-
-        <input type="checkbox" id="box">
-        <label for="box" class="boxbtn">
-            <i class="fa fa-bars"></i>
-        </label>
-        <a href=""><img src="" class="logo" alt=""></a>
-        <ul>  
-            <li><a href="">Home</a></li>
-            <li><a href="productspage.php">Products</a></li>
-            <li><a href="">Contact Us</a></li>  
-            <li><a href="">Logout</a></li>
-            <li><a href="">My Orders</a></li>   
-            <li><a href="wishlist"><img src="images\heart2.png" alt="computer/laptops" width= 30px height = 30px></a></li>
-            <li><a href="cartmenu"><img src="images\basket.png" alt="computer/laptops" width= 30px height = 30px></a></li>
-            <!-- <li><a href="wishlist"><i class="fa fa-heart-o" style="font-size:25px"></i></a></li>
-            <li><a href="cartmenu"><i class="fa fa-shopping-cart" style="font-size:25px"></i></a></li> -->
-        
-        </ul>
-        
-    </nav>
+   <!-- header -->
+   <?php include_once "header.php"?>
     
     <?php
         $productid = $_GET['productid'];
@@ -68,7 +46,6 @@
                                 <div class="controls">
                                     <span onclick="img1()" class="imagebtn"><i class="fa fa-circle-o" aria-hidden="true" ></i></span>
                                     <span onclick="img2()" class="imagebtn"><i class="fa fa-circle-o" aria-hidden="true" ></i></span>
-                                    <span onclick="img3()" class="imagebtn"><i class="fa fa-circle-o" aria-hidden="true" ></i></span>
                                 </div>
                                 </div>
                                 <?php
@@ -121,7 +98,7 @@
                                   <input type="hidden" name="product_id" value="{{ $row['id'] }}">
                                   <button class="addBtn"><i class="fa fa-star-o"></i> Add to Wishlist</button>
                                  </form>
-                                 <form action="/add_to_cart" method="POST">
+                                 <form action="addtocart.php" method="POST">
                                  
                                  <input type="hidden" name="product_id" value="{{ $row['id'] }}">
                                  <?php
@@ -133,7 +110,12 @@
                                 }
                                  ?>
                                  
-                                </form>
+                                </form><!-- 
+                                <form action="index.php?page=cart" method="post">
+                                    <input type="number" name="quantity" value="1" min="1" max="<?=$product['quantity']?>" placeholder="Quantity" required>
+                                    <input type="hidden" name="product_id" value="<?=$product['id']?>">
+                                    <input type="submit" value="Add To Cart">
+                                </form> -->
 
                                 <?php
                         }
@@ -150,7 +132,31 @@
         </div>
 
     </div>
+<?php
+    if(isset($_POST['addtocart.php']))
+        
+        // Check connection
+ 
+                    $db_host = 'localhost';
+                    $db_name = '13_bits';
+                    $username = 'root';
 
+                try {
+                    $db = new PDO("mysql:dbname=$db_name;host=$db_host", $username); 
+                    #$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    $sql = "INSERT INTO customer_orders (id, productID, customerID)
+                    VALUES ('', $productid, '1')";
+                    
+                } catch(PDOException $ex) {
+                    echo("Failed to connect to the database.<br>");
+                    echo($ex->getMessage());
+                    exit;
+                }
+?>
+
+
+ 
+    
 
 <script>
     let productimg = document.getElementById("productimg");
@@ -189,49 +195,10 @@
             }
         ?>
     }
-    function img3(){
-        <?php
-            $query="SELECT  * FROM  `images` WHERE `ProductID` = '$productid'";
-            $rows =  $db->query($query);
-                
-            if ( $rows && $rows->rowCount()> 0) {
-                while  ($row =  $rows->fetch())	{
-                    if($row['Image3'] != null){
-                        echo 'productimg.src ="' . $row['Image3'] . '"';
-                    }
-                    
-                }
-            }
-            else {
-                echo  "<p>No record in the list.</p>\n";
-            }
-        ?>
-    }
 </script>
 
 </body>
-<footer class="footer">
-        <div class="footerlogo">
-        <a href=""><img src="images\logojumping2.gif" width = 250px height=250px></a>
-        </div>
-
-        <div class="footernav">
-            <h2>Navigation</h2>
-            <ul class="links">
-                <li> <a href="#">Home</a></li>
-                <li> <a href="#">Products</a></li>
-                <li> <a href="#">Contact Us</a></li>
-            </ul>
-        </div>
-
-        <div class="socials">
-            <h2>Our Socials</h2>
-            <ul class="links">
-                <li> <a href="#"><i class="fa fa-github" aria-hidden="true"></i> Github</a></li>
-                <li> <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i>   Facebook</a></li>
-                <li> <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a></li>
-            </ul>
-        </div>
-    </footer>
+<!-- footer -->
+<?php include_once "footer.php"?>
 
 </html>

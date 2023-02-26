@@ -98,27 +98,8 @@ We are open 24/7 and always available to help our customers.
                 </div>
             </div>
     </body>
-    <footer class="footer">
-        <div class="footerlogo">
-        <a href=""><img src="images\logojumping2.gif" width = 250px height=250px></a>
-        </div>
+    
+    <!-- footer -->
+<?php include_once "footer.php"?>
 
-        <div class="footernav">
-            <h2>Navigation</h2>
-            <ul class="links">
-                <li> <a href="#">Home</a></li>
-                <li> <a href="productspage.php">Products</a></li>
-                <li> <a href="#">Contact Us</a></li>
-            </ul>
-        </div>
-
-        <div class="socials">
-            <h2>Our Socials</h2>
-            <ul class="links">
-                <li> <a href="#"><i class="fa fa-github" aria-hidden="true"></i> Github</a></li>
-                <li> <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i>   Facebook</a></li>
-                <li> <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a></li>
-            </ul>
-        </div>
-    </footer>
 </html>
