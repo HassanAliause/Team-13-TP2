@@ -14,7 +14,7 @@
     </head>
 
     <div class="logo-header">
-        <a href="homepage1.php"><img src="/images\logogif4.gif" class="logo" width = 75% alt=""></a>
+        <a href="homepage1.php"><img src="/images/logogif4.gif" class="logo" width = 75% alt=""></a>
     <div>
     <nav>
 
