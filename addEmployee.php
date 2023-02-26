@@ -7,12 +7,11 @@
 
     if (isset($_POST['submitButton'])) {
 
-        $username = $_POST['customerName'];
-        $email = $_POST['customerEmail'];
-        $password = $_POST['customerPassword'];
+        $username = $_POST['eName'];
+        $password = $_POST['ePassword'];
 
-        $sql = "INSERT into `login_info` (username, email, password) values('$username', '$email', '$password')";
-        $result = mysqli_query($con, $sql);
+        $sql = "INSERT into `admin` (username, password) values('$username', '$password')";
+        $result = mysqli_query($con,$sql);
         
         if (!$result) {
             die(mysqli_error($con));
@@ -53,39 +52,31 @@
             <?php include_once "adminSidebar.php"?>
 
             <main class="main-container">
-                <!-- this will be the input form box that will create a new customer account -->
+                <!-- this will be the input form box that will add a new employee -->
                 <div class="addBox">
                 
                 <!-- title of page -->
                 <div class="main-title">
-                    <h2>Create New Customer:</h2>
+                    <h2>Add Employee:</h2>
                 </div>
 
                     <form class="box-input" method="POST">
                         
-                        <!-- customer Username -->
+                        <!-- Employee Username -->
                         <div class="customerName">
-                            <h2>New Customer Name:</h2>
-                            <input type="text" class="formInput" name="customerName" autocomplete="off" placeholder="Enter Customer Name">
+                            <h2>Employee User Name:</h2>
+                            <input type="text" class="formInput" name="eName" autocomplete="off" placeholder="Enter Employee Username">
                         </div>
 
-
-                        <!-- customer email -->
-                        <div class="customerEmail">
-                            <h2>New Customer Email: </h2>
-                            <input type="text" class="formInput" name="customerEmail" autocomplete="off" placeholder="Enter Customer Email" >
-                        </div>
-
-
-                        <!-- customer password -->
+                        <!-- Employee password -->
                         <div>
-                            <h2>New Customer Password:</h2>
-                            <input type="text" class="formInput"  name="customerPassword" autocomplete="off" placeholder="Enter Customer Password">
+                            <h2>Employee Password:</h2>
+                            <input type="text" class="formInput"  name="ePassword" autocomplete="off" placeholder="Enter Employee Password">
                         </div>
  
                         <!-- submit button -->
 
-                        <button type="submit" class="formButton" name="submitButton">Create New Customer</button>
+                        <button type="submit" class="formButton" name="submitButton">Add New Employee</button>
 
                     </form>
 
