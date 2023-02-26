@@ -421,4 +421,5 @@ body {
 textarea {
     resize:vertical;
     height: 150px;
+    font-family: Arial, Helvetica, sans-serif;
 }

@@ -5,14 +5,13 @@
     //     header("Location:Public\Front End\PHP\login.php")
     // }
 
-    if (isset($_POST['submitButton'])) {
+    if (isset($_POST['formButton'])) {
 
-        $username = $_POST['customerName'];
-        $email = $_POST['customerEmail'];
-        $password = $_POST['customerPassword'];
+        $name = $_POST['username'];
+        $password = $_POST['password'];
 
-        $sql = "INSERT into `login_info` (username, email, password) values('$username', '$email', '$password')";
-        $result = mysqli_query($con, $sql);
+        $sql = "INSERT into `admin` (username, password) values($name, $password)";
+        $result = mysqli_query($con,$sql);
         
         if (!$result) {
             die(mysqli_error($con));
@@ -58,24 +57,16 @@
                 
                 <!-- title of page -->
                 <div class="main-title">
-                    <h2>Create New Customer:</h2>
+                    <h2>Add Employee:</h2>
                 </div>
 
                     <form class="box-input" method="POST">
                         
                         <!-- customer Username -->
                         <div class="customerName">
-                            <h2>New Customer Name:</h2>
+                            <h2>Employee User Name:</h2>
                             <input type="text" class="formInput" name="customerName" autocomplete="off" placeholder="Enter Customer Name">
                         </div>
-
-
-                        <!-- customer email -->
-                        <div class="customerEmail">
-                            <h2>New Customer Email: </h2>
-                            <input type="text" class="formInput" name="customerEmail" autocomplete="off" placeholder="Enter Customer Email" >
-                        </div>
-
 
                         <!-- customer password -->
                         <div>
@@ -85,7 +76,7 @@
  
                         <!-- submit button -->
 
-                        <button type="submit" class="formButton" name="submitButton">Create New Customer</button>
+                        <button type="submit" class="formButton" name="submitButton">Add New Employee</button>
 
                     </form>
 

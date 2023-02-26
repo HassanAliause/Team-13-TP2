@@ -45,19 +45,19 @@
                     </span>
                     <a href="addCustomer.php" class="sidebar-list-text">Add Customer</a>
                 </li>
-                
-                <li class="sidebar-list-item">
-                    <span class="material-symbols-outlined">
-                        assignment_add
-                    </span>
-                    <a href="addProduct.php" class="sidebar-list-text">Add Product</a>
-                </li>
 
                 <li class="sidebar-list-item">
                     <span class="material-symbols-outlined">
                         manage_accounts
                     </span>
-                    <a href="#" class="sidebar-list-text">Add Employee</a>
+                    <a href="addEmployee.php" class="sidebar-list-text">Add Employee</a>
+                </li>
+
+                <li class="sidebar-list-item">
+                    <span class="material-symbols-outlined">
+                        assignment_add
+                    </span>
+                    <a href="addProduct.php" class="sidebar-list-text">Add Product</a>
                 </li>
 
                 <li class="sidebar-list-item">
