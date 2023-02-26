@@ -87,7 +87,13 @@ if(isset($_POST['send'])){
             <div class="column">
                 <div class="card">
                     <div class="container-about">
-                    <p style="text-align:center"></p>
+                    <p style="text-align:center">We are the founders of TH13TEENBIT, we sell a variety of technology products. TH13EENBIT only started couple years ago, since Covid-19.<br>
+Since covid-19 has hit the UK, we have noticed the demand for computers and its accessories has been increased. This was because most of the population started to work/study/play from home.
+Therefore we've decided to open an online technology store.<br>
+As the store is getting well known by users, we've decided to enlarge our business by selling gaming computers, gaming accessories and and other products for streamers. <br>
+Our vision is to sell high-quality technology products at an affordable price, so young adults won't have to spend loads of money. We offer great deals for both new and existing customers.   
+We are open 24/7 and always available to help our customers.
+</p>
                     </div>
                 </div>
             </div>
