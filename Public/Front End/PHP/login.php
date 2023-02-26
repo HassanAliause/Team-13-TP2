@@ -60,7 +60,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["username"] = $username;
 
                             // Redirect user to welcome page
-                            header("location: welcome.php?id=$id");
+                            header("location: http://localhost/Team-13-TP2/homepage1.php?id=$id");
                         } else{
                             // Display an error message if password is not valid
                             $errors["generic"] = "Invalid username or password.";
