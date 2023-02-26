@@ -144,16 +144,66 @@ include("databaseConnect.php");
                             <h3 class="customer-title">
                                 Customer Table
                             </h3>
+                            <table>
 
+                                <thead>
+
+                                    <tr>
+                                        <th scope="col">id</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Password</th>
+                                        <th scope="col">Birth</th>
+                                        <th scope="col">House No.</th>
+                                        <th scope="col">Street</th>
+                                        <th scope="col">Town</th>
+                                        <th scope="col">Postcode</th>
+                                    </tr>
+
+                                </thead>
+
+                                <tbody>
+                                    <?php
+                                    $sql = "SELECT * from `customer_details`";
+                                    $result = mysqli_query($con, $sql);
+                                    if ($result) {
+                                        while ($row = mysqli_fetch_assoc($result)){
+                                            $id = $row['id'];
+                                            $name = $row['name'];
+                                            $email = $row['email'];
+                                            $password = $row['password'];
+                                            $birth = $row['birth'];
+                                            $housenumber = $row['housenumber'];
+                                            $street = $row['streetname'];
+                                            $town = $row['townname'];
+                                            $postcode = $row['postcode'];
+                                            echo ' 
+                                            <tr>
+                                                <th scope="row">' . $id . '</th>
+                                                <td>' . $name . '</td>
+                                                <td>' . $email . '</td>
+                                                <td>' . $password . '</td>
+                                                <td>' . $birth . '</td>
+                                                <td>' . $housenumber . '</td>
+                                                <td>' . $street . '</td>
+                                                <td>' . $town . '</td>
+                                                <td>' . $postcode .'</td>'
+                                            
+                                            ;
+                                        }
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
                         </d>
                     </div>
 
                     <d class="admin">
                         <d class="admin-table">
                             <h3 class="admin-title">
-                                Administrator Table
+                                Employee's Table
                             </h3>
-
+                            
                         </d>
                     </d>
 
@@ -162,7 +212,7 @@ include("databaseConnect.php");
                             <h3 class="admin-title">
                                 Stock Table
                             </h3>
-
+                            
                         </d>
                     </d>
 

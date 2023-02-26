@@ -11,7 +11,7 @@
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        $sql = "INSERT into `login_info` (name, email, password) values('$name, $email, $password')";
+        $sql = "INSERT into `products` (name, email, password) values('$name, $email, $password')";
         $result = mysqli_query($con,$sql);
         
         if (!$result) {
@@ -53,7 +53,7 @@
             <?php include_once "adminSidebar.php"?>
 
             <main class="main-container">
-                <!-- this will be the input form box that will create a new customer account -->
+                <!-- this will be the input form box that will create a new product -->
                 <div class="addBox">
                 
                 <!-- title of page -->

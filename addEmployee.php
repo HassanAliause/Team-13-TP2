@@ -5,12 +5,12 @@
     //     header("Location:Public\Front End\PHP\login.php")
     // }
 
-    if (isset($_POST['formButton'])) {
+    if (isset($_POST['submitButton'])) {
 
-        $name = $_POST['username'];
-        $password = $_POST['password'];
+        $username = $_POST['eName'];
+        $password = $_POST['ePassword'];
 
-        $sql = "INSERT into `admin` (username, password) values($name, $password)";
+        $sql = "INSERT into `admin` (username, password) values('$username', '$password')";
         $result = mysqli_query($con,$sql);
         
         if (!$result) {
@@ -52,7 +52,7 @@
             <?php include_once "adminSidebar.php"?>
 
             <main class="main-container">
-                <!-- this will be the input form box that will create a new customer account -->
+                <!-- this will be the input form box that will add a new employee -->
                 <div class="addBox">
                 
                 <!-- title of page -->
@@ -62,16 +62,16 @@
 
                     <form class="box-input" method="POST">
                         
-                        <!-- customer Username -->
+                        <!-- Employee Username -->
                         <div class="customerName">
                             <h2>Employee User Name:</h2>
-                            <input type="text" class="formInput" name="customerName" autocomplete="off" placeholder="Enter Customer Name">
+                            <input type="text" class="formInput" name="eName" autocomplete="off" placeholder="Enter Employee Username">
                         </div>
 
-                        <!-- customer password -->
+                        <!-- Employee password -->
                         <div>
-                            <h2>New Customer Password:</h2>
-                            <input type="text" class="formInput"  name="customerPassword" autocomplete="off" placeholder="Enter Customer Password">
+                            <h2>Employee Password:</h2>
+                            <input type="text" class="formInput"  name="ePassword" autocomplete="off" placeholder="Enter Employee Password">
                         </div>
  
                         <!-- submit button -->
