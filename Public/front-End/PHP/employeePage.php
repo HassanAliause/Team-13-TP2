@@ -24,7 +24,7 @@ include("databaseConnect.php");
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
         <!-- link to css file -->
-        <link rel="stylesheet" href="css/employee.css">
+        <link rel="stylesheet" href="../CSS/employee.css">
         
     </head>
 
@@ -365,6 +365,6 @@ include("databaseConnect.php");
 
         <!-- link to java script file -->
         <!-- place at the bottom to allow html to load first-->
-        <script src="js/employee.js"></script>
+        <script src="../js/employee.js"></script>
     </body>
 </html>

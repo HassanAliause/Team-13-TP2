@@ -1,10 +1,10 @@
 <?php
 // Initialize the session
-
+session_start();
 
 
 // Include config file
-require_once "config.php";
+require_once "databaseConnect.php";
 
 // Define variables and initialize with empty values
 $username = $password = "";
@@ -33,7 +33,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         // Prepare a select statement
         $sql = "SELECT id, username, password FROM login_info WHERE username = ?";
 
-        if($stmt = mysqli_prepare($conn, $sql)){
+        if($stmt = mysqli_prepare($con, $sql)){
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "s", $param_username);
 
@@ -60,7 +60,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["username"] = $username;
 
                             // Redirect user to welcome page
-                            header("location: http://localhost/Team-13-TP2/homepage1.php?id=$id");
+                            header("location: homepage1.php?id=$id");
                         } else{
                             // Display an error message if password is not valid
                             $errors["generic"] = "Invalid username or password.";
@@ -80,7 +80,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 
     // Close connection
-    mysqli_close($conn);
+    mysqli_close($con);
 }
 ?>
 

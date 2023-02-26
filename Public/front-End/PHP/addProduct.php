@@ -5,12 +5,13 @@
     //     header("Location:Public\Front End\PHP\login.php")
     // }
 
-    if (isset($_POST['submitButton'])) {
+    if (isset($_POST['SubmitButton'])) {
 
-        $username = $_POST['eName'];
-        $password = $_POST['ePassword'];
+        $name = $_POST['username'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
 
-        $sql = "INSERT into `admin` (username, password) values('$username', '$password')";
+        $sql = "INSERT into `products` (name, email, password) values('$name, $email, $password')";
         $result = mysqli_query($con,$sql);
         
         if (!$result) {
@@ -28,7 +29,7 @@
        <meta name="viewport" content="width=device-width,initial-scale=1.0">
       
        <!-- title of page -->
-       <title>Employee Page - Add Customer</title>
+       <title>Employee Page - Add User</title>
        
        <!-- link to icons -->
        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -38,13 +39,13 @@
        <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
        <!-- link to css file -->
-       <link rel="stylesheet" href="css/employee.css">
+       <link rel="stylesheet" href="../CSS/employee.css">
        
     </head>
 
     <body>
-            
-        <div class="grid-container">
+        
+    <div class="grid-container">
             <!-- header -->
             <?php include_once "adminHeader.php"?>
 
@@ -52,31 +53,41 @@
             <?php include_once "adminSidebar.php"?>
 
             <main class="main-container">
-                <!-- this will be the input form box that will add a new employee -->
+                <!-- this will be the input form box that will create a new product -->
                 <div class="addBox">
                 
                 <!-- title of page -->
                 <div class="main-title">
-                    <h2>Add Employee:</h2>
+                    <h2>Add New Product:</h2>
                 </div>
 
                     <form class="box-input" method="POST">
                         
-                        <!-- Employee Username -->
-                        <div class="customerName">
-                            <h2>Employee User Name:</h2>
-                            <input type="text" class="formInput" name="eName" autocomplete="off" placeholder="Enter Employee Username">
+                        <!-- product name -->
+                        <div class="pName">
+                            <h2>New Product Name:</h2>
+                            <input type="text" class="formInput" name="productName" autocomplete="off" placeholder="Enter Product Name">
                         </div>
 
-                        <!-- Employee password -->
+
+                        <!-- product infomation -->
+                        <div class="pEmail">
+                            <h2>New Product Infomation: </h2>
+                            <textarea type="text" class="formInput" name="productInfomation" autocomplete="off" placeholder="Enter Product Infomation" ></textarea>
+                        </div>
+
+
+                        <!-- product price -->
                         <div>
-                            <h2>Employee Password:</h2>
-                            <input type="text" class="formInput"  name="ePassword" autocomplete="off" placeholder="Enter Employee Password">
+                            <h2>New Product Price:</h2>
+                            <input type="text" class="formInput"  name="customerPassword" autocomplete="off" placeholder="Enter Customer Password">
                         </div>
  
-                        <!-- submit button -->
+                        <!-- image for product -->
+                        <input type="file" class="formImageInput" name="image">
 
-                        <button type="submit" class="formButton" name="submitButton">Add New Employee</button>
+                        <!-- submit button -->
+                        <button type="submit" class="formButton" name="submitButton">Add New Product</button>
 
                     </form>
 

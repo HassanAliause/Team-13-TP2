@@ -6,8 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
-    <link rel="stylesheet" href="productspage.css">
-    <link rel="stylesheet" href="homepage1.css">
+    <!-- custom css -->
+    <link rel="stylesheet" href="../CSS/productspage.css">
+    <link rel="stylesheet" href="../CSS/homepage1.css">
 </head>
 
 <body>

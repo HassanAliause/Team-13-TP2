@@ -10,7 +10,7 @@ $user_id = $_SESSION['id'];
 $messages = array();
 
 if(!isset($user_id)){
-   header('location:../Public/PHP/login.php');
+   header('location: login.php');
 }
 if(isset($_POST['send'])){
 
@@ -41,7 +41,7 @@ if(isset($_POST['send'])){
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Contact Us</title>
-        <link rel="stylesheet" href="contactus.css">
+        <link rel="stylesheet" href="../CSS/contactus.css">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

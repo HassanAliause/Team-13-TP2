@@ -3,7 +3,7 @@
 
 
     // including the config file for connecting and checking database connection
-    require_once "config.php";
+    require_once "databaseConnect.php";
 
     $username = $password = $confirm_password = $email = "";
     $errors = [];
