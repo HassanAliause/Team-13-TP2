@@ -67,6 +67,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         }
                     }
                 } else{
+                    // hello
                     // Display an error message if username doesn't exist
                     $errors["generic"] = "Invalid username or password.";
                 }
