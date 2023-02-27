@@ -16,18 +16,17 @@ if(isset($_POST['send'])){
 
     $fName = mysqli_real_escape_string($con, $_POST['fname']);
     $lName = mysqli_real_escape_string($con, $_POST['lname']);
-    $fullName = $fName . ' ' . $lName;
     $number = $_POST['phone'];
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $subject = mysqli_real_escape_string($con, $_POST['subject']);
     $msg = mysqli_real_escape_string($con, $_POST['message']);
-    $select_message = mysqli_query($con, "SELECT * FROM `message` WHERE name = '' AND email = '$email' And subject = '$subject' AND number = '$number' AND message = '$msg'") or die('query failed');
+    $select_message = mysqli_query($con, "SELECT * FROM `message` WHERE fName = '' AND lName = ''  AND email = '$email' AND subject = '$subject' AND phone = '$number' AND message = '$msg'") or die('query failed');
  
     if(mysqli_num_rows($select_message) > 0){
-       $messages['successful'] = 'Message sent already!';
+       $messages['unsuccessful'] = 'Message sent already!';
     }else{
-       mysqli_query($con, "INSERT INTO `message`(user_id, name, email, number, subject, message) VALUES('$user_id', '$fullName', '$email', '$number','$subject' , '$msg')") or die('query failed');
-       $messages['unsuccessful'] = 'Message sent successfully!';
+       mysqli_query($con, "INSERT INTO `message`( fName, lName, phone, email, subject, message) VALUES( '$fName', '$lName', '$number' ,'$email' ,'$subject' , '$msg')") or die('query failed');
+       $messages['successful'] = 'Message sent successfully!';
     }
  
  }
@@ -55,7 +54,7 @@ if(isset($_POST['send'])){
         </div>
         <div class="container">
             <div class="container-box">
-            <form class="form input">
+            <form class="form input" action="contactus.php" method="POST">
                 <div class="titleh3">
                     <h3>For any queries, please fill out this form and we will contact you back within 24 hours.</h3>
                 </div>
@@ -76,7 +75,7 @@ if(isset($_POST['send'])){
                 </div>
                 <?php
                 foreach($messages as $message) {
-                  echo '<p class="error"  >' . $message . '</p><br>';
+                  echo '<p class="message"  >' . $message . '</p><br>';
                 }
               ?>
             </form>
