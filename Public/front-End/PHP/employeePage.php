@@ -202,7 +202,7 @@ include("databaseConnect.php");
                     <div class="customerOrders">
                         <div class="customerOrders-table">
                             <h2 class="customerOrders-title">
-                                Contact Us Queries
+                                Customer Orders
                             </h2>
                             <table>
                                     

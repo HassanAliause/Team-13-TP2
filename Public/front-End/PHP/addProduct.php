@@ -5,18 +5,28 @@
     //     header("Location:Public\Front End\PHP\login.php")
     // }
 
-    if (isset($_POST['SubmitButton'])) {
+    if (isset($_POST['submitButton'])) {
 
-        $name = $_POST['username'];
-        $email = $_POST['email'];
-        $password = $_POST['password'];
 
-        $sql = "INSERT into `products` (name, email, password) values('$name, $email, $password')";
-        $result = mysqli_query($con,$sql);
+        $name = $_POST['productName'];
+        $code = $_POST['productCode'];
+        $quantity = $_POST['productQuantity'];
+        $total = $_POST['productTotal'];
+        $price = $_POST['productPrice'];
+        $keyvalue = $_POST['productKeyValue'];
+        $image = $_POST['productImage'];
         
+        
+        $sql = "INSERT into `products` (name, product_code, quantity, total, price, key_value, image_file) 
+        values('$name', '$code', '$quantity', '$total', '$price', '$keyvalue', '$image')";
+        $result = mysqli_query($con, $sql);
+
         if (!$result) {
             die(mysqli_error($con));
         }
+
+
+
     }
 ?>
 
@@ -29,7 +39,7 @@
        <meta name="viewport" content="width=device-width,initial-scale=1.0">
       
        <!-- title of page -->
-       <title>Employee Page - Add User</title>
+       <title>Employee Page - Add Product</title>
        
        <!-- link to icons -->
        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -69,22 +79,47 @@
                             <input type="text" class="formInput" name="productName" autocomplete="off" placeholder="Enter Product Name">
                         </div>
 
+                        <!-- product code -->
+                        <div class="pCode">
+                            <h2>New Product Code:</h2>
+                            <input type="text" class="formInput" name="productCode" autocomplete="off" placeholder="Enter Product Code">
+                        </div>
 
+                        <!-- product total -->
+                        <div class ="pKeyValue">
+                            <h2>Product Key Value:</h2>
+                            <input type="text" class="formInput"  name="productKeyValue" autocomplete="off" placeholder="Enter Key Value">
+                        </div>
+
+
+                        <!-- quantity -->
+                        <div class="pQuantity">
+                            <h2>New Product Quantity:</h2>
+                            <input type="text" class="formInput"  name="productQuantity" autocomplete="off" placeholder="Enter Product Quantity">
+                        </div>
+                        
                         <!-- product infomation -->
-                        <div class="pEmail">
+                        <!-- <div class="pEmail">
                             <h2>New Product Infomation: </h2>
                             <textarea type="text" class="formInput" name="productInfomation" autocomplete="off" placeholder="Enter Product Infomation" ></textarea>
-                        </div>
+                        </div> -->
 
+                        <!-- product total -->
+                        <div class ="pTotal">
+                            <h2>Product Total:</h2>
+                            <input type="text" class="formInput"  name="productTotal" autocomplete="off" placeholder="Enter Product Total">
+                        </div>
 
                         <!-- product price -->
-                        <div>
+                        <div class ="pPrice">
                             <h2>New Product Price:</h2>
-                            <input type="text" class="formInput"  name="customerPassword" autocomplete="off" placeholder="Enter Customer Password">
+                            <input type="text" class="formInput"  name="productPrice" autocomplete="off" placeholder="Enter Product Price">
                         </div>
- 
+
+                        
+
                         <!-- image for product -->
-                        <input type="file" class="formImageInput" name="image">
+                        <input type="file" class="formImageInput" name="productImage">
 
                         <!-- submit button -->
                         <button type="submit" class="formButton" name="submitButton">Add New Product</button>
