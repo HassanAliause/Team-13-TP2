@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 25, 2023 at 12:27 AM
+-- Generation Time: Feb 27, 2023 at 01:39 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -141,6 +141,22 @@ INSERT INTO `login_info` (`id`, `username`, `email`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `message`
+--
+
+CREATE TABLE `message` (
+  `id` int(11) NOT NULL,
+  `fName` varchar(300) DEFAULT NULL,
+  `lName` varchar(300) DEFAULT NULL,
+  `phone` int(30) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `subject` varchar(30) DEFAULT NULL,
+  `message` varchar(5000) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `products`
 --
 
@@ -208,9 +224,11 @@ CREATE TABLE `product_images` (
 --
 
 INSERT INTO `product_images` (`id`, `product_id`, `name`, `image_1`, `image_2`, `image_3`) VALUES
-(1, '7372', 'HP Wireless Black Keyboard', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261488336687245/keyboard2-1PNG.png        ', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261471949533214/keyboard2-2PNG.png', ''),
+(1, '7372', 'HP Wireless Black Keyboard', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261488336687245/keyboard2-1PNG.png        ', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261471949533214/keyboard2-2PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261488336687245/keyboard2-1PNG.png        '),
 (2, '2828', 'Logitech Gaming Headset (Black)', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261025507807303/headset1-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261026514448434/headset2-2PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261025801412628/headset1-2PNG.png'),
-(3, '1112', '13 Bits Mouse', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261335907291147/mice1-1PNG.png', '', '');
+(3, '1112', 'SandStrom Wireless Mouse', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261335907291147/mice1-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261336695820368/mice1-2PNG.png', ''),
+(4, '6262', 'MacBook Pro M2 1TB', 'https://cdn.discordapp.com/attachments/1073347102559703130/1075794599307649095/laptop2-1.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261431566762087/laptop2-2PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261431105396736/laptop2-3PNG.png'),
+(5, NULL, 'Acer Zenbook Gaming Laptop 1TB', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261430795026462/laptop1-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261432313348156/laptop1-2PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261432057503784/laptop1-3PNG.png');
 
 --
 -- Indexes for dumped tables
@@ -248,6 +266,12 @@ ALTER TABLE `customer_orders`
 -- Indexes for table `login_info`
 --
 ALTER TABLE `login_info`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `message`
+--
+ALTER TABLE `message`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -299,6 +323,12 @@ ALTER TABLE `login_info`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `message`
+--
+ALTER TABLE `message`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
@@ -308,7 +338,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `product_images`
 --
 ALTER TABLE `product_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
