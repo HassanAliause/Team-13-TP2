@@ -21,7 +21,7 @@
             $errors["username"] = "Username can only contain letters, numbers, and underscores!";
         } else {
             $sql = "SELECT id FROM login_info WHERE username = ?";
-            $stmt = $conn->prepare($sql);
+            $stmt = $con->prepare($sql);
             $stmt->bind_param("s", $username);
             $stmt->execute();
             $result = $stmt->get_result();
@@ -40,7 +40,7 @@
             $errors["email"] = "Invalid email address";
           } else {
             $sql = "SELECT id FROM login_info WHERE email = ?";
-            $stmt = $conn->prepare($sql);
+            $stmt = $con->prepare($sql);
             $stmt->bind_param("s", $email);
             $stmt->execute();
             $result = $stmt->get_result();
@@ -70,7 +70,7 @@
         // If no errors, insert data into database
         if (count($errors) == 0) {
             $sql = "INSERT INTO login_info (username, email, password) VALUES (?, ?, ?)";
-            $stmt = $conn->prepare($sql);
+            $stmt = $con->prepare($sql);
             // Hash the password
             $hashed_password = password_hash($confirm_password, PASSWORD_DEFAULT);
             $stmt->bind_param("sss", $username, $email, $hashed_password);
@@ -86,7 +86,7 @@
         }
     }
 
-    $conn->close();
+    $con->close();
 ?>
 
 
