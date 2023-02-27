@@ -33,7 +33,7 @@
                     $db = new PDO("mysql:dbname=$db_name;host=$db_host", $username); 
                     #$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                     try {
-                        $query="SELECT  * FROM  `images` WHERE `ProductID` = '$productid'";
+                        $query="SELECT  * FROM  `product_images` WHERE `product_id` = '$productid'";
                         $rows =  $db->query($query);
                             
                         if ( $rows && $rows->rowCount()> 0) {
@@ -41,7 +41,7 @@
                                 ?>
                                 <div class="product-image">
                                 <?php
-                                    echo '<img id ="productimg" src ="' . $row['Image1'] . '">';
+                                    echo '<img id ="productimg" src ="' . $row['image_1'] . '">';
                                 ?>
                                 <div class="controls">
                                     <span onclick="img1()" class="imagebtn"><i class="fa fa-circle-o" aria-hidden="true" ></i></span>
@@ -80,7 +80,6 @@
                            
                                 echo '<h1>' . $row['name'] . '</h1>';
                                 echo '<h2>£' . $row['price'] . '</h2>';
-                                echo '<p>' . $row['description'] . '</p>';
                                 if($row['quantity'] > 10){
                                     echo '<div class = "in-stock" style="color:green;"> <i class="fa fa-check-circle-o" aria-hidden="true"></i> IN STOCK </div>';
                                 }
@@ -163,13 +162,13 @@
     let imagebtn = document.getElementsByClassName("imagebtn");
     function img1(){
         <?php
-            $query="SELECT  * FROM  `images` WHERE `ProductID` = '$productid'";
+            $query="SELECT  * FROM  `product_images` WHERE `product_id` = '$productid'";
             $rows =  $db->query($query);
                 
             if ( $rows && $rows->rowCount()> 0) {
                 while  ($row =  $rows->fetch())	{
-                    if($row['Image1'] != null){
-                        echo 'productimg.src ="' . $row['Image1'] . '"';
+                    if($row['image_1'] != null){
+                        echo 'productimg.src ="' . $row['image_1'] . '"';
                     }
                 }
             }
@@ -180,13 +179,30 @@
     }
     function img2(){
         <?php
-            $query="SELECT  * FROM  `images` WHERE `ProductID` = '$productid'";
+            $query="SELECT  * FROM  `product_images` WHERE `product_id` = '$productid'";
             $rows =  $db->query($query);
                 
             if ( $rows && $rows->rowCount()> 0) {
                 while  ($row =  $rows->fetch())	{
-                    if($row['Image2'] != null){
-                        echo 'productimg.src ="' . $row['Image2'] . '"';
+                    if($row['image_2'] != null){
+                        echo 'productimg.src ="' . $row['image_2'] . '"';
+                    }
+                }
+            }
+            else {
+                echo  "<p>No record in the list.</p>\n";
+            }
+        ?>
+    }
+    function img3(){
+        <?php
+            $query="SELECT  * FROM  `product_images` WHERE `product_id` = '$productid'";
+            $rows =  $db->query($query);
+                
+            if ( $rows && $rows->rowCount()> 0) {
+                while  ($row =  $rows->fetch())	{
+                    if($row['image_3'] != null){
+                        echo 'productimg.src ="' . $row['image_3'] . '"';
                     }
                 }
             }
