@@ -15,10 +15,11 @@
         $price = $_POST['productPrice'];
         $keyvalue = $_POST['productKeyValue'];
         $image = $_POST['productImage'];
+        $info = $_POST['productDescription'];
         
         
-        $sql = "INSERT into `products` (name, product_code, quantity, total, price, key_value, image_file) 
-        values('$name', '$code', '$quantity', '$total', '$price', '$keyvalue', '$image')";
+        $sql = "INSERT into `products` (name, product_code, description, quantity, total, price, key_value, image_file) 
+        values('$name', '$info', '$code', '$quantity', '$total', '$price', '$keyvalue', '$image')";
         $result = mysqli_query($con, $sql);
 
         if (!$result) {
@@ -99,10 +100,10 @@
                         </div>
                         
                         <!-- product infomation -->
-                        <!-- <div class="pEmail">
-                            <h2>New Product Infomation: </h2>
-                            <textarea type="text" class="formInput" name="productInfomation" autocomplete="off" placeholder="Enter Product Infomation" ></textarea>
-                        </div> -->
+                        <div class="pInfo">
+                            <h2>New Product Description: </h2>
+                            <textarea type="text" class="formInput" name="productDescription" autocomplete="off" placeholder="Enter Product Description" ></textarea>
+                        </div>
 
                         <!-- product total -->
                         <div class ="pTotal">
