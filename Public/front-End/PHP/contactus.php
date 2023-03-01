@@ -3,15 +3,6 @@
 include 'databaseConnect.php';
 // checking if user has logged in or not
 
-session_start();
-
-$user_id = $_SESSION['id'];
-// declaring the variable for the messsages
-$messages = array();
-
-if(!isset($user_id)){
-   header('location: login.php');
-}
 if(isset($_POST['send'])){
 
     $fName = mysqli_real_escape_string($con, $_POST['fname']);
