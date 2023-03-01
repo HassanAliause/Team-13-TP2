@@ -79,7 +79,7 @@
                     <span class="material-symbols-outlined">
                         contact_page
                     </span>
-                    <a href="#" class="sidebar-list-text">Contact Us</a>
+                    <a href="Public\front-End\PHP\adminContactUs" class="sidebar-list-text">Contact Us</a>
                 </li>
                 
             </ul>

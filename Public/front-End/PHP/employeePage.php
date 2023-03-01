@@ -78,7 +78,7 @@ include("databaseConnect.php");
                         </div>
                         <h1 class="card-inner-text">
                             <?php
-                            $sql = "SELECT MAX(id) AS max_id FROM categories";
+                            $sql = "SELECT COUNT(id) AS max_id FROM categories";
                             $result = mysqli_query($con,$sql);
                             if($result) {
                                 while ($row = mysqli_fetch_assoc($result)) {
@@ -99,7 +99,7 @@ include("databaseConnect.php");
                         </div>
                         <h1 class="card-inner-text">
                         <?php
-                            $sql = "SELECT MAX(id) AS max_id FROM customer_details";
+                            $sql = "SELECT COUNT(id) AS max_id FROM customer_details";
                             $result = mysqli_query($con,$sql);
                             if($result) {
                                 while ($row = mysqli_fetch_assoc($result)) {
@@ -121,7 +121,7 @@ include("databaseConnect.php");
                         </div>
                         <h1 class="card-inner-text">
                         <?php
-                            $sql = "SELECT MAX(id) AS max_id FROM admin";
+                            $sql = "SELECT COUNT(id) AS max_id FROM admin";
                             $result = mysqli_query($con,$sql);
                             if($result) {
                                 while ($row = mysqli_fetch_assoc($result)) {
@@ -131,6 +131,29 @@ include("databaseConnect.php");
                             }
                             ?>
                         </h1>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-inner">
+                            <h3>Contact Us Queries</h3>
+                            <span class="material-symbols-outlined">
+                                contact_mail
+                            </span>
+                            <h1 class="card-inner-text">
+                                <?php
+                                    $sql = "SELECT COUNT(id) AS max_id FROM message";
+                                    $result = mysqli_query($con,$sql);
+                                    if($result) {
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                            $maxid = $row['max_id'];
+                                            echo $maxid;
+                                        }
+                                    }
+                                ?>
+
+                            </h1>
+                        </div>
+                            
                     </div>
 
                 </div>
@@ -303,7 +326,7 @@ include("databaseConnect.php");
                                         <th scope="col">ID</th>
                                         <th scope="col">Image</th>
                                         <th scope="col">Name</th>
-                                        <th scope="col">Product Code</th>
+                                        <th scope="col">Description</th>
                                         <th scope="col">Price</th>
                                         <th scope="col">Quantity</th>
                                         <th scope="col">Total</th>
@@ -322,8 +345,8 @@ include("databaseConnect.php");
                                             $id = $row['id'];
                                             $image = $row['image_file'];
                                             $name = $row['name'];
-                                            $productcode = $row['product_code'];
-                                            $price = $row['price'];
+                                            $description = $row['description'];
+                                            $price = $row['price']; 
                                             $password = $row['quantity'];
                                             $total = $row['total'];
                                             $keyvalue = $row['key_value'];
@@ -332,7 +355,7 @@ include("databaseConnect.php");
                                                 <th scope="row">' . $id . '</th>
                                                 <td> <img src="images/' . $image . '"/></td>
                                                 <td>' . $name . '</td>
-                                                <td>' . $productcode . '</td>
+                                                <td>' . $description . '</td>
                                                 <td>' . $price . '</td>
                                                 <td>' . $password . '</td>
                                                 <td>' . $total . '</td>
@@ -352,10 +375,57 @@ include("databaseConnect.php");
                             <h2 class="contactUs-title">
                                 Contact Us Queries
                             </h2>
-                                    
-                        </div>
+
+                            <table>
+
+                                <thead>
+
+                                    <tr>
+
+                                        <th scope="col">ID</th>
+                                        <th scope="col">First Name</th>
+                                        <th scope="col">Last Name</th>
+                                        <th scope="col">Phone Number</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Subject</th>
+                                        <th scope="col">Message</th>
+
+                                    </tr>
+
+                                </thead>
+                                <?php
+                                    $sql = "SELECT * from `message`";
+                                    $result = mysqli_query($con, $sql);
+                                    if ($result) {
+                                        while ($row = mysqli_fetch_assoc($result)){
+                                            $id = $row['id'];
+                                            $firstName = $row['fName'];
+                                            $lastName = $row['lName'];
+                                            $phone = $row['phone'];
+                                            $email = $row['email'];
+                                            $subject = $row['subject'];
+                                            $message = $row['message'];
+
+                                            echo ' 
+                                            <tr>
+                                                <th scope="row">' . $id . '</th>
+                                                <td>' . $firstName . '</td>
+                                                <td>' . $lastName . '</td>
+                                                <td>' . $phone . '</td>
+                                                <td>' . $email . '</td>
+                                                <td>' . $subject . '</td>
+                                                <td>' . $message . '</td>
+                                            </tr>'
+                                            
+                                            ;
+                                        }
+                                    }
+                                ?>
+                                        
+                            </div>
+                        </table>
                     </div>
-                </d>
+                </div>
             </main>
                 
         </div>
