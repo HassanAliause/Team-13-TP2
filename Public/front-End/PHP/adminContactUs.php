@@ -1,10 +1,11 @@
 <?php
-include("databaseConnect.php");
-// include("checkLogin.php");
-// if (!isset$_SESSION['id']){
-//     header('Location:Public\Front End\PHP\login.html');
-// }    
+    include("databaseConnect.php");
+    // include("checkLogin.php");
+    // if (!isset$_SESSION['id']){
+    //     header('Location:Public\Front End\PHP\login.html');
+    // }    
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -14,7 +15,8 @@ include("databaseConnect.php");
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
        
         <!-- title of page -->
-        <title>Employee Page</title>
+        <title>Employee Page - Contact Us
+        </title>
         
         <!-- link to icons -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -38,9 +40,12 @@ include("databaseConnect.php");
             <!-- sidebar -->
             <?php include_once "adminSidebar.php"?>
 
+    
             <!-- main -->
             <main class="main-container"> 
-                
+                <div class="main-tables">
+
+
                 <div class="contactUs">
                     <div class="contactUs-table">
                         <h2 class="contactUs-title">
@@ -98,7 +103,7 @@ include("databaseConnect.php");
                     </table>
 
                 </div>
-
+                
             </main>
 
         </div>

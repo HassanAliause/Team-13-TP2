@@ -331,6 +331,7 @@ include("databaseConnect.php");
                                         <th scope="col">Quantity</th>
                                         <th scope="col">Total</th>
                                         <th scope="col">Key Value</th>
+                                        <th scope="col">Stock</th>
 
 
                                     </tr>
@@ -341,6 +342,7 @@ include("databaseConnect.php");
                                     $sql = "SELECT * from `products`";
                                     $result = mysqli_query($con, $sql);
                                     if ($result) {
+
                                         while ($row = mysqli_fetch_assoc($result)){
                                             $id = $row['id'];
                                             $image = $row['image_file'];
@@ -359,10 +361,10 @@ include("databaseConnect.php");
                                                 <td>' . $price . '</td>
                                                 <td>' . $password . '</td>
                                                 <td>' . $total . '</td>
-                                                <td>' . $keyvalue . '</td>
-                                            </tr>'
-                                            
-                                            ;
+                                                <td>' . $keyvalue . '</td>  
+                                                <td>' .'</td>                          
+                                            </tr>';
+
                                         }
                                     }
                                 ?>
