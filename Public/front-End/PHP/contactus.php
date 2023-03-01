@@ -1,7 +1,9 @@
 <?php
 // including the dataabse connection file
 include 'databaseConnect.php';
-// checking if user has logged in or not
+
+// declaring the variable for the messsages
+$messages = array();
 
 if(isset($_POST['send'])){
 
