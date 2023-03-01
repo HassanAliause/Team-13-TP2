@@ -1,3 +1,8 @@
+<?php
+include 'databaseConnect.php';
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
