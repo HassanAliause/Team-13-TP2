@@ -14,7 +14,7 @@
     </head>
 
     <div class="logo-header">
-        <a href="homepage1.php"><img src="/images/logogif4.gif" class="logo" width = 75% alt=""></a>
+        <a href="homepage1.php"><img src="images/logogif4.gif" class="logo" width = 75% alt=""></a>
     <div>
     <nav>
 
@@ -31,10 +31,8 @@
             <li><a id="logout-link" href="logout.php" style="display:none">Logout</a></li>
 
             <li><a href="">My Orders</a></li>   
-            <!-- <li><a href="wishlist"><img src="images\heart2.png" alt="computer/laptops" width= 30px height = 30px></a></li>
-            <li><a href="basket.php"><img src="images\basket.png" alt="computer/laptops" width= 30px height = 30px></a></li> -->
-            <li><a href="wishlist"><i class="fa fa-heart-o" style="font-size:25px"></i></a></li>
-            <li><a href="cartmenu"><i class="fa fa-shopping-cart" style="font-size:25px"></i></a></li>
+            <li><a href="wishlist.php"><i class="fa fa-heart-o" style="font-size:25px"></i></a></li>
+            <li><a href="basket.php"><i class="fa fa-shopping-cart" style="font-size:25px"></i></a></li>
         
         </ul>   
         

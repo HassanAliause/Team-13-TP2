@@ -26,7 +26,7 @@
         <header class="header">
 
             <div class="header-left">
-                <a href="homepage1.php"><img src="\Team-13-TP2\images\logogif4.gif" alt="Logo" class="logo" width="50%"></a>
+                <a href="homepage1.php"><img src="\Team-13-TP2\Public\front-End\PHP\images\logogif4.gif" alt="Logo" class="logo" width="50%"></a>
 
 
             </div>

@@ -178,7 +178,7 @@ body {
 
 .main-cards {
     display: grid;
-    grid-template-columns:  1fr 1fr 1fr 1fr;
+    grid-template-columns:  1fr 1fr 1fr 1fr 1fr;
     gap: 25px;
     margin: 20px 0;
 
@@ -447,6 +447,15 @@ table th, td{
     display: flex;
     align-items:center; 
     justify-content: center;
+}
+
+.contactUs-table thead tr {
+    background-color: var(--colorPrimaryDark);
+}
+
+.contactUs-table th, td{
+    padding: 20px 20px;
+    color: white;
 }
 
 

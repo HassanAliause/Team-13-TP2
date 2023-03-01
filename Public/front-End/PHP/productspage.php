@@ -63,7 +63,7 @@
                         ?>
                         <div class = "product-item">
                         <?php
-                            echo '<tr><td><a href="/Team-13-TP2/selectedproduct.php?productid=' . $row['id'] . '"><img src ="' . $row['image_file'] . '" width= 250px height = 250px></a></td>';
+                            echo '<tr><td><a href="selectedproduct.php?productid=' . $row['id'] . '"><img src ="' . $row['image_file'] . '" width= 250px height = 250px></a></td>';
                             echo '<td><span class="product-name">' . $row['name'] . '</span></td>';
                             echo '<td><div class="price">£' . $row['price'] . '</div></td>';
                             if($row['quantity'] > 10){

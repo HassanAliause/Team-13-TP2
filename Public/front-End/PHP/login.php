@@ -109,7 +109,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="Inp">
                 <input type="password"  name="password" required = "required">
                 <i class="fa-solid fa-lock"></i>
-                <span> Passsword</span>
+                <span> Password</span>
             </div>
             <div class="Inp">
                 <input type="submit" value="Login">
