@@ -32,12 +32,7 @@ span{
     justify-content: center;
     align-items: center;
     padding: 40px;
-    border: 8px solid #23242a;
-    border-radius: 20px;
-    box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1),
-    -5px -5px 15px rgba(0, 0, 0, 0.35),
-    inset -5px -5px 15px rgba(255, 255, 255, 0.1),
-    inset 5px 5px 15px rgba(0, 0, 0, 0.35);
+    border: 8px solid  #3a3a3a;
      
 }
 /* Style the form container */
@@ -75,10 +70,7 @@ p.error {
     border: 1px solid rgba(0, 0, 0, 0.1);
     color: #fff;
     font-weight: 300;
-    border-radius: 25px;
     font-size: 1em;
-    box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1),
-    5px 5px 15px rgba(0, 0, 0, 0.35);
     transition: 0.5s;
     outline: none;
 
@@ -100,12 +92,11 @@ p.error {
 .formBox.form .Inp input:focus ~span
 {
     color: #00dfc4;
-    border: 1px solid #00dfc4;
+    border: 1px solid #3a3a3a;
     background: #223243;
     transform: translateX(25px) translateY(-7px);
     font-size: 0.6em;
     padding: 0 9px;
-    border-radius: 10px;
     letter-spacing: 0.1em;
     
 }
@@ -113,7 +104,7 @@ p.error {
 .formBox .form .Inp input:valid ,
 .formBox .form .Inp input:focus 
 {
-    border: 1px solid #00dfc4;
+    border: 1px solid #3a3a3a;
 
 }
  
@@ -125,7 +116,7 @@ p.error {
     padding: 2px 0;
     padding-right: 8px;
     color: #fff;
-    border-right: 1px solid #00dfc4;
+    border-right: 1px solid #3a3a3a;
     
 }
 .formBox .form .Inp input[type="submit"]{
@@ -134,10 +125,6 @@ p.error {
     padding: 10px 0;
     font-weight: 500;
     cursor: pointer;
-    box-shadow: -5px -5px 15px rgba(255, 255, 255, 0.1),
-    -5px -5px 15px rgba(0, 0, 0, 0.35),
-    inset -5px -5px 15px rgba(255, 255, 255, 0.1),
-    inset 5px 5px 15px rgba(0, 0, 0, 0.35);
 }
 .formBox .form p{
     color: rgba(255, 255, 255, 0.5);

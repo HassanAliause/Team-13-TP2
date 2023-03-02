@@ -1,33 +1,25 @@
 <?php
 // including the dataabse connection file
 include 'databaseConnect.php';
-// checking if user has logged in or not
 
-session_start();
-
-$user_id = $_SESSION['id'];
 // declaring the variable for the messsages
 $messages = array();
 
-if(!isset($user_id)){
-   header('location:../Public/PHP/login.php');
-}
 if(isset($_POST['send'])){
 
     $fName = mysqli_real_escape_string($con, $_POST['fname']);
     $lName = mysqli_real_escape_string($con, $_POST['lname']);
-    $fullName = $fName . ' ' . $lName;
     $number = $_POST['phone'];
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $subject = mysqli_real_escape_string($con, $_POST['subject']);
     $msg = mysqli_real_escape_string($con, $_POST['message']);
-    $select_message = mysqli_query($con, "SELECT * FROM `message` WHERE name = '' AND email = '$email' And subject = '$subject' AND number = '$number' AND message = '$msg'") or die('query failed');
+    $select_message = mysqli_query($con, "SELECT * FROM `message` WHERE fName = '' AND lName = ''  AND email = '$email' AND subject = '$subject' AND phone = '$number' AND message = '$msg'") or die('query failed');
  
     if(mysqli_num_rows($select_message) > 0){
-       $messages['successful'] = 'Message sent already!';
+       $messages['unsuccessful'] = 'Message sent already!';
     }else{
-       mysqli_query($con, "INSERT INTO `message`(user_id, name, email, number, subject, message) VALUES('$user_id', '$fullName', '$email', '$number','$subject' , '$msg')") or die('query failed');
-       $messages['unsuccessful'] = 'Message sent successfully!';
+       mysqli_query($con, "INSERT INTO `message`( fName, lName, phone, email, subject, message) VALUES( '$fName', '$lName', '$number' ,'$email' ,'$subject' , '$msg')") or die('query failed');
+       $messages['successful'] = 'Message sent successfully!';
     }
  
  }
@@ -41,7 +33,7 @@ if(isset($_POST['send'])){
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Contact Us</title>
-        <link rel="stylesheet" href="contactus.css">
+        <link rel="stylesheet" href="../CSS/contactus.css">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -55,7 +47,7 @@ if(isset($_POST['send'])){
         </div>
         <div class="container">
             <div class="container-box">
-            <form class="form input">
+            <form class="form input" action="contactus.php" method="POST">
                 <div class="titleh3">
                     <h3>For any queries, please fill out this form and we will contact you back within 24 hours.</h3>
                 </div>
@@ -76,7 +68,7 @@ if(isset($_POST['send'])){
                 </div>
                 <?php
                 foreach($messages as $message) {
-                  echo '<p class="error"  >' . $message . '</p><br>';
+                  echo '<p class="message"  >' . $message . '</p><br>';
                 }
               ?>
             </form>
@@ -98,27 +90,8 @@ We are open 24/7 and always available to help our customers.
                 </div>
             </div>
     </body>
-    <footer class="footer">
-        <div class="footerlogo">
-        <a href=""><img src="images\logojumping2.gif" width = 250px height=250px></a>
-        </div>
+    
+    <!-- footer -->
+<?php include_once "footer.php"?>
 
-        <div class="footernav">
-            <h2>Navigation</h2>
-            <ul class="links">
-                <li> <a href="#">Home</a></li>
-                <li> <a href="productspage.php">Products</a></li>
-                <li> <a href="#">Contact Us</a></li>
-            </ul>
-        </div>
-
-        <div class="socials">
-            <h2>Our Socials</h2>
-            <ul class="links">
-                <li> <a href="#"><i class="fa fa-github" aria-hidden="true"></i> Github</a></li>
-                <li> <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i>   Facebook</a></li>
-                <li> <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a></li>
-            </ul>
-        </div>
-    </footer>
 </html>

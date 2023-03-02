@@ -10,34 +10,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Styles -->
-    <link rel="stylesheet" href="productspage.css">
+    <link rel="stylesheet" href="../CSS/productspage.css">
 </head>
 <body>
 
-    <div class="logo-header">
-        <a href=""><img src="images\logogif4.gif" class="logo" width = 75% alt=""></a>
-    <div>
-    <nav>
-
-        <input type="checkbox" id="box">
-        <label for="box" class="boxbtn">
-            <i class="fa fa-bars"></i>
-        </label>
-        <a href=""><img src="" class="logo" alt=""></a>
-        <ul>  
-            <li><a href="">Home</a></li>
-            <li><a href="productspage.php">Products</a></li>
-            <li><a href="">Contact Us</a></li>  
-            <li><a href="">Logout</a></li>
-            <li><a href="">My Orders</a></li>   
-            <li><a href="wishlist"><img src="images\heart2.png" alt="computer/laptops" width= 30px height = 30px></a></li>
-            <li><a href="cartmenu"><img src="images\basket.png" alt="computer/laptops" width= 30px height = 30px></a></li>
-            <!-- <li><a href="wishlist"><i class="fa fa-heart-o" style="font-size:25px"></i></a></li>
-            <li><a href="cartmenu"><i class="fa fa-shopping-cart" style="font-size:25px"></i></a></li> -->
-        
-        </ul>
-        
-    </nav>
+   <!-- header -->
+   <?php include_once "header.php"?>
     
     <?php
         $productid = $_GET['productid'];
@@ -55,7 +33,7 @@
                     $db = new PDO("mysql:dbname=$db_name;host=$db_host", $username); 
                     #$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                     try {
-                        $query="SELECT  * FROM  `images` WHERE `ProductID` = '$productid'";
+                        $query="SELECT  * FROM  `product_images` WHERE `product_id` = '$productid'";
                         $rows =  $db->query($query);
                             
                         if ( $rows && $rows->rowCount()> 0) {
@@ -63,12 +41,11 @@
                                 ?>
                                 <div class="product-image">
                                 <?php
-                                    echo '<img id ="productimg" src ="' . $row['Image1'] . '">';
+                                    echo '<img id ="productimg" src ="' . $row['image_1'] . '">';
                                 ?>
                                 <div class="controls">
                                     <span onclick="img1()" class="imagebtn"><i class="fa fa-circle-o" aria-hidden="true" ></i></span>
                                     <span onclick="img2()" class="imagebtn"><i class="fa fa-circle-o" aria-hidden="true" ></i></span>
-                                    <span onclick="img3()" class="imagebtn"><i class="fa fa-circle-o" aria-hidden="true" ></i></span>
                                 </div>
                                 </div>
                                 <?php
@@ -103,7 +80,6 @@
                            
                                 echo '<h1>' . $row['name'] . '</h1>';
                                 echo '<h2>£' . $row['price'] . '</h2>';
-                                echo '<p>' . $row['description'] . '</p>';
                                 if($row['quantity'] > 10){
                                     echo '<div class = "in-stock" style="color:green;"> <i class="fa fa-check-circle-o" aria-hidden="true"></i> IN STOCK </div>';
                                 }
@@ -121,7 +97,7 @@
                                   <input type="hidden" name="product_id" value="{{ $row['id'] }}">
                                   <button class="addBtn"><i class="fa fa-star-o"></i> Add to Wishlist</button>
                                  </form>
-                                 <form action="/add_to_cart" method="POST">
+                                 <form action="addtocart.php" method="POST">
                                  
                                  <input type="hidden" name="product_id" value="{{ $row['id'] }}">
                                  <?php
@@ -133,7 +109,12 @@
                                 }
                                  ?>
                                  
-                                </form>
+                                </form><!-- 
+                                <form action="index.php?page=cart" method="post">
+                                    <input type="number" name="quantity" value="1" min="1" max="<?=$product['quantity']?>" placeholder="Quantity" required>
+                                    <input type="hidden" name="product_id" value="<?=$product['id']?>">
+                                    <input type="submit" value="Add To Cart">
+                                </form> -->
 
                                 <?php
                         }
@@ -150,20 +131,44 @@
         </div>
 
     </div>
+<?php
+    if(isset($_POST['addtocart.php']))
+        
+        // Check connection
+ 
+                    $db_host = 'localhost';
+                    $db_name = '13_bits';
+                    $username = 'root';
 
+                try {
+                    $db = new PDO("mysql:dbname=$db_name;host=$db_host", $username); 
+                    #$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    $sql = "INSERT INTO customer_orders (id, productID, customerID)
+                    VALUES ('', $productid, '1')";
+                    
+                } catch(PDOException $ex) {
+                    echo("Failed to connect to the database.<br>");
+                    echo($ex->getMessage());
+                    exit;
+                }
+?>
+
+
+ 
+    
 
 <script>
     let productimg = document.getElementById("productimg");
     let imagebtn = document.getElementsByClassName("imagebtn");
     function img1(){
         <?php
-            $query="SELECT  * FROM  `images` WHERE `ProductID` = '$productid'";
+            $query="SELECT  * FROM  `product_images` WHERE `product_id` = '$productid'";
             $rows =  $db->query($query);
                 
             if ( $rows && $rows->rowCount()> 0) {
                 while  ($row =  $rows->fetch())	{
-                    if($row['Image1'] != null){
-                        echo 'productimg.src ="' . $row['Image1'] . '"';
+                    if($row['image_1'] != null){
+                        echo 'productimg.src ="' . $row['image_1'] . '"';
                     }
                 }
             }
@@ -174,13 +179,13 @@
     }
     function img2(){
         <?php
-            $query="SELECT  * FROM  `images` WHERE `ProductID` = '$productid'";
+            $query="SELECT  * FROM  `product_images` WHERE `product_id` = '$productid'";
             $rows =  $db->query($query);
                 
             if ( $rows && $rows->rowCount()> 0) {
                 while  ($row =  $rows->fetch())	{
-                    if($row['Image2'] != null){
-                        echo 'productimg.src ="' . $row['Image2'] . '"';
+                    if($row['image_2'] != null){
+                        echo 'productimg.src ="' . $row['image_2'] . '"';
                     }
                 }
             }
@@ -191,15 +196,14 @@
     }
     function img3(){
         <?php
-            $query="SELECT  * FROM  `images` WHERE `ProductID` = '$productid'";
+            $query="SELECT  * FROM  `product_images` WHERE `product_id` = '$productid'";
             $rows =  $db->query($query);
                 
             if ( $rows && $rows->rowCount()> 0) {
                 while  ($row =  $rows->fetch())	{
-                    if($row['Image3'] != null){
-                        echo 'productimg.src ="' . $row['Image3'] . '"';
+                    if($row['image_3'] != null){
+                        echo 'productimg.src ="' . $row['image_3'] . '"';
                     }
-                    
                 }
             }
             else {
@@ -210,28 +214,7 @@
 </script>
 
 </body>
-<footer class="footer">
-        <div class="footerlogo">
-        <a href=""><img src="images\logojumping2.gif" width = 250px height=250px></a>
-        </div>
-
-        <div class="footernav">
-            <h2>Navigation</h2>
-            <ul class="links">
-                <li> <a href="#">Home</a></li>
-                <li> <a href="#">Products</a></li>
-                <li> <a href="#">Contact Us</a></li>
-            </ul>
-        </div>
-
-        <div class="socials">
-            <h2>Our Socials</h2>
-            <ul class="links">
-                <li> <a href="#"><i class="fa fa-github" aria-hidden="true"></i> Github</a></li>
-                <li> <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i>   Facebook</a></li>
-                <li> <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a></li>
-            </ul>
-        </div>
-    </footer>
+<!-- footer -->
+<?php include_once "footer.php"?>
 
 </html>

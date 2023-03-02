@@ -17,7 +17,7 @@
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
         <!-- link to css file -->
-        <link rel="stylesheet" href="css/employee.css">
+        <link rel="stylesheet" href="../CSS/employee.css">
         
     </head>
 
@@ -26,7 +26,7 @@
         <header class="header">
 
             <div class="header-left">
-                <a href="homepage1.php"><img src="\Team-13-TP2\images\logogif4.gif" alt="Logo" class="logo" width="50%"></a>
+                <a href="homepage1.php"><img src="\Team-13-TP2\Public\front-End\PHP\images\logogif4.gif" alt="Logo" class="logo" width="50%"></a>
 
 
             </div>
