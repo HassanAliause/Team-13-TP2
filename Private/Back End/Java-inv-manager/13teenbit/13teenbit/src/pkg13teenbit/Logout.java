@@ -51,12 +51,22 @@ public class Logout extends javax.swing.JFrame {
         rSButtonHover11.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         rSButtonHover11.setText("Back");
         rSButtonHover11.setColorHover(new java.awt.Color(35, 36, 42));
+        rSButtonHover11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonHover11ActionPerformed(evt);
+            }
+        });
         jPanel1.add(rSButtonHover11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 240, 120));
 
         rSButtonHover12.setBackground(new java.awt.Color(231, 155, 16));
         rSButtonHover12.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         rSButtonHover12.setText("LOGOUT");
         rSButtonHover12.setColorHover(new java.awt.Color(35, 36, 42));
+        rSButtonHover12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonHover12ActionPerformed(evt);
+            }
+        });
         jPanel1.add(rSButtonHover12, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 240, 240, 120));
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 450, 940, 90));
 
@@ -75,6 +85,20 @@ public class Logout extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void rSButtonHover11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonHover11ActionPerformed
+        // TODO add your handling code here:
+        Category cat=new Category();
+        cat.show();
+        dispose();
+    }//GEN-LAST:event_rSButtonHover11ActionPerformed
+
+    private void rSButtonHover12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonHover12ActionPerformed
+        // TODO add your handling code here:
+        login log=new login();
+        log.show();
+        dispose();
+    }//GEN-LAST:event_rSButtonHover12ActionPerformed
 
     /**
      * @param args the command line arguments

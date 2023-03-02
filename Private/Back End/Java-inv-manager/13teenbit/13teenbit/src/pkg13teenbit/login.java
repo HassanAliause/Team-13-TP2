@@ -72,6 +72,11 @@ public class login extends javax.swing.JFrame {
         rSButtonHover1.setBackground(new java.awt.Color(0, 163, 59));
         rSButtonHover1.setText("Login");
         rSButtonHover1.setColorHover(new java.awt.Color(231, 155, 16));
+        rSButtonHover1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonHover1ActionPerformed(evt);
+            }
+        });
         jPanel3.add(rSButtonHover1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
 
         jComboBox1.setBackground(new java.awt.Color(51, 51, 51));
@@ -106,6 +111,13 @@ public class login extends javax.swing.JFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void rSButtonHover1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonHover1ActionPerformed
+        // TODO add your handling code here:
+        Category cat= new Category();
+        cat.show();
+        dispose();
+    }//GEN-LAST:event_rSButtonHover1ActionPerformed
 
     /**
      * @param args the command line arguments

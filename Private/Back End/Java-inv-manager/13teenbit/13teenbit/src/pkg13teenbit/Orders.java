@@ -54,12 +54,22 @@ public class Orders extends javax.swing.JFrame {
         rSButtonHover2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         rSButtonHover2.setText("ADD CATEGORY");
         rSButtonHover2.setColorHover(new java.awt.Color(35, 36, 42));
+        rSButtonHover2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonHover2ActionPerformed(evt);
+            }
+        });
         jPanel3.add(rSButtonHover2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 200, 70));
 
         rSButtonHover4.setBackground(new java.awt.Color(231, 155, 16));
         rSButtonHover4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         rSButtonHover4.setText("ADD PRODUCT");
         rSButtonHover4.setColorHover(new java.awt.Color(35, 36, 42));
+        rSButtonHover4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonHover4ActionPerformed(evt);
+            }
+        });
         jPanel3.add(rSButtonHover4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 200, 70));
 
         rSButtonHover5.setBackground(new java.awt.Color(231, 155, 16));
@@ -72,6 +82,11 @@ public class Orders extends javax.swing.JFrame {
         rSButtonHover6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         rSButtonHover6.setText("ADD USER");
         rSButtonHover6.setColorHover(new java.awt.Color(35, 36, 42));
+        rSButtonHover6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonHover6ActionPerformed(evt);
+            }
+        });
         jPanel3.add(rSButtonHover6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 200, 70));
 
         rSButtonHover7.setBackground(new java.awt.Color(231, 155, 16));
@@ -84,6 +99,11 @@ public class Orders extends javax.swing.JFrame {
         rSButtonHover8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         rSButtonHover8.setText("STOCK");
         rSButtonHover8.setColorHover(new java.awt.Color(35, 36, 42));
+        rSButtonHover8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonHover8ActionPerformed(evt);
+            }
+        });
         jPanel3.add(rSButtonHover8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 200, 70));
 
         jLabel1.setFont(new java.awt.Font("Britannic Bold", 3, 24)); // NOI18N
@@ -94,6 +114,11 @@ public class Orders extends javax.swing.JFrame {
         rSButtonHover9.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         rSButtonHover9.setText("LOGOUT");
         rSButtonHover9.setColorHover(new java.awt.Color(35, 36, 42));
+        rSButtonHover9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonHover9ActionPerformed(evt);
+            }
+        });
         jPanel3.add(rSButtonHover9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 200, 70));
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 560));
@@ -125,6 +150,37 @@ public class Orders extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void rSButtonHover2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonHover2ActionPerformed
+ Category cat= new Category();
+        cat.show();
+        dispose();          // TODO add your handling code here:
+    }//GEN-LAST:event_rSButtonHover2ActionPerformed
+
+    private void rSButtonHover4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonHover4ActionPerformed
+ Product prod = new Product();
+        prod.show();
+        dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_rSButtonHover4ActionPerformed
+
+    private void rSButtonHover6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonHover6ActionPerformed
+AddUser adduser=new AddUser();
+adduser.show();
+dispose();
+// TODO add your handling code here:
+    }//GEN-LAST:event_rSButtonHover6ActionPerformed
+
+    private void rSButtonHover8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonHover8ActionPerformed
+ Stocks stock=new Stocks();
+        stock.show();
+        dispose();            // TODO add your handling code here:
+    }//GEN-LAST:event_rSButtonHover8ActionPerformed
+
+    private void rSButtonHover9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonHover9ActionPerformed
+         Logout logout= new Logout();
+     logout.show();
+     dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_rSButtonHover9ActionPerformed
 
     /**
      * @param args the command line arguments
