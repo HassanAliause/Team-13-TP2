@@ -56,11 +56,11 @@ include("databaseConnect.php");
                         </div>
                         <h1 class="card-inner-text ">
                             <?php
-                                $sql = "SELECT SUM(quantity) AS total_quantity FROM products";
+                                $sql = "SELECT COUNT(id) AS id_quantity FROM products";
                                 $result = mysqli_query($con,$sql);
                                 if($result) {
                                     while ($row = mysqli_fetch_assoc($result)) {
-                                        $quantity = $row['total_quantity'];
+                                        $quantity = $row['id_quantity'];
                                         echo $quantity;
                                     }
                                 }
