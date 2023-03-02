@@ -80,6 +80,7 @@
                            
                                 echo '<h1>' . $row['name'] . '</h1>';
                                 echo '<h2>£' . $row['price'] . '</h2>';
+                                echo '<p>' . $row['description'] . '</p>';
                                 if($row['quantity'] > 10){
                                     echo '<div class = "in-stock" style="color:green;"> <i class="fa fa-check-circle-o" aria-hidden="true"></i> IN STOCK </div>';
                                 }

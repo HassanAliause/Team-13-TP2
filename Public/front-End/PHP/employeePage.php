@@ -355,7 +355,7 @@ include("databaseConnect.php");
                                             echo ' 
                                             <tr>
                                                 <th scope="row">' . $id . '</th>
-                                                <td> <img src="images/' . $image . '"/></td>
+                                                <td> <img src="' . $image . '"width= 50px height = 50px/></td>
                                                 <td>' . $name . '</td>
                                                 <td>' . $description . '</td>
                                                 <td>' . $price . '</td>
