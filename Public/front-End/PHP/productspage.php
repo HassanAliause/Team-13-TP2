@@ -17,6 +17,17 @@
     <!-- header -->
     <?php include_once "header.php"?>
     
+    <form action="searchProduct.php" method="GET">
+        <div class="wrap">
+            <div class="search">
+                <input type="text" class="searchTerm" id="search" placeholder="Search for products..." name="search">
+                <button type="submit" class="searchButton">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+    
     <div class="departments-header">
         <h2>DEPARTMENTS</h2>
     </div>
