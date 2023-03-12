@@ -77,19 +77,23 @@
 
                         $stmt->execute();
 
+                        if($stmt->rowCount() > 0){   
+                             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                             
-                        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                            ?>
-                            
-                            <?php
                                 echo '<div class = "cart-item"><div class = "cart-image"><a href="selectedproduct.php?productid=' . $row['id'] . '"><img src ="' . $row['image_file'] . '" width= 250px height = 250px></a></div>';
                                 echo '<div class = "cart-productinfo"><h1>' . $row['name'] . '</h1>';
                                 echo '<h2>£' . $row['price'] . '</h2></div></div>';
-                                echo '<button class="removeBtn" name="removeBtn" ><i class="fa fa-trash" aria-hidden="true"></i></button>';
-                            }
-                            ?>
+                                echo '<form action="removefromcart.php" method="POST">';
+                                echo '<input type="hidden" name="product_id" value="' . $row['id'] . '">';
+                                echo '<button class="removeBtn" name="removeBtn" ><i class="fa fa-trash"  aria-hidden="true"></i></button>';
+                                echo '</form>';
                             
-                            <?php
+                            }
+                        }else{
+                            echo"Your cart is empty!";
+                        }
+                            
+                           
                     }
                     catch (PDOexception $ex){
                         echo "Sorry, a database error occurred! <br>";
