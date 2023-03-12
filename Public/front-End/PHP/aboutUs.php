@@ -35,9 +35,10 @@ As the store is getting well known by users, we've decided to enlarge our busine
 Our vision is to sell high-quality technology products at an affordable price, so young adults won't have to spend loads of money. We offer great deals for both new and existing customers.   
 We are open 24/7 and always available to help our customers. </p>
                     </div>
+                    <h2 style="text-align:center">OUR TEAM</h2>
                 </div>
+                
             </div>
-            <h2 style="text-align:center">OUR TEAM</h2>
         &nbsp;
         <div class="container">
         <li class="name" style="text-align:center">Zain Khel - Admin Page</li>

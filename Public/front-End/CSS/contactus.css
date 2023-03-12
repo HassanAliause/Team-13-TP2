@@ -79,10 +79,6 @@ nav ul li:hover{
     margin:auto;
     width:50%;
     border:3px solid rgb(71, 71, 71);
-    padding:50px;
-    padding-bottom: 20px;
-    padding-top: 20px;
-    margin-bottom: 100px;
 }
 
 .container-box{
@@ -130,17 +126,6 @@ label{
     margin-top: 20px;
 }
 
-/*About us page*/
-
-.container-about {
-    background: #3a3a3a;
-    margin:auto;
-    width:100%;
-    border:3px solid rgb(71, 71, 71);
-    padding:50px;
-    padding-bottom: 10px;
-    padding-top: 20px;
-}
 
 /*Footer*/
 
