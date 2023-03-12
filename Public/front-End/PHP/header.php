@@ -38,7 +38,7 @@
                 }
             ?>
             <li><a href="wishlist.php"><i class="fa fa-heart-o" style="font-size:25px"></i></a></li>
-            <li><a href="basket.php"><i class="fa fa-shopping-cart" style="font-size:25px"></i></a></li>
+            <li><a href="addtocart.php"><i class="fa fa-shopping-cart" style="font-size:25px"></i></a></li>
         </ul>   
         
     </nav>
