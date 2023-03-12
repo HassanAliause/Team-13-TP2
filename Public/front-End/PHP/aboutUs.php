@@ -23,24 +23,38 @@
         <div class="contact-header">
             <h2>ABOUT US</h2>
         </div>
-    
+
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                    <div class="container" style="padding:20px">
+                    <p style="text-align:center">We are the founders of TH13TEENBIT, we sell a variety of technology products. TH13EENBIT only started couple years ago.<br>
+Since covid-19 has hit the UK, we have noticed the demand for computers and its accessories has been increased. This was because most of the population started to work/study/play from home.
+Therefore we've decided to open an online technology store.<br>
+As the store is getting well known by users, we've decided to enlarge our business by selling gaming computers, gaming accessories and and other products for streamers. <br>
+Our vision is to sell high-quality technology products at an affordable price, so young adults won't have to spend loads of money. We offer great deals for both new and existing customers.   
+We are open 24/7 and always available to help our customers. </p>
+                    </div>
+                </div>
+            </div>
+            <h2 style="text-align:center">OUR TEAM</h2>
         &nbsp;
         <div class="container">
-        <li class="name">Zain Khel - Admin Page</li>
+        <li class="name" style="text-align:center">Zain Khel - Admin Page</li>
         &nbsp;
-        <li class="name">Dievan Chort - Database</li>
+        <li class="name" style="text-align:center">Dievan Chort - Database</li>
         &nbsp;
-        <li class="name">Hassan Alieuse - Java Application</li>
+        <li class="name" style="text-align:center">Hassan Alieuse - Java Application</li>
         &nbsp;
-        <li class="name">Natasha Dey - Products Page</li>
+        <li class="name" style="text-align:center">Natasha Dey - Products Page</li>
         &nbsp;
-        <li class="name">Danial Jamil - Java Applicaiton</li>
+        <li class="name" style="text-align:center">Danial Jamil - Java Applicaiton</li>
         &nbsp;
-        <li class="name">Arshdeep Kaur - Contact Us</li>
+        <li class="name" style="text-align:center">Arshdeep Kaur - Contact Us & About Us</li>
         &nbsp;
-        <li class="name">Myles Thaxter - Home Page</li>
+        <li class="name" style="text-align:center">Myles Thaxter - Home Page</li>
         &nbsp;
-        <li>Patrick Byteman - Page Mascot</li>
+        <li style="text-align:center">Patrick Byteman - Page Mascot</li>
         &nbsp;
 </div>
 
