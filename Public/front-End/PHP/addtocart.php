@@ -103,6 +103,10 @@
             <?php
                 echo "<h2> Total Price: £" . number_format($total_price, 2) . "</h2>";
             ?>
+            <form action="checkout.php" method="POST">
+                <button class="checkoutBtn" name="checkoutBtn" >Proceed to Checkout  <i class="fa fa-credit-card-alt" aria-hidden="true"></i></button>
+                <input type="hidden" name="total_price" value="<?php echo $total_price;?>">
+            </form>
          </div>
 
         <div class = "cart-container">

@@ -403,7 +403,7 @@ color: #595959;
   }
 
   
-/* SEARCH PRODUCT*/
+/* CART PAGE */
 
 .cart-container{
     max-width: 1300px;
@@ -453,6 +453,23 @@ color: #595959;
     width: 40%;
     margin-left: auto;
     margin-right: auto;
+}
+
+.checkoutBtn{
+    
+    background-color:  rgb(71, 71, 71);
+    cursor:pointer;
+    width:25%;
+    height:50px;
+    border:none;
+    font-size:20px;
+    color:rgb(255, 255, 255);
+    margin-top:50px;
+}
+
+.checkoutBtn:hover{
+    background-color:#c85e01;
+    transition: .5s;
 }
 
 @media screen and (max-width: 1200px){
