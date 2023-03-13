@@ -78,7 +78,6 @@
 
             try {
                 $db = new PDO("mysql:dbname=$db_name;host=$db_host", $username); 
-                #$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 try {
                     $query="SELECT  * FROM  `products` WHERE `key_value` = '$dept'";
                     $rows =  $db->query($query);
@@ -112,6 +111,7 @@
                                 }else{
                                     echo '<form action="addtocart.php" method="POST">';
                                     echo '<input type="hidden" name="product_id" value="' . $row['id'] . '">';
+                                    echo '<input type="hidden" name="quantity" value="1">';
                                     echo '<button class="addtocartBtn" name="addtocartBtn" ><i class="fa fa-plus" aria-hidden="true"></i> Add to Cart</button>';
                                     echo '</form>';
                                 }

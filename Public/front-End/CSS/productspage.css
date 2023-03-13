@@ -350,6 +350,21 @@ button{
 color: #595959;
 }
 
+.info-container label {
+    font-size:20px;
+    padding-bottom:50px;
+}
+
+.info-container select {
+    margin-bottom:30px;
+    border:none;
+    background-color:#3a3a3a;
+    color:white;
+    width:40px;
+    height:30px;
+    font-size:15px;
+}
+
 /* SEARCH PRODUCT*/
 
 .wrap{
@@ -423,6 +438,21 @@ color: #595959;
     height:50px;
     background-color:  #23242a;
     border: none;
+}
+
+.cart-container h2{
+    padding-top:10px;
+}
+
+.total-header h2{
+    text-align:center;
+    padding: 40px;
+    text-align: center;
+    font-size: 30px;
+    border-bottom: 10px solid rgb(71, 71, 71);
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 @media screen and (max-width: 1200px){

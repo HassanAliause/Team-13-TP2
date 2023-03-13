@@ -71,6 +71,7 @@
  
         <div class = "info-container">
         <?php
+            
                 try {
                     $query="SELECT  * FROM  `products` WHERE `id` = '$productid'";
                     $rows =  $db->query($query);
@@ -81,6 +82,26 @@
                                 echo '<h1>' . $row['name'] . '</h1>';
                                 echo '<h2>£' . $row['price'] . '</h2>';
                                 echo '<p>' . $row['description'] . '</p>';
+                                
+                                $selectedquantity = 1;
+
+                                if (isset($_POST['quantity'])) {
+                                    $selectedquantity = $_POST['quantity'];
+                                }
+                                ?>
+
+                                <form method="post" action="">
+                                    <label for="quantity-select">Quantity: </label>
+                                    <select id="quantity-select" name="quantity" onchange="this.form.submit()">
+                                    <option value="1" <?php if(isset($_POST['quantity']) && $_POST['quantity'] == '1') {echo 'selected';} ?>>1</option>
+                                    <option value="2" <?php if(isset($_POST['quantity']) && $_POST['quantity'] == '2') {echo 'selected';} ?>>2</option>
+                                    <option value="3" <?php if(isset($_POST['quantity']) && $_POST['quantity'] == '3') {echo 'selected';} ?>>3</option>
+                                    <option value="4" <?php if(isset($_POST['quantity']) && $_POST['quantity'] == '4') {echo 'selected';} ?>>4</option>
+                                    <option value="5" <?php if(isset($_POST['quantity']) && $_POST['quantity'] == '5') {echo 'selected';} ?>>5</option>
+                                    </select> 
+                                </form>
+                                <?php
+
                                 if($row['quantity'] > 10){
                                     echo '<div class = "in-stock" style="color:green;"> <i class="fa fa-check-circle-o" aria-hidden="true"></i> IN STOCK </div>';
                                 }
@@ -92,17 +113,16 @@
                                 }
                                
                                 echo '<td><span class="product-type">' . $row['key_value'] . '</span></td></tr>';
-                                echo '<td><span class="product-type">' . $row['key_value'] . '</span></td></tr>';
                                 echo '<form action="addtowishlist.php" method="POST">';
                                 echo '<input type="hidden" name="product_id" value="'. $row['id'] .'">';
                                 echo '<button class="addBtn"><i class="fa fa-star-o"></i> Add to Wishlist</button></form>';
-                                                        
-
+                                   
                                 if( $row['quantity'] <= 0 ){
                                     echo '<button class="addtocartBtn" style="visibility:hidden; name="addtocartBtn" ><i class="fa fa-plus" aria-hidden="true"></i> Add to Cart</button>';
                                 }else{
                                     echo '<form action="addtocart.php" method="POST">';
                                     echo '<input type="hidden" name="product_id" value="' . $row['id'] . '">';
+                                    echo '<input type="hidden" name="quantity" value="' .  $selectedquantity . '">';
                                     echo '<button class="addtocartBtn" name="addtocartBtn" ><i class="fa fa-plus" aria-hidden="true"></i> Add to Cart</button>';
                                     echo '</form>';
                                 }
