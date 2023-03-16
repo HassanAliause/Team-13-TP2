@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 15, 2023 at 04:08 PM
+-- Generation Time: Mar 16, 2023 at 06:13 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -120,15 +120,16 @@ CREATE TABLE `customer_orders` (
   `order_number` int(5) NOT NULL,
   `name` varchar(30) DEFAULT NULL,
   `product` varchar(30) DEFAULT NULL,
-  `quantity` int(2) DEFAULT NULL
+  `quantity` int(2) DEFAULT NULL,
+  `total` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `customer_orders`
 --
 
-INSERT INTO `customer_orders` (`id`, `order_number`, `name`, `product`, `quantity`) VALUES
-(1, 4729192, 'Clive Wright', '13 Bits 4K Monitor', 2);
+INSERT INTO `customer_orders` (`id`, `order_number`, `name`, `product`, `quantity`, `total`) VALUES
+(1, 4729192, 'Clive Wright', '13 Bits 4K Monitor', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -165,6 +166,19 @@ CREATE TABLE `message` (
   `email` varchar(100) DEFAULT NULL,
   `subject` varchar(30) DEFAULT NULL,
   `message` varchar(5000) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_items`
+--
+
+CREATE TABLE `order_items` (
+  `id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -293,6 +307,12 @@ ALTER TABLE `message`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `order_items`
+--
+ALTER TABLE `order_items`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
@@ -349,6 +369,12 @@ ALTER TABLE `login_info`
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `order_items`
+--
+ALTER TABLE `order_items`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
