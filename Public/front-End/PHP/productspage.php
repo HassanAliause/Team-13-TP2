@@ -17,6 +17,17 @@
     <!-- header -->
     <?php include_once "header.php"?>
     
+    <form action="searchProduct.php" method="GET">
+        <div class="wrap">
+            <div class="search">
+                <input type="text" class="searchTerm" id="search" placeholder="Search for products..." name="search">
+                <button type="submit" class="searchButton">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+    
     <div class="departments-header">
         <h2>DEPARTMENTS</h2>
     </div>
@@ -78,23 +89,22 @@
                         
                             echo '<td><span class="product-type">' . $row['key_value'] . '</span></td></tr>';
                         
+                            echo '<td><span class="product-type">' . $row['key_value'] . '</span></td></tr>';
+                            echo '<form action="addtowishlist.php" method="POST">';
+                            echo '<input type="hidden" name="product_id" value="'. $row['id'] .'">';
+                            echo '<button class="addBtn"><i class="fa fa-star-o"></i> Add to Wishlist</button></form>';
+                                                    
+
+                            if( $row['quantity'] <= 0 ){
+                                echo '<button class="addtocartBtn" style="visibility:hidden; name="addtocartBtn" ><i class="fa fa-plus" aria-hidden="true"></i> Add to Cart</button>';
+                            }else{
+                                echo '<form action="addtocart.php" method="POST">';
+                                echo '<input type="hidden" name="product_id" value="' . $row['id'] . '">';
+                                echo '<input type="hidden" name="quantity" value="1">';
+                                echo '<button class="addtocartBtn" name="addtocartBtn" ><i class="fa fa-plus" aria-hidden="true"></i> Add to Cart</button>';
+                                echo '</form>';
+                            }
                         ?>
-                         <form action="/add_to_wish" method="POST">
-                                  
-                                  <input type="hidden" name="product_id" value="{{ $row['id'] }}">
-                                  <button class="addBtn"><i class="fa fa-star-o"></i> Add to Wishlist</button>
-                                 </form>
-                                 <form action="/add_to_cart" method="POST">
-                                 
-                                 <input type="hidden" name="product_id" value="{{ $row['id'] }}">
-                                 <?php
-                                 if($row['quantity'] <= 0 ){
-                                    echo '<button class="wishlistBtn" style="visibility:hidden;"><i class="fa fa-plus" aria-hidden="true"></i> Add to cart </button>';
-                                }
-                                else{
-                                    echo '<button class="wishlistBtn"><i class="fa fa-plus" aria-hidden="true"></i> Add to Cart</button>';
-                                }
-                                 ?>
                         </div>
                         <?php
                     }

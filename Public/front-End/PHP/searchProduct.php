@@ -18,10 +18,8 @@
     <?php include_once "header.php"?>
     
     <?php
-        $dept = $_GET['dept'];
-        $name = $_GET['name'];
+        $search = $_GET['search'];
     ?>
-    
     <form action="searchProduct.php" method="GET">
         <div class="wrap">
             <div class="search">
@@ -32,41 +30,13 @@
             </div>
         </div>
     </form>
-    
-    <div class="departments-header">
-        <h2>DEPARTMENTS</h2>
-    </div>
-
-    <div class = "dept-container">
-            <div class ="dept">
-            <a href="productdept.php?dept=11&name=computers-laptops"><h3>COMPUTERS/LAPTOPS</h3><img src="images\laptop2-1.png" alt="computer/laptops" width= 250px height = 250px></a>
-            </div>
-            <div class ="dept">
-                <a href="productdept.php?dept=22&name=keyboards-mice"><h3>KEYBOARDS/MICE</h3><img src="images\keyboard1-1.jfif" alt="keyboard/mice"  width= 250px height = 250px></a>
-            </div>
-            <div class ="dept">
-                <a href="productdept.php?dept=33&name=headsets-mics"><h3>HEADSETS/MICS</h3><img src="images\headset2-1.jfif" alt="headsets/mics"  width= 250px height = 250px></a>
-            </div>
-            <div class ="dept">
-                <a href="productdept.php?dept=44&name=speakers"><h3>SPEAKERS</h3><img src="images\speaker3-1.jfif" alt="speakers"  width= 250px height = 250px></a>
-            </div>
-            <div class ="dept">
-                <a href="productdept.php?dept=55&name=webcams"><h3>WEBCAMS</h3><img src="images\webcam5-1.jfif" alt="webcams" width= 250px height = 250px></a>
-            </div>
-        </div>
- 
-
- 
 
     <div class="products-header">
         <?php
-            $productHeader = str_replace('-', ' & ', $name); 
-            $productHeader = strtoupper($productHeader);
-            echo "<h2>" . $productHeader . "</h2>";
+            $productHeader = str_replace('-', ' & ', $search); 
+            echo "<h2>Results for '" . $productHeader . "'</h2>";
         ?>
     </div>
-
-
  
     <div class = "product-container">
 
@@ -79,7 +49,7 @@
             try {
                 $db = new PDO("mysql:dbname=$db_name;host=$db_host", $username); 
                 try {
-                    $query="SELECT  * FROM  `products` WHERE `key_value` = '$dept'";
+                    $query="SELECT  * FROM  `products` WHERE `name` LIKE '%$search%'";
                     $rows =  $db->query($query);
                         
                     if ( $rows && $rows->rowCount()> 0) {
@@ -115,13 +85,13 @@
                                     echo '<button class="addtocartBtn" name="addtocartBtn" ><i class="fa fa-plus" aria-hidden="true"></i> Add to Cart</button>';
                                     echo '</form>';
                                 }
-                                 ?>
+                            ?>
                             </div>
-                            <?php
+                        <?php
                         }
                     }
                     else {
-                        echo  "<p>No record in the list.</p>\n";
+                        echo  "<h3>Sorry, there are no products matching your search!</h3>\n";
                     }
                 }
                 catch (PDOexception $ex){

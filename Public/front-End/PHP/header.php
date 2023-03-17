@@ -26,7 +26,8 @@
         <ul>  
             <li><a href="homepage1.php">Home</a></li>
             <li><a href="productspage.php">Products</a></li>
-            <li><a href="contactus.php">Contact Us</a></li>  
+            <li><a href="contactus.php">Contact Us</a></li>
+            <li><a href="aboutUs.php">About US</a></li>
             <?php
                 session_start();
                 if(isset($_SESSION['username'])){
@@ -36,10 +37,8 @@
                     echo '<li><a href="login.php">Log in</a></li>';
                 }
             ?>
-            <!-- <li><a href="">My Orders</a></li>    -->
             <li><a href="wishlist.php"><i class="fa fa-heart-o" style="font-size:25px"></i></a></li>
-            <li><a href="basket.php"><i class="fa fa-shopping-cart" style="font-size:25px"></i></a></li>
-        
+            <li><a href="addtocart.php"><i class="fa fa-shopping-cart" style="font-size:25px"></i></a></li>
         </ul>   
         
     </nav>
