@@ -4,7 +4,7 @@
 
 $serverName = "localhost";
 $username = "root";
-$password = " ";
+$password = "";
 $dbName = "13_bits"; 
 
 // insert code to connect to database
