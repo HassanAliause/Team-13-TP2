@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 16, 2023 at 06:13 PM
+-- Generation Time: Mar 19, 2023 at 11:51 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -117,19 +117,9 @@ INSERT INTO `customer_details` (`id`, `name`, `email`, `password`, `birth`, `hou
 
 CREATE TABLE `customer_orders` (
   `id` int(11) NOT NULL,
-  `order_number` int(5) NOT NULL,
-  `name` varchar(30) DEFAULT NULL,
-  `product` varchar(30) DEFAULT NULL,
-  `quantity` int(2) DEFAULT NULL,
-  `total` float NOT NULL
+  `user_id` int(5) NOT NULL,
+  `total` decimal(11,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `customer_orders`
---
-
-INSERT INTO `customer_orders` (`id`, `order_number`, `name`, `product`, `quantity`, `total`) VALUES
-(1, 4729192, 'Clive Wright', '13 Bits 4K Monitor', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -286,108 +276,6 @@ ALTER TABLE `categories`
 ALTER TABLE `customer_details`
   ADD PRIMARY KEY (`id`),
   ADD KEY `name` (`name`);
-
---
--- Indexes for table `customer_orders`
---
-ALTER TABLE `customer_orders`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `product` (`product`);
-
---
--- Indexes for table `login_info`
---
-ALTER TABLE `login_info`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `message`
---
-ALTER TABLE `message`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `order_items`
---
-ALTER TABLE `order_items`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `products`
---
-ALTER TABLE `products`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `keyvalue` (`key_value`);
-
---
--- Indexes for table `product_images`
---
-ALTER TABLE `product_images`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `admin`
---
-ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `cart`
---
-ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `categories`
---
-ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `customer_details`
---
-ALTER TABLE `customer_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `customer_orders`
---
-ALTER TABLE `customer_orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `login_info`
---
-ALTER TABLE `login_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `message`
---
-ALTER TABLE `message`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `order_items`
---
-ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `products`
---
-ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
-
---
--- AUTO_INCREMENT for table `product_images`
---
-ALTER TABLE `product_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
