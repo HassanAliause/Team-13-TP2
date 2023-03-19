@@ -58,10 +58,10 @@
         
     <div class="grid-container">
             <!-- header -->
-            <?php include_once "adminHeader.php"?>
+            <?php include_once "employeeHeader.php"?>
 
             <!-- sidebar -->
-            <?php include_once "adminSidebar.php"?>
+            <?php include_once "employeeSidebar.php"?>
 
             <main class="main-container">
                 <!-- this will be the input form box that will create a new product -->
