@@ -85,11 +85,29 @@
 
                 $total_price = 0;
                 $stmt->execute();
-
-                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    $price = $row['price'];
-                    $quantity = $row['quantity'];
-                    $total_price += $price * $quantity;
+                if ($stmt->rowCount() == 0) {
+                    
+                } else {
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        $price = $row['price'];
+                        $quantity = $row['quantity'];
+                        $total_price += $price * $quantity;
+                    }
+                    ?>
+                    <div class="total-header">
+                            <?php
+                                echo "<h2> Total Price: £" . number_format($total_price, 2) . "</h2>";
+                            ?>
+                            <form action="checkout.php" method="POST">
+                                <button class="checkoutBtn" name="checkoutBtn" >Proceed to Checkout  <i class="fa fa-credit-card-alt" aria-hidden="true"></i></button>
+                                <input type="hidden" name="total_price" value="<?php echo $total_price;?>">
+                            </form>
+                            <form action="removefromcart.php" method="POST">
+                                <input type="hidden" name="user_id" value="1">
+                                    <button class="removeAllBtn" name="removeAllBtn" >Empty Cart <i class="fa fa-trash"  aria-hidden="true"></i></button>
+                                    </form>               
+                            </div>
+                    <?php
                 }
 
             } catch(PDOException $ex) {
@@ -97,17 +115,11 @@
                 echo $ex->getMessage();
                 exit;
             }
+            
         ?>
-
-        <div class="total-header">
-            <?php
-                echo "<h2> Total Price: £" . number_format($total_price, 2) . "</h2>";
-            ?>
-            <form action="checkout.php" method="POST">
-                <button class="checkoutBtn" name="checkoutBtn" >Proceed to Checkout  <i class="fa fa-credit-card-alt" aria-hidden="true"></i></button>
-                <input type="hidden" name="total_price" value="<?php echo $total_price;?>">
-            </form>
-         </div>
+        
+       
+         
 
         <div class = "cart-container">
                 <?php
