@@ -64,18 +64,16 @@
                     <a href="employeeSubPageCustomer.php" class="sidebar-list-text">Customers</a>
                 </li>
 
-                <!-- TODO -->
                 <li class="sidebar-list-item">
                     <span class="material-symbols-outlined">
-                        person_search
+                        order_approve
                     </span>
-                    <a href="employeeSubPageCustomer.php" class="sidebar-list-text">Customer Orders</a>
+                    <a href="employeeSubPageCustomerOrders.php" class="sidebar-list-text">Customer Orders</a>
                 </li>
 
-                <!-- TODO -->
                 <li class="sidebar-list-item">
                     <span class="material-symbols-outlined">
-                        person
+                        badge
                     </span>
                     <a href="employeeSubPageEmployees.php" class="sidebar-list-text">Employees</a>
                 </li>

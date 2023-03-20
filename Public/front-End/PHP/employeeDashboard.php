@@ -158,15 +158,17 @@ include("databaseConnect.php");
 
                 </div>
 
-
-
                 <div class="main-tables">
 
+                    <div class="sub-title">
+                        <h3>Overview<h3>
+                    </div>
+                    
                     <!-- customer table -->
                     <?php 
                     include_once("employeeTableCustomer.php");
                     include_once("employeeTableCustomerOrders.php");
-                    include_once("employeeTableAdmin.php");
+                    include_once("employeeTableEmployees.php");
                     include_once("employeeTableProducts.php");
                     include_once("employeeTableContactUs.php");
                     ?>
