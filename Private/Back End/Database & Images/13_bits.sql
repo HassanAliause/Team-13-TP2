@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 19, 2023 at 11:51 PM
+-- Generation Time: Mar 20, 2023 at 03:30 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -205,7 +205,7 @@ INSERT INTO `products` (`id`, `name`, `description`, `price`, `quantity`, `image
 (12, 'MacBook Pro M2 1TB', 'Powered by the next-generation M2 chip, the redesigned MacBook Air packs incredible performance and up to 18 hours of battery life into an incredibly thin aluminum body.', '1260', 0, 'https://cdn.discordapp.com/attachments/1073347102559703130/1075794599307649095/laptop2-1.png', '200', 11),
 (13, 'Acer Zenbook Gaming Laptop 1TB', 'Gaming Laptop created by Acer with 1TB SSD ', '990', 12, 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261430795026462/laptop1-1PNG.png', '300', 11),
 (14, 'HyperX Wired Mic (Black)', '7.1 Virtual Surround Sound, consisting of a dark black around the cups of the headset', '75', 55, 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261381973311488/mic1-1PNG.png', '500', 33),
-(15, 'ProSound Audio Microphone with Stand', 'ntroducing the ProSound USB Condenser Cardioid Microphone with Boom Arm & Pop Filter, the ultimate solution for streamers, podcasters, gamers, vocalists, and voice-over artists who demand professional-grade sound quality.', '150', 20, 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261382380167178/mic2-2PNG.png', '200', 33),
+(15, 'ProSound Audio Microphone with Stand', 'ntroducing the ProSound USB Condenser Cardioid Microphone with Boom Arm & Pop Filter, the ultimate solution for streamers, podcasters, gamers, vocalists, and voice-over artists who demand professional-grade sound quality.', '150', 20, 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261382778622005/mic2-1PNG.png', '200', 33),
 (16, 'SandStrom Wireless Mouse', ' We are proud to present our smooth and effective wireless mouse! Its dependable wireless connection enables you to effortlessly manage your computer from afar, eliminating the inconvenience of tangled cables and restricted movement.', '80', 123, 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261336695820368/mice1-2PNG.png', '500', 22),
 (17, 'Ergonomic Mouse', 'The design of this mouse is aimed at minimizing discomfort and strain on your hand and fingers during use. Its shape is intended to provide comfort, and the buttons are easily accessible.', '59', 200, 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261336444145715/mice2-1PNG.png', '500', 22),
 (18, '13 Bits Tower PC (Mini)', 'Introducing the 13 bits Tower PC.A compact gaming PC that offers high-performance gaming capabilities in a small form factor. This mini PC is designed to handle demanding games with ease and features powerful components such as a fast processor, a dedicated graphics card, and ample storage. Its small size makes it ideal for gamers who want a powerful gaming setup without taking up too much space.', '700', 5, 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261277652594858/pc1-1PNG.png', '10', 11),
@@ -245,7 +245,28 @@ INSERT INTO `product_images` (`id`, `product_id`, `image_1`, `image_2`, `image_3
 (3, '16', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261335907291147/mice1-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261336695820368/mice1-2PNG.png', ''),
 (4, '12', 'https://cdn.discordapp.com/attachments/1073347102559703130/1075794599307649095/laptop2-1.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261431566762087/laptop2-2PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261431105396736/laptop2-3PNG.png'),
 (5, '13', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261430795026462/laptop1-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261432313348156/laptop1-2PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261432057503784/laptop1-3PNG.png'),
-(6, '16', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261335907291147/mice1-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261336695820368/mice1-2PNG.png', NULL);
+(7, '4', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261335907291147/mice1-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261336695820368/mice1-2PNG.png', NULL),
+(8, '5', 'https://cdn.discordapp.com/attachments/1073347102559703130/1078034168732209262/arcade1-1.jpeg', NULL, NULL),
+(9, '6', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261469613301870/keyboard1-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261472461234327/keyboard1-2PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261472184406117/keyboard1-3PNG.png'),
+(10, '7', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261026023706744/headset2-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261026808045728/headset2-3PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261026514448434/headset2-2PNG.png'),
+(13, '9', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261025801412628/headset1-2PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261026514448434/headset2-2PNG.png', NULL),
+(14, '10', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261025277124679/headset3-2PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261025277124679/headset3-2PNG.png', NULL),
+(15, '11', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261470271807498/keyboard4-1PNG.png', NULL, NULL),
+(16, '14', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261381973311488/mic1-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261383395184751/mic1-2PNG.png\r\n', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261383051247656/mic1-3PNG.png'),
+(17, '15', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261382778622005/mic2-1PNG.png', NULL, NULL),
+(18, '17', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261336444145715/mice2-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261336221859840/mice2-2PNG.png', NULL),
+(19, '18', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261277652594858/pc1-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261279305150465/pc1-2PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261279015731230/pc1-3PNG.png'),
+(20, '19', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261278768283718/pc2-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261278504038542/pc2-2PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261278239785053/pc2-3PNG.png'),
+(21, '20', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261277988143114/pc3-1PNG.png', NULL, NULL),
+(22, '21', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261233729839184/speaker1-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261235734716446/speaker1-2PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261235516620890/speaker1-3PNG.png'),
+(23, '22', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261235306909796/speaker2-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261234816172032/speaker2-3PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261234816172032/speaker2-3PNG.png'),
+(24, '23', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261234409316362/speaker4-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261234195415070/speaker4-2PNG.png\r\n', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261233947955232/speaker4-3PNG.png'),
+(25, '24', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261234602266744/speaker3-1PNG.png', NULL, NULL),
+(26, '26', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261164481892382/webcam1-1PNG.png', NULL, NULL),
+(27, '27', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261166268653659/webcam2-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261166063124520/webcam2-2PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261165777932379/webcam2-3PNG.png'),
+(28, '28', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261165555621979/webcam3-1PNG.png', NULL, NULL),
+(29, '31', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261165115232376/webcam4-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261165777932379/webcam2-3PNG.png', NULL),
+(30, '32', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261164918087810/webcam5-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261164691587072/webcam5-2PNG.png', NULL);
 
 --
 -- Indexes for dumped tables
@@ -276,6 +297,82 @@ ALTER TABLE `categories`
 ALTER TABLE `customer_details`
   ADD PRIMARY KEY (`id`),
   ADD KEY `name` (`name`);
+
+--
+-- Indexes for table `customer_orders`
+--
+ALTER TABLE `customer_orders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `login_info`
+--
+ALTER TABLE `login_info`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `message`
+--
+ALTER TABLE `message`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `order_items`
+--
+ALTER TABLE `order_items`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product_images`
+--
+ALTER TABLE `product_images`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `customer_orders`
+--
+ALTER TABLE `customer_orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `login_info`
+--
+ALTER TABLE `login_info`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `message`
+--
+ALTER TABLE `message`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `order_items`
+--
+ALTER TABLE `order_items`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- AUTO_INCREMENT for table `product_images`
+--
+ALTER TABLE `product_images`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
