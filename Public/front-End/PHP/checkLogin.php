@@ -33,7 +33,7 @@
         }
         
         // will take user back to log in
-        header("Location: Public\Front End\PHP\login.html");
+        header("Location: login.php");
         die;
     }
 
