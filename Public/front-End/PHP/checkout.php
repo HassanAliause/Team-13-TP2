@@ -111,10 +111,6 @@
                                 echo '<div class = "cart-productinfo"><h1>' . $row['name'] . '</h1>';
                                 echo '<h2>Quantity: ' . $row['quantity'] . '</h2>';
                                 echo '<h2>£' . $row['price'] * $row['quantity'] . '</h2></div></div>';
-                                echo '<form action="removefromcart.php" method="POST">';
-                                echo '<input type="hidden" name="product_id" value="' . $row['id'] . '">';
-                                echo '<button class="removeBtn" name="removeBtn" ><i class="fa fa-trash"  aria-hidden="true"></i></button>';
-                                echo '</form>';
                             
                             }
                         }else{
