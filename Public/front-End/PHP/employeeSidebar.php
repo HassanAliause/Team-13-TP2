@@ -5,9 +5,6 @@
        
         <!-- will make the webpage mobile friendly -->
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-       
-        <!-- title of page -->
-        <title>Employee Page</title>
         
         <!-- link to icons -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -36,52 +33,72 @@
                     <span class="material-symbols-outlined" >
                         dashboard
                     </span>
-                    <a href="employeePage.php" class="sidebar-list-text">Dashboard</a>
+                    <a href="employeeDashboard.php" class="sidebar-list-text">Dashboard</a>
                 </li>
 
                 <li class="sidebar-list-item">
                     <span class="material-symbols-outlined">
                         person_add
                     </span>
-                    <a href="addCustomer.php" class="sidebar-list-text">Add Customer</a>
+                    <a href="employeeAddCustomer.php" class="sidebar-list-text">Add Customer</a>
                 </li>
 
                 <li class="sidebar-list-item">
                     <span class="material-symbols-outlined">
                         manage_accounts
                     </span>
-                    <a href="addEmployee.php" class="sidebar-list-text">Add Employee</a>
+                    <a href="employeeAddEmployee.php" class="sidebar-list-text">Add Employee</a>
                 </li>
 
                 <li class="sidebar-list-item">
                     <span class="material-symbols-outlined">
                         assignment_add
                     </span>
-                    <a href="addProduct.php" class="sidebar-list-text">Add Product</a>
+                    <a href="employeeAddProduct.php" class="sidebar-list-text">Add Product</a>
                 </li>
 
                 <li class="sidebar-list-item">
                     <span class="material-symbols-outlined">
-                        production_quantity_limits
+                        person_search
                     </span>
-                    <a href="#" class="sidebar-list-text">Stock</a>
+                    <a href="employeeSubPageCustomer.php" class="sidebar-list-text">Customers</a>
                 </li>
 
-                
+                <li class="sidebar-list-item">
+                    <span class="material-symbols-outlined">
+                        order_approve
+                    </span>
+                    <a href="employeeSubPageCustomerOrders.php" class="sidebar-list-text">Customer Orders</a>
+                </li>
+
+                <li class="sidebar-list-item">
+                    <span class="material-symbols-outlined">
+                        badge
+                    </span>
+                    <a href="employeeSubPageEmployees.php" class="sidebar-list-text">Employees</a>
+                </li>
+
+                <!-- <li class="sidebar-list-item">
+                    <span class="material-symbols-outlined">
+                        production_quantity_limits
+                    </span>
+                    <a href="employeeTableStock.php" class="sidebar-list-text">Stock</a>
+                </li> -->
+
                 <li class="sidebar-list-item">
                     <span class="material-symbols-outlined">
                         inventory_2
                     </span>
-                    <a href="#" class="sidebar-list-text">Products</a>
+                    <a href="employeeSubPageProducts.php" class="sidebar-list-text">Products and Stock</a>
                 </li>
 
                 <li class="sidebar-list-item">
                     <span class="material-symbols-outlined">
-                        contact_page
+                        support_agent
                     </span>
-                    <a href="adminContactUs.php" class="sidebar-list-text">Contact Us</a>
+                    <a href="employeeSubPageContactUs.php" class="sidebar-list-text">Contact Us</a>
                 </li>
-                
+
             </ul>
 
         </aside>

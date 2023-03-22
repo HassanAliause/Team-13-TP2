@@ -118,7 +118,7 @@
                                 echo '<button class="addBtn"><i class="fa fa-star-o"></i> Add to Wishlist</button></form>';
                                    
                                 if( $row['quantity'] <= 0 ){
-                                    echo '<button class="addtocartBtn" style="visibility:hidden; name="addtocartBtn" ><i class="fa fa-plus" aria-hidden="true"></i> Add to Cart</button>';
+                                  
                                 }else{
                                     echo '<form action="addtocart.php" method="POST">';
                                     echo '<input type="hidden" name="product_id" value="' . $row['id'] . '">';

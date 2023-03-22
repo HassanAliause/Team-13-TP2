@@ -464,7 +464,19 @@ color: #595959;
     border:none;
     font-size:20px;
     color:rgb(255, 255, 255);
-    margin-top:50px;
+    margin-top:25px;
+}
+
+.removeAllBtn{
+    
+    background-color:  rgb(71, 71, 71);
+    cursor:pointer;
+    width:15%;
+    height:50px;
+    border:none;
+    font-size:20px;
+    color:rgb(255, 255, 255);
+    margin-top:25px;
 }
 
 .checkoutBtn:hover{

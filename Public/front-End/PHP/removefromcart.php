@@ -42,10 +42,44 @@
                     echo($ex->getMessage());
                     exit;
                 }
+                
+                header('Location: addtocart.php');
+                exit();
             }
+
+            if (isset($_POST['removeAllBtn'])) {
+                $loggeduser_id = $_POST['user_id'];
+                $loggeduser_id = isset($_POST['user_id']) ? intval($_POST['user_id']) : 0;
+                if ($loggeduser_id == 0) {
+                    echo "Error: user_id not set or invalid.";
+                    exit;
+                }
+
+                $db_host = 'localhost';
+                $db_name = '13_bits';
+                $username = 'root';
+    
+                try {
+                    $db = new PDO("mysql:dbname=$db_name;host=$db_host", $username); 
+                    try {
+                        $stmt = $db->prepare("DELETE FROM cart WHERE user_id = ?");
+                        $stmt->bindValue(1, $loggeduser_id);
+                        $stmt->execute();
+                                                    
+                    }
+                    catch (PDOexception $ex){
+                        echo "Sorry, a database error occurred! <br>";
+                        echo "Error details: <em>". $ex->getMessage()."</em>";
+                    }
+                } catch(PDOException $ex) {
+                    echo("Failed to connect to the database.<br>");
+                    echo($ex->getMessage());
+                    exit;
+                }
             header('Location: addtocart.php');
             exit();
-
+            }
+            
         ?>
 
     

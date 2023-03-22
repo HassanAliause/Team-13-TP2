@@ -64,7 +64,17 @@ if(isset($_POST['send'])){
                 <label>Message</label>
                 <textarea rows="10" name="message" placeholder="Write your message"></textarea>
                 <div class="center">
-                    <button type="submit" name="send" >Submit</button>
+                    <button type="submit" name="send" onclick="myFunction()" >Submit</button>
+                    <script>
+                        function myFunction() {
+                            let text;
+                            if (confirm("Form Submitted!") == true) {
+                                text = "Submitted! We will contact you back!";
+                            } else {
+                               text = "Done!"
+                            }
+                        }
+                        </script>
                 </div>
                 <?php
                 foreach($messages as $message) {

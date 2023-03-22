@@ -31,7 +31,7 @@
             <?php
                 session_start();
                 if(isset($_SESSION['username'])){
-                    echo '<li><a href="#">My Orders</a></li>';
+                    echo '<li><a href="myOrders.php">My Orders</a></li>';
                     echo '<li><a href="logout.php">Logout</a></li>';
                 }else{
                     echo '<li><a href="login.php">Log in</a></li>';
