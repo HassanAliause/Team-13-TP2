@@ -1,3 +1,9 @@
+<?php
+include 'databaseConnect.php';
+$_SESSION["id"] = $id;
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

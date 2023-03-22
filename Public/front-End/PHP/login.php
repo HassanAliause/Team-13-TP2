@@ -4,7 +4,8 @@ session_start();
 
 
 // Include config file
-require_once "databaseConnect.php";
+include "databaseConnect.php";
+
 
 // Define variables and initialize with empty values
 $username = $password = "";
