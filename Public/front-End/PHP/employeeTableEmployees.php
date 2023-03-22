@@ -41,8 +41,9 @@ include("databaseConnect.php");
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Name</th>
-                            <th scope="col">Admin Key</th>
+                            <th scope="col">Key</th>
                             <th scope="col">Password</th>
+                            <th scope="col">Employee Action</th>
 
                         </tr>
 
@@ -65,6 +66,9 @@ include("databaseConnect.php");
                                         <td>' . $username . '</td>
                                         <td>' . $adminkey . '</td>
                                         <td>' . $password . '</td>
+                                        <td> 
+                                            <a class="actionButton" href="employeeDeleteEmployee.php? employeeID_Delete= '.$id.'">Delete</a>
+                                        </td>
                                     </tr>'
                                     
                                     ;

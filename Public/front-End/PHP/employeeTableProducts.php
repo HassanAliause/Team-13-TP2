@@ -47,9 +47,7 @@ include("databaseConnect.php");
                             <th scope="col">Quantity</th>
                             <th scope="col">Total</th>
                             <th scope="col">Key Value</th>
-                            <th scope="col">Stock</th>
-
-
+                            <th scope="col">Product Action</th>
                         </tr>
 
                     </thead>
@@ -80,7 +78,9 @@ include("databaseConnect.php");
                                         <td>' . $password . '</td>
                                         <td>' . $total . '</td>
                                         <td>' . $keyvalue . '</td>  
-                                        <td>' .'</td>                          
+                                        <td>
+                                            <a class="actionButton" href="employeeDeleteProduct.php? productID_Delete= '.$id.'">Delete</a>
+                                        </td>                   
                                     </tr>';
 
                                 }

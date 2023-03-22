@@ -48,6 +48,7 @@ include("databaseConnect.php");
                             <th scope="col">Street Name</th>
                             <th scope="col">Town</th>
                             <th scope="col">Postcode</th>
+                            <th scope="col">Customer Action</th> 
                         </tr>
 
                     </thead>
@@ -78,7 +79,10 @@ include("databaseConnect.php");
                                         <td>' . $housenumber . '</td>
                                         <td>' . $street . '</td>
                                         <td>' . $town . '</td>
-                                        <td>' . $postcode .'</td>
+                                        <td>' . strtoupper($postcode) .'</td>
+                                        <td>
+                                            <a class="actionButton" href="employeeDeleteCustomer.php? customerID_Delete= '.$id.'">Delete</a>
+                                        </td>
                                     </tr>'
                                     
                                     ;
