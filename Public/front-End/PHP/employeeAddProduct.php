@@ -1,9 +1,7 @@
 <?php
     include("databaseConnect.php");
     // include("checkLogin.php");
-    // if(!isset($_SESSION['id'])) {
-    //     header("Location:Public\Front End\PHP\login.php")
-    // }
+
 
     if (isset($_POST['submitButton'])) {
 
@@ -25,9 +23,6 @@
         if (!$result) {
             die(mysqli_error($con));
         }
-
-
-
     }
 ?>
 
