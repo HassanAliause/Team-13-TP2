@@ -65,7 +65,7 @@ include("databaseConnect.php");
                                     $name = $row['name'];
                                     $description = $row['description'];
                                     $price = $row['price']; 
-                                    $password = $row['quantity'];
+                                    $quantity = $row['quantity'];
                                     $total = $row['total'];
                                     $keyvalue = $row['key_value'];
                                     echo ' 
@@ -75,11 +75,13 @@ include("databaseConnect.php");
                                         <td>' . $name . '</td>
                                         <td>' . $description . '</td>
                                         <td>' . $price . '</td>
-                                        <td>' . $password . '</td>
+                                        <td>' . $quantity . '</td>
                                         <td>' . $total . '</td>
                                         <td>' . $keyvalue . '</td>  
                                         <td>
                                             <a class="actionButton" href="employeeDeleteProduct.php? productID_Delete= '.$id.'">Delete</a>
+                                            
+                                            <a class="actionButton" href="employeeUpdateProduct.php? productID_Update= '.$id.'">Update</a>
                                         </td>                   
                                     </tr>';
 

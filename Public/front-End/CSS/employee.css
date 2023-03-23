@@ -517,3 +517,28 @@ textarea {
     height: 150px;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+/* action buttons */
+
+.actionButton {
+    margin: 5px;
+    background-color: var(--colorPrimaryDark);
+    border-radius: 20px;
+    padding: 7px 15px;
+    align-items: center;
+    font-size: 125%;
+    text-decoration: none;
+    color: white;
+    transition: 0.2s;
+    display: block;
+    
+}
+
+
+.actionButton:visited{
+    text-decoration: none;
+}
+
+.actionButton:hover{
+    color: var(--colourPrimary);
+}
