@@ -338,6 +338,7 @@ table {
     border: solid black;
     border-spacing: 0;
     width: 100%;
+    font-size: 125%;
 }
 
 table th, td{
