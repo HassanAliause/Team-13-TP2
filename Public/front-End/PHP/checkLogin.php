@@ -37,7 +37,7 @@
         die;
     }
 
-    if (!isset$_SESSION['id']){
+    if (!isset($_SESSION['id'])){
         header('Location:Public\Front End\PHP\login.html');
     }    
 
