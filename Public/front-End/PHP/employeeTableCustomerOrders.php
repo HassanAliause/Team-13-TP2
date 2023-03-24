@@ -42,11 +42,9 @@ include("databaseConnect.php");
                     <thead>
 
                         <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Order Number</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Product</th>
-                            <th scope="col">Quantity</th>
+                            <th scope="col">Order ID</th>
+                            <th scope="col">User ID</th>
+                            <th scope="col">Total</th>
                         </tr>
 
                     </thead>
@@ -59,17 +57,13 @@ include("databaseConnect.php");
                             if ($result) {
                                 while ($row = mysqli_fetch_assoc($result)){
                                     $id = $row['id'];
-                                    $username = $row['order_number'];
-                                    $adminkey = $row['name'];
-                                    $product = $row['product'];
-                                    $quantity = $row['quantity'];
+                                    $userid = $row['user_id'];
+                                    $total = $row['total'];
                                     echo ' 
                                     <tr>
                                         <th scope="row">' . $id . '</th>
-                                        <td>' . $username . '</td>
-                                        <td>' . $adminkey . '</td>
-                                        <td>' . $product . '</td>
-                                        <td>' . $quantity . '</td>
+                                        <td>' . $userid . '</td>
+                                        <td>' . $total . '</td>
                                     </tr>'
                                     
                                     ;
