@@ -3,7 +3,7 @@
     include("databaseConnect.php");
     
     if(isset($_GET['employeeID_Delete'])) {
-        $id = $_GET['emplyoeeID_Delete'];
+        $id = $_GET['employeeID_Delete'];
 
         $sql = "DELETE FROM `admin` WHERE id = $id";
         $result = mysqli_query($con, $sql);
