@@ -74,7 +74,7 @@ include("databaseConnect.php");
                                         <th scope="row">' . $id . '</th>
                                         <td>' . $name . '</td>
                                         <td>' . $email . '</td>
-                                        <td>' . $password . '</td>
+                                        <td type="hidden">' . $password . '</td>
                                         <td>' . $birth . '</td>
                                         <td>' . $housenumber . '</td>
                                         <td>' . $street . '</td>
@@ -82,6 +82,7 @@ include("databaseConnect.php");
                                         <td>' . strtoupper($postcode) .'</td>
                                         <td>
                                             <a class="actionButton" href="employeeDeleteCustomer.php? customerID_Delete= '.$id.'">Delete</a>
+                                            <a class="actionButton" href="employeeUpdateCustomer.php? customerID_Update= '.$id.'">Update</a>
                                         </td>
                                     </tr>'
                                     

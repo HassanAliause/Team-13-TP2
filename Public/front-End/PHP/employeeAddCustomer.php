@@ -17,9 +17,9 @@
         $sql = "INSERT into `customer_details` (name, email, password, birth, housenumber, streetname, townname, postcode) 
         values('$name', '$email', '$password', '$birth', '$houseNumber', '$street', '$town', '$postcode')";
 
-        $result = mysqli_query($con, $sql);
-        
-        if (!$result) {
+        if(mysqli_query($con, $sql)){
+            header('location:employeeTableCustomer.php');
+        } else {
             die(mysqli_error($con));
         }
     }

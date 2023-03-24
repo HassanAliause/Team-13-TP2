@@ -24,7 +24,7 @@
         $keyvalue = $_POST['productKeyValue'];
 
         $sql = "UPDATE `products` SET productName='$name', productDescription='$description', productPrice='$price', productQuantity='$quantity', productTotal='$total', productKeyValue='$keyvalue' WHERE id='$id'";
-
+        $result = mysqli_query($con, $sql);
         if($result) {
             header('location:employeeSubPageProducts.php');
 

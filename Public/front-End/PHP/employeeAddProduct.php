@@ -17,9 +17,11 @@
         
         $sql = "INSERT into `products` (name, description, quantity, total, price, key_value, image_file) 
         values('$name', '$info', '$quantity', '$total', '$price', '$keyvalue', '$image')";
-        $result = mysqli_query($con, $sql);
-        header('location:employeeSubPageProducts.php');
-        if (!$result) {
+
+        if($result) {
+            header('location:employeeSubPageProducts.php');
+
+        } else {
             die(mysqli_error($con));
         }
     }

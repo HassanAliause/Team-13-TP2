@@ -80,7 +80,6 @@ include("databaseConnect.php");
                                         <td>' . $keyvalue . '</td>  
                                         <td>
                                             <a class="actionButton" href="employeeDeleteProduct.php? productID_Delete= '.$id.'">Delete</a>
-                                            
                                             <a class="actionButton" href="employeeUpdateProduct.php? productID_Update= '.$id.'">Update</a>
                                         </td>                   
                                     </tr>';

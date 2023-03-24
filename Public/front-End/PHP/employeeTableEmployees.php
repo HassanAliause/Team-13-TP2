@@ -68,6 +68,7 @@ include("databaseConnect.php");
                                         <td>' . $password . '</td>
                                         <td> 
                                             <a class="actionButton" href="employeeDeleteEmployee.php? employeeID_Delete= '.$id.'">Delete</a>
+                                            <a class="actionButton" href="employeeUpdateEmployee.php? employeeID_Update= '.$id.'">Update</a>                                        
                                         </td>
                                     </tr>'
                                     
