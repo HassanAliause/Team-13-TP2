@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 24, 2023 at 04:25 PM
+-- Generation Time: Mar 24, 2023 at 06:40 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -159,12 +159,12 @@ INSERT INTO `login_info` (`id`, `username`, `email`, `password`) VALUES
 
 CREATE TABLE `message` (
   `id` int(11) NOT NULL,
-  `fName` varchar(300) DEFAULT NULL,
-  `lName` varchar(300) DEFAULT NULL,
-  `phone` int(30) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `subject` varchar(30) DEFAULT NULL,
-  `message` varchar(5000) DEFAULT NULL
+  `fName` varchar(300) NOT NULL,
+  `lName` varchar(300) NOT NULL,
+  `phone` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `subject` varchar(30) NOT NULL,
+  `message` varchar(5000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
