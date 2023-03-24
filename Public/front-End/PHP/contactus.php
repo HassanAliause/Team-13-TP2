@@ -56,7 +56,7 @@ if(isset($_POST['send'])){
                 <label>Last Name</label>
                 <input type="text" name="lname" placeholder="Last name" required>
                 <label>Phone Number</label>
-                <input type="tel" name="phone" placeholder="Phone Number" pattern="^\+(44)[1-9]\d{8,9}$" required>
+                <input type="number" name="phone" placeholder="Phone Number" pattern="^\+(44)[1-9]\d{8,9}$" required>
                 <label>Email Address</label>
                 <input type="text" name="email" placeholder="Enter a valid email address" required>
                 <label>Subject</label>
@@ -74,7 +74,7 @@ if(isset($_POST['send'])){
                                text = "Done!"
                             }
                         }
-                        </script>
+                    </script>
                 </div>
                 <?php
                 foreach($messages as $message) {
