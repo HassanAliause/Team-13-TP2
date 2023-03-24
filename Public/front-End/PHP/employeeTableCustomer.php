@@ -1,9 +1,7 @@
 <?php
 include("databaseConnect.php");
 // include("checkLogin.php");
-// if (!isset$_SESSION['id']){
-//     header('Location:Public\Front End\PHP\login.html');
-// }    
+  
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -50,6 +48,7 @@ include("databaseConnect.php");
                             <th scope="col">Street Name</th>
                             <th scope="col">Town</th>
                             <th scope="col">Postcode</th>
+                            <th scope="col">Customer Action</th> 
                         </tr>
 
                     </thead>
@@ -75,12 +74,16 @@ include("databaseConnect.php");
                                         <th scope="row">' . $id . '</th>
                                         <td>' . $name . '</td>
                                         <td>' . $email . '</td>
-                                        <td>' . $password . '</td>
+                                        <td type="hidden">' . $password . '</td>
                                         <td>' . $birth . '</td>
                                         <td>' . $housenumber . '</td>
                                         <td>' . $street . '</td>
                                         <td>' . $town . '</td>
-                                        <td>' . $postcode .'</td>
+                                        <td>' . strtoupper($postcode) .'</td>
+                                        <td>
+                                            <a class="actionButton" href="employeeDeleteCustomer.php? customerID_Delete= '.$id.'">Delete</a>
+                                            <a class="actionButton" href="employeeUpdateCustomer.php? customerID_Update= '.$id.'">Update</a>
+                                        </td>
                                     </tr>'
                                     
                                     ;

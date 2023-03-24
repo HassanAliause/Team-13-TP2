@@ -1,9 +1,7 @@
 <?php
 include("databaseConnect.php");
 // include("checkLogin.php");
-// if (!isset$_SESSION['id']){
-//     header('Location:Public\Front End\PHP\login.html');
-// }    
+  
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -49,9 +47,7 @@ include("databaseConnect.php");
                             <th scope="col">Quantity</th>
                             <th scope="col">Total</th>
                             <th scope="col">Key Value</th>
-                            <th scope="col">Stock</th>
-
-
+                            <th scope="col">Product Action</th>
                         </tr>
 
                     </thead>
@@ -69,7 +65,7 @@ include("databaseConnect.php");
                                     $name = $row['name'];
                                     $description = $row['description'];
                                     $price = $row['price']; 
-                                    $password = $row['quantity'];
+                                    $quantity = $row['quantity'];
                                     $total = $row['total'];
                                     $keyvalue = $row['key_value'];
                                     echo ' 
@@ -79,10 +75,13 @@ include("databaseConnect.php");
                                         <td>' . $name . '</td>
                                         <td>' . $description . '</td>
                                         <td>' . $price . '</td>
-                                        <td>' . $password . '</td>
+                                        <td>' . $quantity . '</td>
                                         <td>' . $total . '</td>
                                         <td>' . $keyvalue . '</td>  
-                                        <td>' .'</td>                          
+                                        <td>
+                                            <a class="actionButton" href="employeeDeleteProduct.php? productID_Delete= '.$id.'">Delete</a>
+                                            <a class="actionButton" href="employeeUpdateProduct.php? productID_Update= '.$id.'">Update</a>
+                                        </td>                   
                                     </tr>';
 
                                 }

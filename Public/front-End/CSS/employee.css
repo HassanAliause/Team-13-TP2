@@ -71,6 +71,7 @@ body {
         "sidebar main main main";
     height: 100vh;
 
+
 }
 
 
@@ -181,6 +182,7 @@ body {
     grid-template-columns:  1fr 1fr 1fr 1fr 1fr;
     gap: 25px;
     margin: 20px 0;
+    
 
 }
 
@@ -191,6 +193,7 @@ body {
     padding: 25px;
     border-radius: 5px;
     background-color: var(--colourPrimary);
+    border: 5px solid var(--colorPrimaryDark);
 }
 
 .card-inner-text {
@@ -241,7 +244,7 @@ body {
     display: grid;
     gap: 25px;
     margin: 20px 0;
-    
+
 }
 
 /* customers */
@@ -262,6 +265,7 @@ body {
     box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
     text-align: center;
     width: 100%;
+    border: 5px solid var(--colorPrimaryDark);
 }
 
 
@@ -292,6 +296,7 @@ body {
     box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
     text-align: center;
     width: 100%;
+    border: 5px solid var(--colorPrimaryDark);
 }
 
 
@@ -323,6 +328,8 @@ body {
     box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
     text-align: center;
     width: 100%;
+    border: 5px solid var(--colorPrimaryDark);
+    border: 5px solid var(--colorPrimaryDark);
 }
 
 .admin-table thead tr {
@@ -338,6 +345,7 @@ table {
     border: solid black;
     border-spacing: 0;
     width: 100%;
+    font-size: 125%;
 }
 
 table th, td{
@@ -369,6 +377,7 @@ table th, td{
     box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
     text-align: center;
     width: 100%;
+    border: 5px solid var(--colorPrimaryDark);
 }
 
 .stock-title{
@@ -404,6 +413,7 @@ table th, td{
     box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
     text-align: center;
     width: 100%;
+    border: 5px solid var(--colorPrimaryDark);
 }
 
 .product-title{
@@ -441,6 +451,7 @@ table th, td{
     box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
     text-align: center;
     width: 100%;
+    border: 5px solid var(--colorPrimaryDark);
 }
 
 .contactUs-title{
@@ -456,6 +467,7 @@ table th, td{
 .contactUs-table th, td{
     padding: 20px 20px;
     color: white;
+
 }
 
 
@@ -471,6 +483,7 @@ table th, td{
     outline: none;
     background: #eeeeee;
     margin-bottom: 5%;
+    border: 4px solid var(--colorPrimaryDark);
 }
 
 .formButton {
@@ -483,28 +496,14 @@ table th, td{
     outline: none;
     cursor: pointer;
     background: var(--colorPrimary);
-}
-
-.box-input{
-    border-radius: 5px;
-    background-color: var(--colourSecondary);
-    padding: 20px;
-    margin-top: 2%;
-    margin-right: 20%;
-    margin-left: 25%;
-    width: 50%;
-
-}
-
-.formButton{
-    width: 100%;
-    padding: 1rem 2rem; 
-    background-color: var(--colourSecondaryDark);
+    background-color: var(--colorPrimaryDark);
     border-radius: 10px;
+    transition: 0.2s ease-in-out;
+    width: 100%;
 }
 
 .formButton:hover{
-    background-color: var(--colourPrimary);
+    color: var(--colourPrimary);
 }
 
 .formImageInput{
@@ -512,8 +511,46 @@ table th, td{
 
 }
 
+.box-input{
+    border-radius: 5px;
+    background-color: var(--colourPrimary);
+    padding: 20px;
+    margin-top: 2%;
+    margin-right: 20%;
+    margin-left: 25%;
+    width: 50%;
+    box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+    border: 5px solid var(--colorPrimaryDark);
+}
+
 textarea {
     resize:vertical;
     height: 150px;
     font-family: Arial, Helvetica, sans-serif;
+    border: 2px solid black;
+}
+
+/* action buttons */
+
+.actionButton {
+    margin: 5px;
+    background-color: var(--colorPrimaryDark);
+    border-radius: 20px;
+    padding: 7px 15px;
+    align-items: center;
+    font-size: 125%;
+    text-decoration: none;
+    color: white;
+    transition: 0.2s;
+    display: block;
+    border: 4px solid black;
+}
+
+
+.actionButton:visited{
+    text-decoration: none;
+}
+
+.actionButton:hover{
+    color: var(--colourPrimary);
 }
