@@ -23,7 +23,7 @@
         $total = $_POST['productTotal'];
         $keyvalue = $_POST['productKeyValue'];
 
-        $sql = "UPDATE `products` SET productName='$name', productDescription='$description', productPrice='$price', productQuantity='$quantity', productTotal='$total', productKeyValue='$keyvalue' WHERE id='$id'";
+        $sql = "UPDATE `products` SET name='$name', description='$description', price='$price', quantity='$quantity', total='$total', key_value='$keyvalue' WHERE id='$id'";
         $result = mysqli_query($con, $sql);
         if($result) {
             header('location:employeeSubPageProducts.php');
@@ -87,7 +87,7 @@
                         <!-- product total -->
                         <div class ="pKeyValue">
                             <h2>Product Key Value:</h2>
-                            <input type="text" class="formInput"  name="productKeyValue" id="productKeyValue" value="<?php echo $keyvalue?>" autocomplete="off">
+                            <input type="number" class="formInput"  name="productKeyValue" id="productKeyValue" value="<?php echo $keyvalue?>" autocomplete="off">
                             
                         </div>
 
@@ -95,7 +95,7 @@
                         <!-- quantity -->
                         <div class="pQuantity">
                             <h2>Product Quantity:</h2>
-                            <input type="text" class="formInput"  name="productQuantity" id="productQuantity" value="<?php echo $quantity ?>" autocomplete="off" required>
+                            <input type="number" class="formInput"  name="productQuantity" id="productQuantity" value="<?php echo $quantity ?>" autocomplete="off" required>
                         </div>
                         
                         <!-- product infomation -->
@@ -107,13 +107,13 @@
                         <!-- product total -->
                         <div class ="pTotal">
                             <h2>Product Total:</h2>
-                            <input type="text" class="formInput"  name="productTotal" id="productTotal" value="<?php echo $total ?>" autocomplete="off" required>
+                            <input type="number" class="formInput"  name="productTotal" id="productTotal" value="<?php echo $total ?>" autocomplete="off" required>
                         </div>
 
                         <!-- product price -->
                         <div class ="pPrice">
                             <h2>Product Price:</h2>
-                            <input type="text" class="formInput"  name="productPrice" id="productPrice" value="<?php echo $price ?>" autocomplete="off" required>
+                            <input type="number" class="formInput"  name="productPrice" id="productPrice" value="<?php echo $price ?>" autocomplete="off" required>
                         </div>
 
                         <?php echo '<td> <img src="' . $image . '"width= 70% height = 70%/></td>' ?>

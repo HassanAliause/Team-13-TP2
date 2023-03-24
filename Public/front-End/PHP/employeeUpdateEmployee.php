@@ -17,10 +17,11 @@
         $password = $_POST['ePassword'];
         $key = $_POST['eKey'];
 
-        $sql = "UPDATE `products` SET eName='$name', ePassword='$password', eKey='$key' WHERE id='$id'";
+        $sql = "UPDATE `admin` SET username='$username', password='$password', adminkey='$key' WHERE id='$id'";
+
         $result = mysqli_query($con, $sql);
         if($result) {
-            header('location:employeeSubPageProducts.php');
+            header('location:employeeSubPageEmployees.php');
 
         } else {
             die(mysqli_error($con));
@@ -38,7 +39,7 @@
         <!-- will make the webpage mobile friendly -->
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
     
-        <title>Employee Page - Update Product</title>
+        <title>Employee Page - Update Employee</title>
         
         <!-- link to icons -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -65,7 +66,7 @@
                 
                 <!-- title of page -->
                 <div class="main-title">
-                    <h2>Udpate Product:</h2>
+                    <h2>Udpate Employee:</h2>
                 </div>
 
                     <form class="box-input" method="POST">
@@ -75,19 +76,19 @@
                         <!-- Employee Username -->
                         <div>
                             <h2>Employee User Name:</h2>
-                            <input type="text" class="formInput" name="eName" autocomplete="off" value="<?php echo $username?>" placeholder="Enter Employee Username" required>
+                            <input type="text" class="formInput" id="eName" name="eName" autocomplete="off" value="<?php echo $username?>" placeholder="Enter Employee Username" required>
                         </div>
 
                         <!-- Employee key -->
                         <div>
                             <h2>Employee Key:</h2>
-                            <input type="number" class="formInput"  name="eKey" autocomplete="off"value="<?php echo $key?>" placeholder="Enter Employee Key" required>
+                            <input type="number" class="formInput" id="eKey"  name="eKey" autocomplete="off"value="<?php echo $key?>" placeholder="Enter Employee Key" required>
                         </div>
 
                         <!-- Employee password -->
                         <div>
                             <h2>Employee Password:</h2>
-                            <input type="password" class="formInput"  name="ePassword" autocomplete="off" value="<?php echo $password?>" placeholder="Enter Employee Password" required>
+                            <input type="password" class="formInput" id="ePassword"  name="ePassword" autocomplete="off" value="<?php echo $password?>" placeholder="Enter Employee Password" required>
                         </div>                        
  
                         <!-- submit button -->
