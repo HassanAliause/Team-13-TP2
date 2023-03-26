@@ -41,7 +41,7 @@
             <main class="main-container"> 
                     
                 <div class="main-tables">
-
+                    <!-- contains the customer infomation  -->
                     <?php include_once("employeeTableCustomer.php");?>
 
                 </div>

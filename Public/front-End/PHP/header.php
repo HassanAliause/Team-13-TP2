@@ -1,5 +1,7 @@
 <?php 
+// connects to database
 include('databaseConnect.php');
+// starts session
 session_start();
 ?>
 <!DOCTYPE html>
@@ -28,6 +30,7 @@ session_start();
         </label>
 
         <ul>  
+            <!-- contains the links across the site -->
             <li><a href="homepage1.php">Home</a></li>
             <li><a href="productspage.php">Products</a></li>
             <li><a href="contactus.php">Contact Us</a></li>
