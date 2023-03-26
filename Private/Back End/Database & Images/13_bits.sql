@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 20, 2023 at 03:30 PM
+-- Generation Time: Mar 24, 2023 at 06:46 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -121,6 +121,15 @@ CREATE TABLE `customer_orders` (
   `total` decimal(11,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `customer_orders`
+--
+
+INSERT INTO `customer_orders` (`id`, `user_id`, `total`) VALUES
+(1, 1, '0'),
+(2, 1, '25'),
+(3, 1, '60');
+
 -- --------------------------------------------------------
 
 --
@@ -129,9 +138,9 @@ CREATE TABLE `customer_orders` (
 
 CREATE TABLE `login_info` (
   `id` int(11) NOT NULL,
-  `username` varchar(30) DEFAULT NULL,
-  `email` varchar(30) DEFAULT NULL,
-  `password` varchar(300) DEFAULT NULL
+  `username` varchar(30) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `password` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -150,12 +159,12 @@ INSERT INTO `login_info` (`id`, `username`, `email`, `password`) VALUES
 
 CREATE TABLE `message` (
   `id` int(11) NOT NULL,
-  `fName` varchar(300) DEFAULT NULL,
-  `lName` varchar(300) DEFAULT NULL,
-  `phone` int(30) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `subject` varchar(30) DEFAULT NULL,
-  `message` varchar(5000) DEFAULT NULL
+  `fName` varchar(300) NOT NULL,
+  `lName` varchar(300) NOT NULL,
+  `phone` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `subject` varchar(30) NOT NULL,
+  `message` varchar(5000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -171,6 +180,14 @@ CREATE TABLE `order_items` (
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `order_items`
+--
+
+INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `quantity`) VALUES
+(1, 2, 28, 1),
+(2, 3, 2, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -179,12 +196,12 @@ CREATE TABLE `order_items` (
 
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
-  `name` varchar(50) DEFAULT NULL,
+  `name` varchar(50) NOT NULL,
   `description` varchar(3000) NOT NULL,
   `price` decimal(10,0) NOT NULL,
-  `quantity` int(5) DEFAULT NULL,
+  `quantity` int(5) NOT NULL,
   `image_file` varchar(3000) NOT NULL,
-  `total` varchar(1000) DEFAULT NULL,
+  `total` varchar(1000) NOT NULL,
   `key_value` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -229,10 +246,10 @@ INSERT INTO `products` (`id`, `name`, `description`, `price`, `quantity`, `image
 
 CREATE TABLE `product_images` (
   `id` int(11) NOT NULL,
-  `product_id` varchar(30) DEFAULT NULL,
-  `image_1` varchar(3000) DEFAULT NULL,
-  `image_2` varchar(3000) DEFAULT NULL,
-  `image_3` varchar(3000) DEFAULT NULL
+  `product_id` varchar(30) NOT NULL,
+  `image_1` varchar(3000) NOT NULL,
+  `image_2` varchar(3000) NOT NULL,
+  `image_3` varchar(3000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -245,28 +262,28 @@ INSERT INTO `product_images` (`id`, `product_id`, `image_1`, `image_2`, `image_3
 (3, '16', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261335907291147/mice1-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261336695820368/mice1-2PNG.png', ''),
 (4, '12', 'https://cdn.discordapp.com/attachments/1073347102559703130/1075794599307649095/laptop2-1.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261431566762087/laptop2-2PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261431105396736/laptop2-3PNG.png'),
 (5, '13', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261430795026462/laptop1-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261432313348156/laptop1-2PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261432057503784/laptop1-3PNG.png'),
-(7, '4', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261335907291147/mice1-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261336695820368/mice1-2PNG.png', NULL),
-(8, '5', 'https://cdn.discordapp.com/attachments/1073347102559703130/1078034168732209262/arcade1-1.jpeg', NULL, NULL),
+(7, '4', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261335907291147/mice1-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261336695820368/mice1-2PNG.png', ''),
+(8, '5', 'https://cdn.discordapp.com/attachments/1073347102559703130/1078034168732209262/arcade1-1.jpeg', '', ''),
 (9, '6', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261469613301870/keyboard1-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261472461234327/keyboard1-2PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261472184406117/keyboard1-3PNG.png'),
 (10, '7', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261026023706744/headset2-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261026808045728/headset2-3PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261026514448434/headset2-2PNG.png'),
-(13, '9', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261025801412628/headset1-2PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261026514448434/headset2-2PNG.png', NULL),
-(14, '10', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261025277124679/headset3-2PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261025277124679/headset3-2PNG.png', NULL),
-(15, '11', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261470271807498/keyboard4-1PNG.png', NULL, NULL),
+(13, '9', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261025801412628/headset1-2PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261026514448434/headset2-2PNG.png', ''),
+(14, '10', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261025277124679/headset3-2PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261025277124679/headset3-2PNG.png', ''),
+(15, '11', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261470271807498/keyboard4-1PNG.png', '', ''),
 (16, '14', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261381973311488/mic1-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261383395184751/mic1-2PNG.png\r\n', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261383051247656/mic1-3PNG.png'),
-(17, '15', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261382778622005/mic2-1PNG.png', NULL, NULL),
-(18, '17', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261336444145715/mice2-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261336221859840/mice2-2PNG.png', NULL),
+(17, '15', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261382778622005/mic2-1PNG.png', '', ''),
+(18, '17', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261336444145715/mice2-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261336221859840/mice2-2PNG.png', ''),
 (19, '18', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261277652594858/pc1-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261279305150465/pc1-2PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261279015731230/pc1-3PNG.png'),
 (20, '19', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261278768283718/pc2-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261278504038542/pc2-2PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261278239785053/pc2-3PNG.png'),
-(21, '20', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261277988143114/pc3-1PNG.png', NULL, NULL),
+(21, '20', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261277988143114/pc3-1PNG.png', '', ''),
 (22, '21', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261233729839184/speaker1-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261235734716446/speaker1-2PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261235516620890/speaker1-3PNG.png'),
 (23, '22', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261235306909796/speaker2-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261234816172032/speaker2-3PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261234816172032/speaker2-3PNG.png'),
 (24, '23', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261234409316362/speaker4-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261234195415070/speaker4-2PNG.png\r\n', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261233947955232/speaker4-3PNG.png'),
-(25, '24', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261234602266744/speaker3-1PNG.png', NULL, NULL),
-(26, '26', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261164481892382/webcam1-1PNG.png', NULL, NULL),
+(25, '24', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261234602266744/speaker3-1PNG.png', '', ''),
+(26, '26', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261164481892382/webcam1-1PNG.png', '', ''),
 (27, '27', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261166268653659/webcam2-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261166063124520/webcam2-2PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261165777932379/webcam2-3PNG.png'),
-(28, '28', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261165555621979/webcam3-1PNG.png', NULL, NULL),
-(29, '31', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261165115232376/webcam4-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261165777932379/webcam2-3PNG.png', NULL),
-(30, '32', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261164918087810/webcam5-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261164691587072/webcam5-2PNG.png', NULL);
+(28, '28', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261165555621979/webcam3-1PNG.png', '', ''),
+(29, '31', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261165115232376/webcam4-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261165777932379/webcam2-3PNG.png', ''),
+(30, '32', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261164918087810/webcam5-1PNG.png', 'https://cdn.discordapp.com/attachments/1073347102559703130/1077261164691587072/webcam5-2PNG.png', '');
 
 --
 -- Indexes for dumped tables
@@ -339,10 +356,34 @@ ALTER TABLE `product_images`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `customer_details`
+--
+ALTER TABLE `customer_details`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `customer_orders`
 --
 ALTER TABLE `customer_orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `login_info`
@@ -354,13 +395,13 @@ ALTER TABLE `login_info`
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `products`

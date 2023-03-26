@@ -1,16 +1,15 @@
 <?php
     include("databaseConnect.php");
     // include("checkLogin.php");
-    // if(!isset($_SESSION['id'])) {
-    //     header("Location:Public\Front End\PHP\login.php")
-    // }
+
 
     if (isset($_POST['submitButton'])) {
 
         $username = $_POST['eName'];
         $password = $_POST['ePassword'];
+        $key = $_POST['eKey'];
 
-        $sql = "INSERT into `admin` (username, password) values('$username', '$password')";
+        $sql = "INSERT into `admin` (username, password, adminkey) values('$username', '$password', '$key')";
         $result = mysqli_query($con,$sql);
         
         if (!$result) {
@@ -65,17 +64,22 @@
                         <!-- Employee Username -->
                         <div class="customerName">
                             <h2>Employee User Name:</h2>
-                            <input type="text" class="formInput" name="eName" autocomplete="off" placeholder="Enter Employee Username">
+                            <input type="text" class="formInput" name="eName" autocomplete="off" placeholder="Enter Employee Username" required>
+                        </div>
+
+                        <!-- Employee key -->
+                        <div>
+                            <h2>Employee Key:</h2>
+                            <input type="number" class="formInput"  name="eKey" autocomplete="off" placeholder="Enter Employee Key" required>
                         </div>
 
                         <!-- Employee password -->
                         <div>
                             <h2>Employee Password:</h2>
-                            <input type="text" class="formInput"  name="ePassword" autocomplete="off" placeholder="Enter Employee Password">
-                        </div>
+                            <input type="password" class="formInput"  name="ePassword" autocomplete="off" placeholder="Enter Employee Password" required>
+                        </div>                        
  
                         <!-- submit button -->
-
                         <button type="submit" class="formButton" name="submitButton">Add New Employee</button>
 
                     </form>

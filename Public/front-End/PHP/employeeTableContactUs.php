@@ -1,9 +1,7 @@
 <?php
 include("databaseConnect.php");
 // include("checkLogin.php");
-// if (!isset$_SESSION['id']){
-//     header('Location:Public\Front End\PHP\login.html');
-// }    
+
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -49,6 +47,7 @@ include("databaseConnect.php");
                             <th scope="col">Email</th>
                             <th scope="col">Subject</th>
                             <th scope="col">Message</th>
+                            <th scope="col">Contact Us Actions</th>
 
                         </tr>
 
@@ -78,6 +77,7 @@ include("databaseConnect.php");
                                         <td>' . $phone . '</td>
                                         <td>' . $email . '</td>
                                         <td>' . $subject . '</td>
+                                        <td>' . $message . '</td>
                                         <td>' . $message . '</td>
                                     </tr>'
                                     
