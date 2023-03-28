@@ -1,3 +1,16 @@
+<?php
+include 'databaseConnect.php';
+
+session_start();
+
+if(isset($_SESSION['user_id'])){
+   $user_id = $_SESSION['user_id'];
+}else{
+   $user_id = '';
+   header('location:login.php');
+};
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,14 +54,17 @@
         
                     try {
                         $db = new PDO("mysql:dbname=$db_name;host=$db_host", $username); 
+                        $stmt = $db->prepare("SELECT * FROM cart WHERE user_id = ?");
+                        $stmt->execute();
 
-                        $stmt = $db->prepare("INSERT INTO customer_orders(user_id, total) VALUES ('1', $totalprice)");
+                        $delete_cart = $conn->prepare("DELETE FROM `cart` WHERE user_id = ?");
+                        $delete_cart->execute([$user_id]);
+
+                        $stmt = $db->prepare("INSERT INTO customer_orders(user_id, total) VALUES (?,?)");
                         $stmt->execute();
                         $order_id = $db->lastInsertId();
 
 
-                        $stmt = $db->prepare("SELECT * FROM cart WHERE user_id = '1'");
-                        $stmt->execute();
 
                         if($stmt->rowCount() > 0){   
                              while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -69,7 +85,7 @@
                         }else{
                             echo"Your cart is empty!";
                         }
-                        $deleteitems = $db->prepare("DELETE FROM cart WHERE user_id = '1'");
+                        $deleteitems = $db->prepare("DELETE FROM cart WHERE user_id = '?'");
                         $deleteitems->execute();
                             
                            

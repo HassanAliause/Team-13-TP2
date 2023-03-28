@@ -29,7 +29,7 @@
             <li><a href="contactus.php">Contact Us</a></li>
             <li><a href="aboutUs.php">About US</a></li>
             <?php
-                session_start();
+
                 if(isset($_SESSION['username'])){
                     echo '<li><a href="myOrders.php">My Orders</a></li>';
                     echo '<li><a href="logout.php">Logout</a></li>';

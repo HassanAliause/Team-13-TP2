@@ -1,6 +1,15 @@
 <?php
 include 'databaseConnect.php';
-$_SESSION["id"] = $id;
+
+
+session_start();
+
+if(isset($_SESSION['user_id'])){
+   $user_id = $_SESSION['user_id'];
+}else{
+   $user_id = '';
+   header('location:login.php');
+};
 
 
 ?>
@@ -26,6 +35,9 @@ $_SESSION["id"] = $id;
         <?php
 
             if (isset($_POST['addtocartBtn'])) {
+                if($user_id == ''){
+                    header('location:user_login.php');
+                 }else{
                 $selectedproduct_id = $_POST['product_id'];
                 $selectedquantity = $_POST['quantity'];
 
@@ -69,6 +81,7 @@ $_SESSION["id"] = $id;
                     echo($ex->getMessage());
                     exit;
                 }
+            }
         }
 
         ?>
