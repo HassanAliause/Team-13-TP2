@@ -43,7 +43,7 @@
             <main class="main-container"> 
                     
                 <div class="main-tables">
-
+                    <!-- contains the emoplyoee infomation  -->
                     <?php include_once("employeeTableEmployees.php");?>
 
                 </div>

@@ -2,9 +2,9 @@
     include("databaseConnect.php");
     // include("checkLogin.php");
 
-
+    // code will run when submit button is clicked 
     if (isset($_POST['submitButton'])) {
-
+        //variables for the customer 
         $name = $_POST['customerName'];
         $email = $_POST['customerEmail'];
         $password = $_POST['customerPassword'];
@@ -14,12 +14,16 @@
         $town = $_POST['customerTown'];
         $postcode = $_POST['customerPostcode'];
 
+        //sql statement that will add the data into the database
         $sql = "INSERT into `customer_details` (name, email, password, birth, housenumber, streetname, townname, postcode) 
         values('$name', '$email', '$password', '$birth', '$houseNumber', '$street', '$town', '$postcode')";
 
+        
         if(mysqli_query($con, $sql)){
-            header('location:employeeTableCustomer.php');
+            // if there are no errors it will redirect the employee to the customer page 
+            header('location:employeeSubPageCustomer.php');
         } else {
+            // it will cut the connection if there is an user and display the error 
             die(mysqli_error($con));
         }
     }
