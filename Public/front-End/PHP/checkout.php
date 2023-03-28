@@ -38,6 +38,7 @@ if(isset($_SESSION['user_id'])){
         <?php
          if (isset($_POST['checkoutBtn'])) {
             $totalprice = $_POST['total_price'];
+            $user_id = $_POST['user_id'];
         ?>
 
         <div class="total-header">
@@ -54,14 +55,14 @@ if(isset($_SESSION['user_id'])){
         
                     try {
                         $db = new PDO("mysql:dbname=$db_name;host=$db_host", $username); 
-                        $stmt = $db->prepare("SELECT * FROM cart WHERE user_id = ?");
+                        $stmt = $db->prepare("SELECT * FROM cart WHERE user_id = $user_id");
                         $stmt->execute();
 
-                        $delete_cart = $conn->prepare("DELETE FROM `cart` WHERE user_id = ?");
-                        $delete_cart->execute([$user_id]);
+                        $delete_cart = $db->prepare("DELETE FROM `cart` WHERE user_id = $user_id");
+                        $delete_cart->execute();
 
-                        $stmt = $db->prepare("INSERT INTO customer_orders(user_id, total) VALUES (?,?)");
-                        $stmt->execute();
+                        $nat = $db->prepare("INSERT INTO customer_orders(user_id, total) VALUES ($user_id, $totalprice)");
+                        $nat->execute();
                         $order_id = $db->lastInsertId();
 
 
@@ -85,7 +86,7 @@ if(isset($_SESSION['user_id'])){
                         }else{
                             echo"Your cart is empty!";
                         }
-                        $deleteitems = $db->prepare("DELETE FROM cart WHERE user_id = '?'");
+                        $deleteitems = $db->prepare("DELETE FROM cart WHERE user_id = $user_id");
                         $deleteitems->execute();
                             
                            

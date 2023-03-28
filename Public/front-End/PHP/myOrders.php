@@ -1,3 +1,16 @@
+<?php
+include 'databaseConnect.php';
+
+session_start();
+
+if(isset($_SESSION['user_id'])){
+   $user_id = $_SESSION['user_id'];
+}else{
+   $user_id = '';
+   header('location:login.php');
+};
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,7 +53,7 @@
                         FROM products p
                         JOIN order_items oi ON p.id = oi.product_id
                         JOIN customer_orders o ON o.id = oi.order_id
-                        WHERE o.user_id = 1");
+                        WHERE o.user_id = $user_id");
 
                         $stmt->execute();
                        

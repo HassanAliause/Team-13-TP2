@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +22,7 @@
 
             if (isset($_POST['removeBtn'])) {
                 $selectedproduct_id = $_POST['product_id'];
-
+                $user_id = $_POST['user_id'];
                 $db_host = 'localhost';
                 $db_name = '13_bits';
                 $username = 'root';
@@ -29,7 +30,7 @@
                 try {
                     $db = new PDO("mysql:dbname=$db_name;host=$db_host", $username); 
                     try {
-                        $stmt = $db->prepare("DELETE FROM cart WHERE product_id = $selectedproduct_id AND user_id = '1'");
+                        $stmt = $db->prepare("DELETE FROM cart WHERE product_id = $selectedproduct_id AND user_id = $user_id");
                         $stmt->execute();
                             
                     }
