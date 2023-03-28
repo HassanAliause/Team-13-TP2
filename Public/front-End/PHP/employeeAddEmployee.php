@@ -3,16 +3,22 @@
     // include("checkLogin.php");
 
 
+    // code will run when submit button is clicked 
     if (isset($_POST['submitButton'])) {
-
+        //variables for the employee 
         $username = $_POST['eName'];
         $password = $_POST['ePassword'];
         $key = $_POST['eKey'];
 
+        //sql statement that will add the data into the database
         $sql = "INSERT into `admin` (username, password, adminkey) values('$username', '$password', '$key')";
         $result = mysqli_query($con,$sql);
         
-        if (!$result) {
+        if($result){
+            // if there are no errors it will redirect the employee to the employee page 
+            header('location:employeeSubPageEmployees.php');
+        } else {
+            // it will cut the connection if there is an user and display the error 
             die(mysqli_error($con));
         }
     }

@@ -2,10 +2,10 @@
     include("databaseConnect.php");
     // include("checkLogin.php");
 
-
+    // code will run when submit button is clicked 
     if (isset($_POST['submitButton'])) {
 
-
+        //variables for the products 
         $name = $_POST['productName'];
         $quantity = $_POST['productQuantity'];
         $total = $_POST['productTotal'];
@@ -14,14 +14,16 @@
         $image = $_POST['productImage'];
         $info = $_POST['productDescription'];
         
-        
+        //sql statement that will add the data into the database       
         $sql = "INSERT into `products` (name, description, quantity, total, price, key_value, image_file) 
         values('$name', '$info', '$quantity', '$total', '$price', '$keyvalue', '$image')";
 
         if($result) {
+            // if there are no errors it will redirect the employee to the prodcuts page            
             header('location:employeeSubPageProducts.php');
 
         } else {
+            // it will cut the connection if there is an user and display the error 
             die(mysqli_error($con));
         }
     }

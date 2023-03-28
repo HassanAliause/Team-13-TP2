@@ -1,5 +1,6 @@
 <?php
 
+    //this function will check if an admin has logged in  
     function adminLogin($con) {
         if (isset($_SESSION['id'])) {
 
@@ -8,8 +9,8 @@
 
             $result = mysqli_query($con, $query);
             if ($result && mysqli_num_rows($result)>0) {
-                $admin_data = mysqli_fetch_assoc($result);
-                return $admin_data;
+                $admin_login = mysqli_fetch_assoc($result);
+                return $admin_login;
             }
         }
 
@@ -17,6 +18,8 @@
         header("Location: login.php");
         die;
     }
+
+    // this function will check if a user has logged in
 
     function userLogin($con) {
 
@@ -27,8 +30,8 @@
 
             $result = mysqli_query($con, $query);
             if ($result && mysqli_num_rows($result)>0) {
-                $admin_data = mysqli_fetch_assoc($result);
-                return $admin_data;
+                $customer_login = mysqli_fetch_assoc($result);
+                return $customer_login;
             }
         }
         
@@ -37,6 +40,9 @@
         die;
     }
 
+
+    // this will check if the user has logged 
+    // if they havent they will be directed back to the login page 
     if (!isset($_SESSION['id'])){
         header('Location:Public\Front End\PHP\login.html');
     }    

@@ -2,28 +2,37 @@
     include('databaseConnect.php');
     // include('checkLogin.php');
 
+    
+    // will get infomation from teh specified record on teh table 
+    // depening on the record that was clicked on the table depends on teh infomation dispalyed 
     $id = $_GET['employeeID_Update'];
     $sql = "SELECT * FROM `admin` WHERE id = '$id'";
+
+    // these are the variabels that will show the currect infomation in the database
     $result = mysqli_query($con, $sql);
     $row = mysqli_fetch_assoc($result);
     $username = $row['username'];
     $password = $row['password'];
     $key = $row['adminkey'];
 
-
+    // this code will run when teh submit button is clicked 
     if (isset($_POST['submitButton'])) {
 
+        // variabels for updating infomation
         $username = $_POST['eName'];
         $password = $_POST['ePassword'];
         $key = $_POST['eKey'];
 
+        // sql line for updating infomation
         $sql = "UPDATE `admin` SET username='$username', password='$password', adminkey='$key' WHERE id='$id'";
 
         $result = mysqli_query($con, $sql);
         if($result) {
+            // will direct user back to page
             header('location:employeeSubPageEmployees.php');
 
         } else {
+            // will dispaly error if infomation cannot be updated
             die(mysqli_error($con));
         }
 

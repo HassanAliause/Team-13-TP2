@@ -3,9 +3,13 @@
     include('databaseConnect.php');
     // include('checkLogin.php');
 
+    // will get infomation from teh specified record on teh table 
+    // depening on the record that was clicked on the table depends on teh infomation dispalyed 
     $id = $_GET['customerID_Update'];
     $sql = "SELECT * FROM `customer_details` WHERE id = '$id'";
 
+
+    // these are the variabels that will show the currect infomation in the database
     $result = mysqli_query($con, $sql);
     $row = mysqli_fetch_assoc($result);
     $name = $row['name'];
@@ -17,8 +21,10 @@
     $town = $row['townname'];
     $postcode = $row['postcode'];
 
+    // this code will run when teh submit button is clicked 
     if (isset($_POST['submitButton'])) {
 
+        // variabels for updating infomation
         $name = $_POST['customerName'];
         $email = $_POST['customerEmail'];
         $password = $_POST['customerPassword'];
@@ -29,11 +35,15 @@
         $postcode = $_POST['customerPostcode'];
 
 
+        // sql line for updating infomation
         $sql = "UPDATE `customer_details` SET name='$name', email='$email', birth='$birth', housenumber='$housenumber', streetname='$street', townname='$town', postcode='$postcode' WHERE `customer_details`.`id`='$id'";
         $result = mysqli_query($con, $sql);
+
         if ($result) {
+        // will direct user back to page
             header('location:employeeSubPageCustomer.php');
         } else {
+            // will dispaly error if infomation cannot be updated
             die(mysqli_error($con));
         }
 

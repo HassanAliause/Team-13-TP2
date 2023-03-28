@@ -2,8 +2,12 @@
     include('databaseConnect.php');
     // include('checkLogin.php');
 
+    // will get infomation from teh specified record on teh table 
+    // depening on the record that was clicked on the table depends on teh infomation dispalyed 
     $id = $_GET['productID_Update'];
     $sql = "SELECT * FROM `products` WHERE id = '$id'";
+
+    // these are the variabels that will show the currect infomation in the database
     $result = mysqli_query($con, $sql);
     $row = mysqli_fetch_assoc($result);
     $image = $row['image_file'];
@@ -14,8 +18,10 @@
     $total = $row['total'];
     $keyvalue = $row['key_value'];
 
+    // this code will run when teh submit button is clicked 
     if (isset($_POST['submitButton'])) {
 
+        // variabels for updating infomation
         $name = $_POST['productName'];
         $description = $_POST['productDescription'];
         $price = $_POST['productPrice'];
@@ -23,12 +29,16 @@
         $total = $_POST['productTotal'];
         $keyvalue = $_POST['productKeyValue'];
 
+        // sql line for updating infomation
         $sql = "UPDATE `products` SET name='$name', description='$description', price='$price', quantity='$quantity', total='$total', key_value='$keyvalue' WHERE id='$id'";
         $result = mysqli_query($con, $sql);
+
         if($result) {
+            // will direct user back to page
             header('location:employeeSubPageProducts.php');
 
         } else {
+            // will dispaly error if infomation cannot be updated
             die(mysqli_error($con));
         }
 

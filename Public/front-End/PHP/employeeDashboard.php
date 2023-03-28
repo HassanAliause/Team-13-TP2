@@ -43,8 +43,10 @@ include("databaseConnect.php");
                     <h2>Dashboard</h2>
                 </div>
 
+                <!-- cards at the top of the page that display stats for the employee -->
                 <div class="main-cards">
 
+                    <!-- how many product entries are in the database -->
                     <div class="card">
                         <div class="card-inner">
                             <h3>Products</h3>
@@ -54,6 +56,7 @@ include("databaseConnect.php");
                         </div>
                         <h1 class="card-inner-text ">
                             <?php
+                            // will count how many ids that has been created
                                 $sql = "SELECT COUNT(id) AS id_quantity FROM products";
                                 $result = mysqli_query($con,$sql);
                                 if($result) {
@@ -67,6 +70,7 @@ include("databaseConnect.php");
                         </h1>
                     </div>
 
+                    <!-- how many categories have been made -->
                     <div class="card">
                         <div class="card-inner">
                             <h3>Categories</h3>
@@ -88,6 +92,7 @@ include("databaseConnect.php");
                         </h1>
                     </div>
 
+                    <!-- how many customers there are -->
                     <div class="card">
                         <div class="card-inner">
                             <h3>Customers</h3>
@@ -109,10 +114,10 @@ include("databaseConnect.php");
                         </h1>
                     </div>
 
-                    
+                    <!-- how many employees there are-->
                     <div class="card">
                         <div class="card-inner">
-                            <h3>Administrators</h3>
+                            <h3>Emplyoees</h3>
                             <span class="material-symbols-outlined">
                                 manage_accounts
                             </span>
@@ -131,6 +136,7 @@ include("databaseConnect.php");
                         </h1>
                     </div>
 
+                    <!-- how many contact us queries that has been sent by users -->
                     <div class="card">
                         <div class="card-inner">
                             <h3>Contact Us Queries</h3>
@@ -163,6 +169,8 @@ include("databaseConnect.php");
                     </div>
                     
                     <!-- customer table -->
+                    <!-- this will import all of the tables onto the page -->
+                    <!-- this will act as an overview for all the tables  -->
                     <?php 
                     include_once("employeeTableCustomer.php");
                     include_once("employeeTableCustomerOrders.php");
