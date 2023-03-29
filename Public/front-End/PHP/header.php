@@ -2,7 +2,6 @@
 // connects to database
 include('databaseConnect.php');
 // starts session
-session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
