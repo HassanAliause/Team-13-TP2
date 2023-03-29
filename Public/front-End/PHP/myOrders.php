@@ -31,10 +31,6 @@
                     try {
                         $db = new PDO("mysql:dbname=$db_name;host=$db_host", $username); 
 
-                        // $stmt = $db->prepare("SELECT *
-                        // FROM products p
-                        // JOIN order_items o ON p.id = o.product_id
-                        // WHERE o.order_id = $order_id");
 
                         $stmt = $db->prepare("SELECT *
                         FROM products p
