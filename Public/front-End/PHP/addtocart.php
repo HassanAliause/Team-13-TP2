@@ -53,7 +53,7 @@ if(isset($_SESSION['user_id'])){
                     $stmt->execute();
 
                     if($stmt->rowCount() > 0){   
-                        $sql = $db->prepare("UPDATE cart SET quantity = quantity + 1 WHERE product_id = '$selectedproduct_id' AND user_id = $user_id");
+                        $sql = $db->prepare("UPDATE cart SET quantity = quantity + $selectedquantity WHERE product_id = '$selectedproduct_id' AND user_id = $user_id");
                         $sql->execute();
                     } else {
                         
