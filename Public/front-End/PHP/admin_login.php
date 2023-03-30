@@ -28,11 +28,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         $password = trim($_POST["password"]);
     }
+    // check if key is empty
+    if(empty(trim($_POST["key"]))){
+        $errors["key"] = "Please enter your key.";
+    } else{
+        $key = trim($_POST["key"]);
+    }
 
     // Validate credentials
     if(empty($errors)){
         // Prepare a select statement
-        $sql = "SELECT id, username, password FROM login_info WHERE username = ?";
+        $sql = "SELECT id, username, adminkey ,password FROM admin WHERE username = ?";
 
         if($stmt = mysqli_prepare($con, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -45,32 +51,29 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             if(mysqli_stmt_execute($stmt)){
                 // Store result
                 mysqli_stmt_store_result($stmt);
-
+                if(mysqli_stmt_num_rows($stmt) == 1){
                 // Check if username exists, if yes then verify password
-                if(mysqli_stmt_num_rows($stmt) == 1){                    
-                    // Bind result variables
-                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_pass);
+                mysqli_stmt_bind_result($stmt, $id, $username, $adminkey, $pass);
                     if(mysqli_stmt_fetch($stmt)){
-                        if (password_verify($password, $hashed_pass)) { 
-                    // Password is correct, so start a new session
+                        if ($password == $pass && $key == $adminkey ) { 
+                            // Password is correct, so start a new session
                             session_start();
-
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
-                            $_SESSION["user_id"] = $id;
+                            $_SESSION["admin_id"] = $id;
                             $_SESSION["username"] = $username;
 
-                            // Redirect user to welcome page
-                            header("location: homepage1.php?id=$id");
+                            // Redirect user to dashboard page
+                            header("location: employeeDashboard.php?id=$id");
                         } else{
                             // Display an error message if password is not valid
-                            $errors["generic"] = "Invalid username or password.";
+                            $errors["generic"] = "Invalid username or password   1.";
                         }
                     }
                 } else{
                     // hello
                     // Display an error message if username doesn't exist
-                    $errors["generic"] = "Invalid username or password.";
+                    $errors["generic"] = "Invalid username or password  2.";
                 }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
@@ -100,7 +103,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <body>
     <div class="formBox">
         <form action="" method="post" class="form signin">
-            <h2>Sign In</h2>
+            <h2>Admin Login</h2>
             <div class="Inp">
                 <input type="text" name="username" required = "required">
                 <i class="fa-regular fa-user"></i>
@@ -113,6 +116,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <span> Password</span>
             </div>
             <div class="Inp">
+                <input type="password"  name="key" required = "required">
+                <i class="fa-solid fa-lock"></i>
+                <span> Employee Key</span>
+            </div>
+            <div class="Inp">
                 <input type="submit" value="Login">
             </div>
             <div class="error-box">
@@ -122,10 +130,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 }
               ?>
             </div>
-            <p> Don't have a account? <a  href="signup.php"
-            class="btn">Sign Up</a></p>
-            <p> Login as Admin <a  href="admin_login.php"
-            class="btn">Login</a></p>
+
+            <p> Login as User <a  href="login.php"
+            class="btn">User Login</a></p>
 
         </form>
     </div>

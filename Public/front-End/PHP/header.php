@@ -1,7 +1,8 @@
 <?php 
 // connects to database
 include('databaseConnect.php');
-// starts session
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,5 +53,6 @@ include('databaseConnect.php');
         
     </nav>
         
+    <script src="../js/script.js"></script>
 
 </html>
