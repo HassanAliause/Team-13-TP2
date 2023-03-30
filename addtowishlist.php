@@ -28,13 +28,17 @@
             <?php
             if (isset($_POST['product_id'])) {
                 $product_id = $_POST['product_id'];
-                $user_id = '1';
                 $db_host = 'localhost';
                 $db_name = '13_bits';
                 $username = 'root';
-
+            
                 try {
                     $db = new PDO("mysql:dbname=$db_name;host=$db_host", $username);
+                    $stmt = $db->prepare("SELECT MAX(user_id) as max_user_id FROM wishlist");
+                    $stmt->execute();
+                    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                    $user_id = $row['max_user_id'] + 1;
+            
                     $stmt = $db->prepare("INSERT INTO wishlist (user_id, product_id) VALUES (?, ?)");
                     $stmt->bindValue(1, $user_id);
                     $stmt->bindValue(2, $product_id);
