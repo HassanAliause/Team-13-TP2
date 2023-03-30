@@ -30,16 +30,16 @@ if(isset($_SESSION['user_id'])){
     <div class="slideshow-container">
 
 
+    <div class="mySlides fade">
+            <a href="productdept.php?dept=11&name=computers-laptops"><img src="images/heroimage2.jpg" style="width:100%;height:500px;"></a>
+
+        </div>
 
         <div class="mySlides fade">
 
-            <a href=""><img src="images/heroimage1.jpg" style="width:100%;"></a>
+            <a href="productdept.php?dept=22&name=keyboards-mice"><img src="images/acessories1.jpg" style="width:100%;height:500px;"></a>
         </div>
 
-        <div class="mySlides fade">
-            <a href=""><img src="images/heroimage2.jpg" style="width:100%;"></a>
-
-        </div>
 
         <a class="prev" onclick="plusSlides(-1)">❮</a>
         <a class="next" onclick="plusSlides(1)">❯</a>
@@ -85,24 +85,28 @@ if(isset($_SESSION['user_id'])){
 
 
 
-    <div class="departments">
-
-        <div class="dept-box">
-            <H2>LAPTOPS</H2>
-        </div>
-        <div class="dept-box">
-            <H2>CAMERAS</H2>
-        </div>
-        <div class="dept-box">
-            <H2>SPEAKERS</H2>
-        </div>
-        <div class="dept-box">
-            <H2>HEADPHONES</H2>
-        </div>
-        <div class="dept-box">
-            <H2>ACCESORIES</H2>
-        </div>
+<div class="departments-header">
+        <h2>DEPARTMENTS</h2>
     </div>
+
+        <div class = "dept-container">
+            <div class ="dept">
+            <a href="productdept.php?dept=11&name=computers-laptops"><h3>COMPUTERS/LAPTOPS</h3><img src="images\laptop2-1.png" alt="computer/laptops" width= 250px height = 250px></a>
+            </div>
+            <div class ="dept">
+                <a href="productdept.php?dept=22&name=keyboards-mice"><h3>KEYBOARDS/MICE</h3><img src="images\keyboard1-1.jfif" alt="keyboard/mice"  width= 250px height = 250px></a>
+            </div>
+            <div class ="dept">
+                <a href="productdept.php?dept=33&name=headsets-mics"><h3>HEADSETS/MICS</h3><img src="images\headset2-1.jfif" alt="headsets/mics"  width= 250px height = 250px></a>
+            </div>
+            <div class ="dept">
+                <a href="productdept.php?dept=44&name=speakers"><h3>SPEAKERS</h3><img src="images\speaker3-1.jfif" alt="speakers"  width= 250px height = 250px></a>
+            </div>
+            <div class ="dept">
+                <a href="productdept.php?dept=55&name=webcams"><h3>WEBCAMS</h3><img src="images\webcam5-1.jfif" alt="webcams" width= 250px height = 250px></a>
+            </div>
+        </div>
+ 
 
 
 

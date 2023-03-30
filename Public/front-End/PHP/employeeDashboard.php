@@ -162,23 +162,7 @@ include("checkLogin.php");
 
                 </div>
 
-                <div class="main-tables">
-
-                    <div class="sub-title">
-                        <h3>Overview<h3>
-                    </div>
-                    
-                    <!-- customer table -->
-                    <!-- this will import all of the tables onto the page -->
-                    <!-- this will act as an overview for all the tables  -->
-                    <?php 
-                    include_once("employeeTableCustomer.php");
-                    include_once("employeeTableCustomerOrders.php");
-                    include_once("employeeTableEmployees.php");
-                    include_once("employeeTableProducts.php");
-                    include_once("employeeTableContactUs.php");
-                    ?>
-                </div>
+                
 
             </main>
 
