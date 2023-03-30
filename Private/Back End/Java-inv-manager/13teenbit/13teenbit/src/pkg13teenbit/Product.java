@@ -3,7 +3,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package pkg13teenbit;
-
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Danial
@@ -15,8 +25,11 @@ public class Product extends javax.swing.JFrame {
      */
     public Product() {
         initComponents();
+        tableUpdate();
+        Connect();
     }
-
+Connection con;
+PreparedStatement pst;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -376,10 +389,63 @@ public class Product extends javax.swing.JFrame {
                 new Product().setVisible(true);
             }
         });
-        
+         public void connect(){
+    {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+              con = DriverManager.getConnection("jdbc:mysql://cs2410-web01pvm.aston.ac.uk:3306/u_210142176_db","u-210142176","sKtumlb207EYMQW");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    }
+         }
         private void tableUpdate(){
             
+          
+       
+            int c;
+            try {
+               
+                 pst = con.prepareStatement("select * from category");
+                 ResultSet rs = pst.executeQuery();
+                 
+                 ResultSetMetaData rsd = rs.getMetaData();
+                 c = rsd.getColumnCount();
+                 
+                 DefaultTableModel d = (DefaultTableModel)jTable1.getModel();
+                 d.setRowCount(0);
+                                 
+                 while(rs.next())
+                 {
+                     Vector v2 = new Vector();
+                     
+                     for(int i=1; i<=c; i++)
+                     {
+                         v2.add(rs.getString("id"));
+                         v2.add(rs.getString("name"));
+                         v2.add(rs.getString("description"));  
+                         v2.add(rs.getString("quantity"));
+                         v2.add(rs.getString("image_file"));
+                         v2.add(rs.getString("status"));
+                     }             
+                     d.addRow(v2);
+                     
+                 }
+  
+                
+         
+                 
             
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+     
+     
             
             
             
@@ -389,7 +455,7 @@ public class Product extends javax.swing.JFrame {
         
         
         
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
