@@ -3,6 +3,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package pkg13teenbit;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,7 +26,11 @@ public class Product extends javax.swing.JFrame {
      */
     public Product() {
         initComponents();
+       Connect();
     }
+    
+Connection con;
+PreparedStatement pst;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -43,14 +58,14 @@ public class Product extends javax.swing.JFrame {
         jComboBox3 = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        prodName = new javax.swing.JTextField();
+        prodStatus = new javax.swing.JComboBox<>();
         rSButtonHover11 = new rojeru_san.complementos.RSButtonHover();
         rSButtonHover12 = new rojeru_san.complementos.RSButtonHover();
         jLabel5 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        prodDesk = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -81,6 +96,11 @@ public class Product extends javax.swing.JFrame {
         rSButtonHover4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         rSButtonHover4.setText("ADD PRODUCT");
         rSButtonHover4.setColorHover(new java.awt.Color(35, 36, 42));
+        rSButtonHover4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonHover4ActionPerformed(evt);
+            }
+        });
         jPanel2.add(rSButtonHover4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 200, 70));
 
         rSButtonHover5.setBackground(new java.awt.Color(231, 155, 16));
@@ -182,16 +202,16 @@ public class Product extends javax.swing.JFrame {
         jLabel8.setText("IMAGE");
         jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 80, 50));
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        prodName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                prodNameActionPerformed(evt);
             }
         });
-        jPanel5.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 170, 30));
+        jPanel5.add(prodName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 170, 30));
 
-        jComboBox4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ACTIVE", "NON ACTIVE" }));
-        jPanel5.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 170, 30));
+        prodStatus.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        prodStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ACTIVE", "NON ACTIVE" }));
+        jPanel5.add(prodStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 170, 30));
 
         rSButtonHover11.setBackground(new java.awt.Color(231, 155, 16));
         rSButtonHover11.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -215,10 +235,10 @@ public class Product extends javax.swing.JFrame {
         jLabel9.setText("PRODUCT NAME");
         jPanel5.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 140, 50));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        prodDesk.setColumns(20);
+        prodDesk.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        prodDesk.setRows(5);
+        jScrollPane2.setViewportView(prodDesk);
 
         jPanel5.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 330, 80));
 
@@ -248,18 +268,23 @@ public class Product extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "ID", "NAME", "DESCRIPTION", "QTY"
+                "ID", "NAME", "DESCRIPTION", "QTY", "Status"
             }
         ));
+        jTable1.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                jTable1ComponentHidden(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 100, 340, -1));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 110, 340, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -275,9 +300,68 @@ public class Product extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    
+
+     public void Connect()
+    {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+              con = DriverManager.getConnection("jdbc:mysql://cs2410-web01pvm.aston.ac.uk:3306/u_210142176_db","u-210142176","sKtumlb207EYMQW");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
+        }
+           
+        
+    }
+    
+        private void updateTable()
+    {
+       
+            int c;
+            try {
+               
+                 pst = con.prepareStatement("select * from products");
+                 ResultSet rs = pst.executeQuery();
+                 
+                 ResultSetMetaData rsd = rs.getMetaData();
+                 c = rsd.getColumnCount();
+                 
+                 DefaultTableModel d = (DefaultTableModel)jTable1.getModel();
+                 d.setRowCount(0);
+                                 
+                 while(rs.next())
+                 {
+                     Vector v2 = new Vector();
+                     
+                     for(int i=1; i<=c; i++)
+                     {
+                         v2.add(rs.getString("id"));
+                         v2.add(rs.getString("name"));
+                         v2.add(rs.getString("description"));
+                         v2.add(rs.getString("quantity"));
+                        // v2.add(rs.getString("image_file"));
+                         v2.add(rs.getString("status"));
+                         
+                     }             
+                     d.addRow(v2);
+                     
+                 }
+  
+                
+         
+                 
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void prodNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prodNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_prodNameActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -318,6 +402,14 @@ public class Product extends javax.swing.JFrame {
      dispose();
     }//GEN-LAST:event_rSButtonHover9ActionPerformed
 
+    private void rSButtonHover4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonHover4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rSButtonHover4ActionPerformed
+
+    private void jTable1ComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jTable1ComponentHidden
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable1ComponentHidden
+
     /**
      * @param args the command line arguments
      */
@@ -347,17 +439,20 @@ public class Product extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+          java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Product().setVisible(true);
             }
         });
+        
+
+    
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -374,8 +469,9 @@ public class Product extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextArea prodDesk;
+    private javax.swing.JTextField prodName;
+    private javax.swing.JComboBox<String> prodStatus;
     private rojeru_san.complementos.RSButtonHover rSButtonHover10;
     private rojeru_san.complementos.RSButtonHover rSButtonHover11;
     private rojeru_san.complementos.RSButtonHover rSButtonHover12;

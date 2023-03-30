@@ -35,7 +35,7 @@ As the store is getting well known by users, we've decided to enlarge our busine
 Our vision is to sell high-quality technology products at an affordable price, so young adults won't have to spend loads of money. We offer great deals for both new and existing customers.   
 We are open 24/7 and always available to help our customers. </p>
                     </div>
-                    <h2 style="text-align:center; padding:15px;">OUR TEAM</h2>
+                    <h2 style="text-align:center; padding:10px;">OUR TEAM</h2>
                 </div>
                 
             </div>
@@ -49,11 +49,13 @@ We are open 24/7 and always available to help our customers. </p>
         &nbsp;
         <li class="name" style="text-align:center">Natasha Dey - Products Page</li>
         &nbsp;
-        <li class="name" style="text-align:center">Danial Jamil - Java Applicaiton</li>
+        <li class="name" style="text-align:center">Danial Jamil - Java Application</li>
         &nbsp;
         <li class="name" style="text-align:center">Arshdeep Kaur - Contact Us & About Us</li>
         &nbsp;
         <li class="name" style="text-align:center">Myles Thaxter - Home Page</li>
+        &nbsp;
+        <li class="name" style="text-align:center">Anakhpreet Singh - Java Application </li>
         &nbsp;
         <li style="text-align:center">Patrick Byteman - Page Mascot</li>
         &nbsp;
