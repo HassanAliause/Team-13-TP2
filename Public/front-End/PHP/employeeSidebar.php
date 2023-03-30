@@ -20,6 +20,7 @@
 
     <body>
 
+        <!-- sidebar -->
         <aside id="sidebar">
 
             <div class="sidebar-title">
@@ -28,6 +29,7 @@
                 </div>
             </div>
 
+            <!-- will direct employee back to dashboard on click -->
             <ul class="sidebar-list">
                 <li class="sidebar-list-item">
                     <span class="material-symbols-outlined" >
@@ -36,6 +38,7 @@
                     <a href="employeeDashboard.php" class="sidebar-list-text">Dashboard</a>
                 </li>
 
+                <!-- will direct employee back to add customer  on click -->
                 <li class="sidebar-list-item">
                     <span class="material-symbols-outlined">
                         person_add
@@ -43,6 +46,7 @@
                     <a href="employeeAddCustomer.php" class="sidebar-list-text">Add Customer</a>
                 </li>
 
+                <!-- will direct employee back to add employee on click -->
                 <li class="sidebar-list-item">
                     <span class="material-symbols-outlined">
                         manage_accounts
@@ -50,6 +54,7 @@
                     <a href="employeeAddEmployee.php" class="sidebar-list-text">Add Employee</a>
                 </li>
 
+                <!-- will direct employee back to add product on click -->
                 <li class="sidebar-list-item">
                     <span class="material-symbols-outlined">
                         assignment_add
@@ -57,6 +62,7 @@
                     <a href="employeeAddProduct.php" class="sidebar-list-text">Add Product</a>
                 </li>
 
+                <!-- will direct employee back to cutsomers on click -->
                 <li class="sidebar-list-item">
                     <span class="material-symbols-outlined">
                         person_search
@@ -64,6 +70,7 @@
                     <a href="employeeSubPageCustomer.php" class="sidebar-list-text">Customers</a>
                 </li>
 
+                <!-- will direct employee back to customer orders on click -->
                 <li class="sidebar-list-item">
                     <span class="material-symbols-outlined">
                         order_approve
@@ -71,6 +78,7 @@
                     <a href="employeeSubPageCustomerOrders.php" class="sidebar-list-text">Customer Orders</a>
                 </li>
 
+                <!-- will direct employee back to employees on click -->
                 <li class="sidebar-list-item">
                     <span class="material-symbols-outlined">
                         badge
@@ -85,6 +93,7 @@
                     <a href="employeeTableStock.php" class="sidebar-list-text">Stock</a>
                 </li> -->
 
+                <!-- will direct employee back to products and stock on click -->
                 <li class="sidebar-list-item">
                     <span class="material-symbols-outlined">
                         inventory_2
@@ -92,6 +101,7 @@
                     <a href="employeeSubPageProducts.php" class="sidebar-list-text">Products and Stock</a>
                 </li>
 
+                <!-- will direct employee back to contact us on click -->
                 <li class="sidebar-list-item">
                     <span class="material-symbols-outlined">
                         support_agent

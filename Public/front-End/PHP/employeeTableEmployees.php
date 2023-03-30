@@ -1,9 +1,7 @@
 <?php
 include("databaseConnect.php");
 // include("checkLogin.php");
-// if (!isset$_SESSION['id']){
-//     header('Location:Public\Front End\PHP\login.html');
-// }    
+  
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
@@ -43,8 +41,9 @@ include("databaseConnect.php");
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Name</th>
-                            <th scope="col">Admin Key</th>
+                            <th scope="col">Key</th>
                             <th scope="col">Password</th>
+                            <th scope="col">Employee Action</th>
 
                         </tr>
 
@@ -67,6 +66,10 @@ include("databaseConnect.php");
                                         <td>' . $username . '</td>
                                         <td>' . $adminkey . '</td>
                                         <td>' . $password . '</td>
+                                        <td> 
+                                            <a class="actionButton" href="employeeDeleteEmployee.php? employeeID_Delete= '.$id.'">Delete</a>
+                                            <a class="actionButton" href="employeeUpdateEmployee.php? employeeID_Update= '.$id.'">Update</a>                                        
+                                        </td>
                                     </tr>'
                                     
                                     ;

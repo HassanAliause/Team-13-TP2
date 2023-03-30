@@ -1,15 +1,12 @@
 <?php
     include("databaseConnect.php");
     // include("checkLogin.php");
-    // if(!isset($_SESSION['id'])) {
-    //     header("Location:Public\Front End\PHP\login.php")
-    // }
 
+    // code will run when submit button is clicked 
     if (isset($_POST['submitButton'])) {
 
-
+        //variables for the products 
         $name = $_POST['productName'];
-        $code = $_POST['productCode'];
         $quantity = $_POST['productQuantity'];
         $total = $_POST['productTotal'];
         $price = $_POST['productPrice'];
@@ -17,17 +14,18 @@
         $image = $_POST['productImage'];
         $info = $_POST['productDescription'];
         
-        
-        $sql = "INSERT into `products` (name, product_code, description, quantity, total, price, key_value, image_file) 
-        values('$name', '$info', '$code', '$quantity', '$total', '$price', '$keyvalue', '$image')";
-        $result = mysqli_query($con, $sql);
+        //sql statement that will add the data into the database       
+        $sql = "INSERT into `products` (name, description, quantity, total, price, key_value, image_file) 
+        values('$name', '$info', '$quantity', '$total', '$price', '$keyvalue', '$image')";
 
-        if (!$result) {
+        if($result) {
+            // if there are no errors it will redirect the employee to the prodcuts page            
+            header('location:employeeSubPageProducts.php');
+
+        } else {
+            // it will cut the connection if there is an user and display the error 
             die(mysqli_error($con));
         }
-
-
-
     }
 ?>
 
@@ -80,44 +78,52 @@
                             <input type="text" class="formInput" name="productName" autocomplete="off" placeholder="Enter Product Name">
                         </div>
 
-                        <!-- product code -->
-                        <div class="pCode">
-                            <h2>New Product Code:</h2>
-                            <input type="text" class="formInput" name="productCode" autocomplete="off" placeholder="Enter Product Code">
-                        </div>
+                        <!-- product keyvalue  -->
 
-                        <!-- product total -->
-                        <div class ="pKeyValue">
+                        <!-- <div class ="pKeyValue">
                             <h2>Product Key Value:</h2>
                             <input type="text" class="formInput"  name="productKeyValue" autocomplete="off" placeholder="Enter Key Value">
+                        </div> -->
+
+                        <div class ="pKeyValue">
+
+                            <h2>New Product Key Value/Category:</h2>
+
+                            <Select name ="productKeyValue" autocomplete = "off" required>
+                                <div class="value-input">
+                                    <option value="11">11 - Computers and Laptops</option>
+                                    <option value="22">22 - Keyboard and Mice</option>
+                                    <option value="33">33 - Headset and Mics</option>
+                                    <option value="44">44 - Speakers</option>
+                                    <option value="55">55 - Webcams</option>
+                                </div>
+                            </Select>
                         </div>
 
 
                         <!-- quantity -->
                         <div class="pQuantity">
                             <h2>New Product Quantity:</h2>
-                            <input type="text" class="formInput"  name="productQuantity" autocomplete="off" placeholder="Enter Product Quantity">
+                            <input type="number" class="formInput"  name="productQuantity" autocomplete="off" placeholder="Enter Product Quantity" required>
                         </div>
                         
                         <!-- product infomation -->
                         <div class="pInfo">
                             <h2>New Product Description: </h2>
-                            <textarea type="text" class="formInput" name="productDescription" autocomplete="off" placeholder="Enter Product Description" ></textarea>
+                            <textarea type="text" class="formInput" name="productDescription" autocomplete="off" placeholder="Enter Product Description" required></textarea>
                         </div>
 
                         <!-- product total -->
                         <div class ="pTotal">
                             <h2>Product Total:</h2>
-                            <input type="text" class="formInput"  name="productTotal" autocomplete="off" placeholder="Enter Product Total">
+                            <input type="number" class="formInput"  name="productTotal" autocomplete="off" placeholder="Enter Product Total"required>
                         </div>
 
                         <!-- product price -->
                         <div class ="pPrice">
                             <h2>New Product Price:</h2>
-                            <input type="text" class="formInput"  name="productPrice" autocomplete="off" placeholder="Enter Product Price">
+                            <input type="number" class="formInput"  name="productPrice" autocomplete="off" placeholder="Enter Product Price" required>
                         </div>
-
-                        
 
                         <!-- image for product -->
                         <input type="file" class="formImageInput" name="productImage">
