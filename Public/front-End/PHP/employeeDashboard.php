@@ -12,7 +12,7 @@ include("databaseConnect.php");
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
        
         <!-- title of page -->
-        <title>Employee Page - Dashboard</title>
+        <title>Admin Page - Dashboard</title>
         
         <!-- link to icons -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -117,7 +117,7 @@ include("databaseConnect.php");
                     <!-- how many employees there are-->
                     <div class="card">
                         <div class="card-inner">
-                            <h3>Emplyoees</h3>
+                            <h3>Admins</h3>
                             <span class="material-symbols-outlined">
                                 manage_accounts
                             </span>

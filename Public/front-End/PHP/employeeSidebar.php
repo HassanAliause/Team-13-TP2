@@ -83,7 +83,7 @@
                     <span class="material-symbols-outlined">
                         badge
                     </span>
-                    <a href="employeeSubPageEmployees.php" class="sidebar-list-text">Employees</a>
+                    <a href="employeeSubPageEmployees.php" class="sidebar-list-text">Admins</a>
                 </li>
 
                 <!-- <li class="sidebar-list-item">
