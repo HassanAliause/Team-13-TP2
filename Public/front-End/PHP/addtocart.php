@@ -36,7 +36,7 @@ if(isset($_SESSION['user_id'])){
 
             if (isset($_POST['addtocartBtn'])) {
                 if($user_id == ''){
-                    header('location:user_login.php');
+                    header('location:login.php');
                  }else{
                 $user_id = $_SESSION['user_id'];    
                 $selectedproduct_id = $_POST['product_id'];
