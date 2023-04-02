@@ -1,3 +1,12 @@
+<?php
+// Initialize the session
+session_start();
+
+
+// Include config file
+include "databaseConnect.php";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -83,7 +92,7 @@
                     <span class="material-symbols-outlined">
                         badge
                     </span>
-                    <a href="employeeSubPageEmployees.php" class="sidebar-list-text">Employees</a>
+                    <a href="employeeSubPageEmployees.php" class="sidebar-list-text">Admins</a>
                 </li>
 
                 <!-- <li class="sidebar-list-item">
@@ -107,6 +116,13 @@
                         support_agent
                     </span>
                     <a href="employeeSubPageContactUs.php" class="sidebar-list-text">Contact Us</a>
+                </li>
+                
+                <li class="sidebar-list-item">
+                    <span class="material-symbols-outlined" >
+                        dashboard
+                    </span>
+                    <a href="adminlogout.php" class="sidebar-list-text">Logout</a>
                 </li>
 
             </ul>

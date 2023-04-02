@@ -1,3 +1,18 @@
+<?php
+include 'databaseConnect.php';
+
+
+session_start();
+
+if(isset($_SESSION['user_id'])){
+   $user_id = $_SESSION['user_id'];
+}else{
+   $user_id = '';
+   header('location:login.php');
+};
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +35,10 @@
         <?php
 
             if (isset($_POST['addtocartBtn'])) {
+                if($user_id == ''){
+                    header('location:login.php');
+                 }else{
+                $user_id = $_SESSION['user_id'];    
                 $selectedproduct_id = $_POST['product_id'];
                 $selectedquantity = $_POST['quantity'];
 
@@ -30,7 +49,7 @@
                 try {
                     $db = new PDO("mysql:dbname=$db_name;host=$db_host", $username); 
 
-                    $stmt =  $db->prepare("SELECT * FROM cart WHERE product_id = '$selectedproduct_id' AND user_id = '1'");
+                    $stmt =  $db->prepare("SELECT * FROM cart WHERE product_id = '$selectedproduct_id' AND user_id = $user_id");
                     $stmt->execute();
 
                     if($stmt->rowCount() > 0){   
@@ -41,12 +60,12 @@
                         try {
                             $stmt = $db->prepare("INSERT INTO cart (user_id, product_id, quantity) VALUES (?, ?, ?)");
         
-                            $user_id = '1';
+                            $u_id = $user_id;
                             $product_id = $selectedproduct_id;
                             $quantity = $selectedquantity;
 
         
-                            $stmt->bindValue(1, $user_id);
+                            $stmt->bindValue(1, $u_id);
                             $stmt->bindValue(2, $product_id);
                             $stmt->bindValue(3, $quantity);
 
@@ -63,6 +82,7 @@
                     echo($ex->getMessage());
                     exit;
                 }
+            }
         }
 
         ?>
@@ -78,11 +98,8 @@
                 $username = 'root';
 
                 $db = new PDO("mysql:dbname=$db_name;host=$db_host", $username); 
-                $stmt = $db->prepare("SELECT p.price, c.quantity FROM products p INNER JOIN cart c ON p.id = c.product_id WHERE c.user_id = ? ");
+                $stmt = $db->prepare("SELECT p.price, c.quantity FROM products p INNER JOIN cart c ON p.id = c.product_id WHERE c.user_id = $user_id ");
                 
-                $user_id = '1';
-                $stmt->bindValue(1, $user_id);
-
                 $total_price = 0;
                 $stmt->execute();
                 if ($stmt->rowCount() == 0) {
@@ -99,11 +116,13 @@
                                 echo "<h2> Total Price: £" . number_format($total_price, 2) . "</h2>";
                             ?>
                             <form action="checkout.php" method="POST">
-                                <button class="checkoutBtn" name="checkoutBtn" >Proceed to Checkout  <i class="fa fa-credit-card-alt" aria-hidden="true"></i></button>
                                 <input type="hidden" name="total_price" value="<?php echo $total_price;?>">
+                                <input type="hidden" name="user_id" value="<?php echo $user_id;?>">
+                                <button class="checkoutBtn" name="checkoutBtn" >Proceed to Checkout  <i class="fa fa-credit-card-alt" aria-hidden="true"></i></button>
+                                
                             </form>
                             <form action="removefromcart.php" method="POST">
-                                <input type="hidden" name="user_id" value="1">
+                                <input type="hidden" name="user_id" value="<?php echo $user_id;?>">
                                     <button class="removeAllBtn" name="removeAllBtn" >Empty Cart <i class="fa fa-trash"  aria-hidden="true"></i></button>
                                     </form>               
                             </div>
@@ -136,7 +155,7 @@
                         JOIN cart c ON p.id = c.product_id
                         WHERE c.user_id = ?");
 
-                        $user_id = '1';
+                        
                         $stmt->bindValue(1, $user_id);
 
                         $stmt->execute();
@@ -150,7 +169,10 @@
                                 echo '<h2>£' . $row['price'] * $row['quantity'] . '</h2></div></div>';
                                 echo '<form action="removefromcart.php" method="POST">';
                                 echo '<input type="hidden" name="product_id" value="' . $row['id'] . '">';
+                                echo '<input type="hidden" name="user_id" value="' . $user_id . '">';
+
                                 echo '<button class="removeBtn" name="removeBtn" ><i class="fa fa-trash"  aria-hidden="true"></i></button>';
+                                
                                 echo '</form>';
                             
                             }

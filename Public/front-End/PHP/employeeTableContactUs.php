@@ -78,7 +78,9 @@ include("databaseConnect.php");
                                         <td>' . $email . '</td>
                                         <td>' . $subject . '</td>
                                         <td>' . $message . '</td>
-                                        <td>' . $message . '</td>
+                                        <td>
+                                            <a class="actionButton" href="employeeDeleteContactUs.php? contactID_Delete='. $id .'">Complete Query</a>
+                                        </td>
                                     </tr>'
                                     
                                     ;

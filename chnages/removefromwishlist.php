@@ -30,7 +30,7 @@
                 try {
                     $db = new PDO("mysql:dbname=$db_name;host=$db_host", $username); 
                     try {
-                        $stmt = $db->prepare("DELETE FROM cart WHERE product_id = $selectedproduct_id AND user_id = $user_id");
+                        $stmt = $db->prepare("DELETE FROM wishlist WHERE product_id = $selectedproduct_id AND user_id = $user_id");
                         $stmt->execute();
                             
                     }
@@ -44,7 +44,7 @@
                     exit;
                 }
                 
-                header('Location: addtocart.php');
+                header('Location: addtowishlist.php');
                 exit();
             }
 
@@ -63,7 +63,7 @@
                 try {
                     $db = new PDO("mysql:dbname=$db_name;host=$db_host", $username); 
                     try {
-                        $stmt = $db->prepare("DELETE FROM cart WHERE user_id = ?");
+                        $stmt = $db->prepare("DELETE FROM wishlist WHERE user_id = ?");
                         $stmt->bindValue(1, $loggeduser_id);
                         $stmt->execute();
                                                     
@@ -77,7 +77,7 @@
                     echo($ex->getMessage());
                     exit;
                 }
-            header('Location: addtocart.php');
+            header('Location: addtowishlist.php');
             exit();
             }
             

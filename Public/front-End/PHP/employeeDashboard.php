@@ -1,6 +1,6 @@
 <?php
 include("databaseConnect.php");
-// include("checkLogin.php");
+include("checkLogin.php");
   
 ?>
 <!DOCTYPE html>
@@ -12,7 +12,7 @@ include("databaseConnect.php");
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
        
         <!-- title of page -->
-        <title>Employee Page - Dashboard</title>
+        <title>Admin Page - Dashboard</title>
         
         <!-- link to icons -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -117,7 +117,7 @@ include("databaseConnect.php");
                     <!-- how many employees there are-->
                     <div class="card">
                         <div class="card-inner">
-                            <h3>Emplyoees</h3>
+                            <h3>Admins</h3>
                             <span class="material-symbols-outlined">
                                 manage_accounts
                             </span>
@@ -162,23 +162,7 @@ include("databaseConnect.php");
 
                 </div>
 
-                <div class="main-tables">
-
-                    <div class="sub-title">
-                        <h3>Overview<h3>
-                    </div>
-                    
-                    <!-- customer table -->
-                    <!-- this will import all of the tables onto the page -->
-                    <!-- this will act as an overview for all the tables  -->
-                    <?php 
-                    include_once("employeeTableCustomer.php");
-                    include_once("employeeTableCustomerOrders.php");
-                    include_once("employeeTableEmployees.php");
-                    include_once("employeeTableProducts.php");
-                    include_once("employeeTableContactUs.php");
-                    ?>
-                </div>
+                
 
             </main>
 
