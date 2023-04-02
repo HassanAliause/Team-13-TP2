@@ -81,6 +81,9 @@ if(isset($_SESSION['user_id'])){
                                 $sql->bindValue(3, $quantity);
 
                                 $sql->execute();
+
+                                $updatestock = $db->prepare("UPDATE products SET quantity = quantity - $quantity WHERE id = '$product_id' ");
+                                $updatestock->execute();
                             
                             }
                         }else{

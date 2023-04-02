@@ -99,19 +99,18 @@ if(isset($_SESSION['user_id'])){
                                 if (isset($_POST['quantity'])) {
                                     $selectedquantity = $_POST['quantity'];
                                 }
-                                ?>
+                                $max_quantity = min($row['quantity'], 10);
+                                echo '<form method="post" action="">';
+                                echo '<label for="quantity-select">Quantity: </label>';
+                                echo '<select id="quantity-select" name="quantity" onchange="this.form.submit()">';
 
-                                <form method="post" action="">
-                                    <label for="quantity-select">Quantity: </label>
-                                    <select id="quantity-select" name="quantity" onchange="this.form.submit()">
-                                    <option value="1" <?php if(isset($_POST['quantity']) && $_POST['quantity'] == '1') {echo 'selected';} ?>>1</option>
-                                    <option value="2" <?php if(isset($_POST['quantity']) && $_POST['quantity'] == '2') {echo 'selected';} ?>>2</option>
-                                    <option value="3" <?php if(isset($_POST['quantity']) && $_POST['quantity'] == '3') {echo 'selected';} ?>>3</option>
-                                    <option value="4" <?php if(isset($_POST['quantity']) && $_POST['quantity'] == '4') {echo 'selected';} ?>>4</option>
-                                    <option value="5" <?php if(isset($_POST['quantity']) && $_POST['quantity'] == '5') {echo 'selected';} ?>>5</option>
-                                    </select> 
-                                </form>
-                                <?php
+                                for ($i = 1; $i <= $max_quantity; $i++) {
+                                    echo '<option value="' . $i . '"';
+                                    if (isset($_POST['quantity']) && $_POST['quantity'] == $i) {
+                                        echo ' selected';
+                                    }
+                                    echo '>' . $i . '</option>';
+                                }
 
                                 if($row['quantity'] > 10){
                                     echo '<div class = "in-stock" style="color:green;"> <i class="fa fa-check-circle-o" aria-hidden="true"></i> IN STOCK </div>';
