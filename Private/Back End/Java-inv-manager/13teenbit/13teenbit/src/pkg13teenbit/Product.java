@@ -341,7 +341,7 @@ PreparedStatement pst;
                          v2.add(rs.getString("name"));
                          v2.add(rs.getString("description"));
                          v2.add(rs.getString("quantity"));
-                        // v2.add(rs.getString("image_file"));
+                        v2.add(rs.getString("image_file"));
                          v2.add(rs.getString("status"));
                          
                      }             
