@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Page - Update Customer</title>
+    <!-- link to icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+    <!-- link to fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- link to css file -->
+    <link rel="stylesheet" href="../CSS/employee.css">
+</head>
+<body>
+<div class="grid-container">
+    <!-- header -->
+    <div th:replace="employeeHeader :: employeeHeader"></div>
+
+    <!-- sidebar -->
+    <div th:replace="employeeSidebar :: employeeSidebar"></div>
+
+    <main class="main-container">
+        <!-- this will be the input form box that will create a new product -->
+        <div class="addBox

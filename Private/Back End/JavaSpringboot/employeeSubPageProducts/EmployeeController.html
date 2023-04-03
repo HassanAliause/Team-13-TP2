@@ -1,0 +1,13 @@
+@Controller
+public class EmployeeController {
+
+    @Autowired
+    private DatabaseConnect databaseConnect;
+
+    @GetMapping("/employee/products")
+    public String products(Model model) {
+        // Code to retrieve products from database
+        model.addAttribute("products", products);
+        return "employee/products";
+    }
+}

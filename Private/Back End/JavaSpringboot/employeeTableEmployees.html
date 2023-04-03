@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee's Table</title>
+    <link rel="stylesheet" href="../CSS/employee.css">
+</head>
+<body>
+<div class="admin">
+    <div class="admin-table">
+        <h2 class="admin-title">Employee's Table</h2>
+        <table>
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Key</th>
+                <th scope="col">Password</th>
+                <th scope="col">Employee Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="employee : ${employees}">
+                <td th:text="${employee.id}"></td>
+                <td th:text="${employee.username}"></td>
+                <td th:text="${employee.adminkey}"></td>
+                <td th:text="${employee.password}"></td>
+                <td>
+                    <a class="actionButton" href="employeeDeleteEmployee.php? employeeID_Delete= '+${employee.id}+'">Delete</a>
+                    <a class="actionButton" href="employeeUpdateEmployee.php? employeeID_Update= '+${employee.id}+'">Update</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

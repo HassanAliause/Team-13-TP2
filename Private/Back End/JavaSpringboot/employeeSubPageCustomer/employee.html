@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Page - Customers</title>
+    <link rel="stylesheet" href="../CSS/employee.css">
+</head>
+<body>
+    <div class="grid-container">
+        <!-- header -->
+        <div th:replace="employeeHeader :: employee-header"></div>
+
+        <!-- sidebar -->
+        <div th:replace="employeeSidebar :: employee-sidebar"></div>
+
+        <!-- main -->
+        <main class="main-container">
+            <div class="main-tables">
+                <!-- contains the customer information -->
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="customer : ${customers}">
+                            <td th:text="${customer.id}"></td>
+                            <td th:text="${customer.name}

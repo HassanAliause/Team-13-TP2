@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Page - Add Customer</title>
+
+    <!-- Linking to CSS file -->
+    <link rel="stylesheet" href="css/employee.css">
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <h1>Employee Header</h1>
+</header>
+
+<!-- Sidebar -->
+<aside>
+    <h2>Employee Sidebar</h2>
+</aside>
+
+<!-- Main Content -->
+<main>
+    <div class="addBox">
+        <div class="main-title">
+            <h2>Create New Customer:</h2>
+        </div>
+
+        <!-- Form for Adding a New Customer -->
+        <form class="box-input" method="POST" action="/add-customer">
+            <div class="customerName">
+                <h2>New Customer Name:</h2>
+                <input type="text" class="formInput" name="customerName" autocomplete="off" placeholder="Enter Customer Name" required>
+            </div>
+
+        </form>
+
+    </div>
+
+</main>
+
+<!-- footer -->
+<footer class="footer">
+    <div class="footer-text">
+        <p>&copy; 2023 - All rights reserved</p>
+    </div>
+</footer>
+
+</div>
+
+<!-- link to javascript file -->
+<script src="js/employee.js"></script>
+
+</body>
+</html>

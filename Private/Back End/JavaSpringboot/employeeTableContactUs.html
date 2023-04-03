@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact Us Queries</title>
+        <link rel="stylesheet" href="../CSS/employee.css">
+    </head>
+    <body>
+        <div class="contactUs">
+            <div class="contactUs-table">
+                <h2 class="contactUs-title">
+                    Contact Us Queries
+                </h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Phone Number</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Subject</th>
+                            <th scope="col">Message</th>
+                            <th scope="col">Contact Us Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <th:block th:each="message : ${messages}">
+                            <tr>
+                                <th scope="row" th:text="${message.id}"></th>
+                                <td th:text="${message.fName}"></td>
+                                <td th:text="${message.lName}"></td>
+                                <td th:text="${message.phone}"></td>
+                                <td th:text="${message.email}"></td>
+                                <td th:text="${message.subject}"></td>
+                                <td th:text="${message.message}"></td>
+                                <td>
+                                    <a class="actionButton" href="/delete-contactus?id=${message.id}">Complete Query</a>
+                                </td>
+                            </tr>
+                        </th:block>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

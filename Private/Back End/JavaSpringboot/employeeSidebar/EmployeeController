@@ -1,0 +1,71 @@
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+@Controller
+public class EmployeeController {
+
+    // Include config file
+    private final DatabaseConnection databaseConnection;
+
+    public EmployeeController(DatabaseConnection databaseConnection) {
+        this.databaseConnection = databaseConnection;
+    }
+
+    @GetMapping("/employeeDashboard")
+    public String employeeDashboard(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        // Initialize the session
+        if (session == null) {
+            session = request.getSession(true);
+        }
+        return "employeeDashboard";
+    }
+
+    @GetMapping("/employeeAddCustomer")
+    public String employeeAddCustomer() {
+        return "employeeAddCustomer";
+    }
+
+    @GetMapping("/employeeAddEmployee")
+    public String employeeAddEmployee() {
+        return "employeeAddEmployee";
+    }
+
+    @GetMapping("/employeeAddProduct")
+    public String employeeAddProduct() {
+        return "employeeAddProduct";
+    }
+
+    @GetMapping("/employeeSubPageCustomer")
+    public String employeeSubPageCustomer() {
+        return "employeeSubPageCustomer";
+    }
+
+    @GetMapping("/employeeSubPageCustomerOrders")
+    public String employeeSubPageCustomerOrders() {
+        return "employeeSubPageCustomerOrders";
+    }
+
+    @GetMapping("/employeeSubPageEmployees")
+    public String employeeSubPageEmployees() {
+        return "employeeSubPageEmployees";
+    }
+
+    @GetMapping("/employeeSubPageProducts")
+    public String employeeSubPageProducts() {
+        return "employeeSubPageProducts";
+    }
+
+    @GetMapping("/employeeSubPageContactUs")
+    public String employeeSubPageContactUs() {
+        return "employeeSubPageContactUs";
+    }
+
+    @GetMapping("/adminlogout")
+    public String adminLogout() {
+        return "adminlogout";
+    }
+}
